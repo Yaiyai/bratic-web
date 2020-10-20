@@ -1,0 +1,6 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: map-get($theme-colors, 'grey');
+	font-family: $font-text;
+}

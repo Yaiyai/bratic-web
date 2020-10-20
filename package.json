@@ -1,0 +1,23 @@
+{
+  "name": "bratic-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node-sass -o css scss/main.scss -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaiyai/bratic-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaiyai/bratic-web/issues"
+  },
+  "homepage": "https://github.com/Yaiyai/bratic-web#readme",
+  "dependencies": {
+    "sass": "^1.27.0"
+  }
+}
