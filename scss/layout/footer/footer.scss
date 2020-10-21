@@ -1,0 +1,14 @@
+footer {
+	padding: $module 0;
+	a {
+		color: map-get($theme-colors, 'primary');
+		display: block;
+		text-align: center;
+		margin-bottom: calc(#{$module} * 1);
+	}
+	small {
+		display: block;
+		text-align: center;
+		color: map-get($theme-colors, 'text');
+	}
+}

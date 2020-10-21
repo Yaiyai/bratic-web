@@ -5,6 +5,7 @@ main {
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+
 	.preview {
 		display: flex;
 		align-items: center;
@@ -31,20 +32,33 @@ main {
 				font-weight: $titles-normal;
 				@include font-line-height(50px);
 			}
+
+			@include breakpoint(lg) {
+				&::after {
+					bottom: calc(#{$module} * (-1));
+					@include font-line-height(50px);
+				}
+			}
+			@include breakpoint(md) {
+				&::after {
+					bottom: 0;
+					@include font-line-height(40px);
+				}
+			}
+			@include breakpoint(sm) {
+				&::after {
+					right: calc(#{$module} * (-1));
+					bottom: calc(#{$module} * 1.5);
+					@include font-line-height(30px);
+				}
+			}
+			@include breakpoint(xs) {
+				&::after {
+					right: calc(#{$module} * (-1));
+					bottom: calc(#{$module} * 2.5);
+					@include font-line-height(20px);
+				}
+			}
 		}
-	}
-}
-footer {
-	padding: $module 0;
-	a {
-		color: map-get($theme-colors, 'primary');
-		display: block;
-		text-align: center;
-		margin-bottom: calc(#{$module} * 1);
-	}
-	small {
-		display: block;
-		text-align: center;
-		color: map-get($theme-colors, 'text');
 	}
 }

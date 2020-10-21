@@ -1,7 +1,7 @@
-@import './variables/variables';
-@import './global/global';
-//Mixins
-@import './mixins/mixins';
+@import './abstract/abstract';
 
-//UI
-@import './home/home';
+//Layout
+@import './layout/layout';
+
+//Pages
+@import './pages/pages';
