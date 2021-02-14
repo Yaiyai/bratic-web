@@ -1,0 +1,61 @@
+@import './main';
+* {
+	margin: 0;
+	scroll-behavior: smooth;
+	padding: 0;
+	outline: none;
+}
+
+body {
+	font-family: $font-text;
+	color: map-get($theme-colors, 'text');
+}
+img {
+	display: block;
+	width: 100%;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style-type: none;
+		a {
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
+p {
+	margin: 0;
+}
+small {
+	@include font-line-height($font-xs);
+	font-weight: $text-light;
+}
+a {
+	display: block;
+}
+svg {
+	width: 10px;
+	height: 10px;
+}
+
+.container {
+	max-width: 1400px;
+	padding-left: 0;
+	padding-right: 0;
+	@include breakpoint(xl) {
+		max-width: 1140px;
+	}
+	@include breakpoint(lg) {
+		max-width: 960px;
+	}
+	@include breakpoint(md) {
+		max-width: 700px;
+	}
+	@include breakpoint(sm-down) {
+		padding-left: 15px;
+		padding-right: 15px;
+		max-width: 540px;
+	}
+}

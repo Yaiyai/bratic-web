@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,900&display=swap');
+
+$font-text: 'Roboto', sans-serif;
+$font-titles: 'Roboto-Slab', sans-serif;
+$fontawesome: 'FontAwesome';
+
+$font-base: 1rem; // Assumes the browser default, typically `16px`
+$font-xl: ($font-base * 1.5); // 24px
+$font-lg: ($font-base * 1.25); // 20px
+$font-md: ($font-base * 1.125); // 18px
+$font-sm: ($font-base * 0.875); // 14px
+$font-xs: ($font-base * 0.75); // 12px
+
+$h1-size: $font-base * 2.5;
+$h2-size: $font-base * 2;
+$h3-size: $font-base * 1.75;
+$h4-size: $font-base * 1.5;
+$h5-size: $font-base * 1.25;
+$h6-size: $font-base;
+
+$text-light: 00;
+$text-normal: 400;
+$text-semibold: 700;
+$text-bold: 900;
+
+$titles-light: 300;
+$titles-normal: 400;
+$titles-semibold: 600;
+$titles-bold: 700;
+$titles-extrabold: 900;
+
+h1 {
+	font-size: ($h1-size);
+	letter-spacing: 6px;
+}
+h2 {
+	color: map-get($theme-colors, 'primary');
+	@include font-line-height(64px);
+	font-weight: $text-bold;
+	position: relative;
+	margin-bottom: calc(#{$module} * 2);
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 4px;
+		bottom: 0;
+		left: 0;
+		background-color: map-get($theme-colors, 'secondary');
+	}
+	@include breakpoint(xl) {
+		@include font-line-height(58px);
+	}
+	@include breakpoint(lg) {
+		@include font-line-height(50px);
+		margin-bottom: calc(#{$module} * 1);
+	}
+	@include breakpoint(md-down) {
+		margin-bottom: calc(#{$module} * 1);
+		text-align: center;
+		&::after {
+			display: none;
+		}
+	}
+	@include breakpoint(md) {
+		@include font-line-height(50px);
+	}
+	@include breakpoint(sm) {
+		@include font-line-height(40px);
+	}
+	@include breakpoint(xs) {
+		@include font-line-height(40px);
+	}
+}
+h3 {
+	font-size: ($h3-size);
+	letter-spacing: 6px;
+}
+h4 {
+	font-size: ($h4-size);
+	letter-spacing: 6px;
+}
+h6 {
+	font-size: ($h6-size);
+	letter-spacing: 6px;
+}
+h5 {
+	font-size: ($h5-size);
+	letter-spacing: 6px;
+}
+p {
+	font-size: ($font-base);
+	letter-spacing: 1.33px;
+	font-weight: $text-light;
+	@include breakpoint(lg-down) {
+		@include font-line-height($font-sm);
+	}
+}
+.subtitle {
+	text-transform: uppercase;
+	color: map-get($theme-colors, 'primary');
+	@include font-line-height($font-lg);
+	font-weight: $text-semibold;
+	@include breakpoint(lg-down) {
+		@include font-line-height($font-md);
+	}
+	@include breakpoint(md-down) {
+		text-align: center;
+	}
+}
+
+//Text Editor
+.text-editor {
+	.ql-size-large {
+		text-transform: uppercase;
+		color: map-get($theme-colors, 'primary');
+		@include font-line-height($font-lg);
+		font-weight: $text-semibold;
+	}
+	strong {
+		font-weight: $text-semibold;
+	}
+	ul {
+		li {
+			&::before {
+				content: '\00bb';
+				margin-right: calc(#{$module} / 4);
+				font-weight: $text-semibold;
+				color: map-get($theme-colors, 'primary');
+			}
+		}
+	}
+	.ql-indent-1,
+	.ql-indent-2 {
+		margin-left: calc(#{$module} * 1);
+		@include font-line-height($font-sm);
+		&::before {
+			content: '\2234';
+			margin-right: calc(#{$module} / 4);
+			font-weight: $text-semibold;
+			color: map-get($theme-colors, 'primary');
+		}
+	}
+}
