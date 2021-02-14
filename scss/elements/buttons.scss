@@ -81,14 +81,15 @@
 }
 
 .my-btn-more {
-	color: map-get($theme-colors, 'buttons');
+	color: map-get($theme-colors, 'primary');
 	text-transform: uppercase;
 	font-size: $font-xs;
+	text-decoration: none;
+	@include font-line-height($font-xs);
 
 	&::after {
-		content: '\f324';
-		font-family: $fontawesome;
-		color: map-get($theme-colors, 'buttons');
+		content: '\00bb';
+		color: map-get($theme-colors, 'primary');
 		margin-left: calc(#{$module} / 6);
 	}
 }
