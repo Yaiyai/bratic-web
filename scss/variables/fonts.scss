@@ -12,7 +12,7 @@ $font-md: ($font-base * 1.125); // 18px
 $font-sm: ($font-base * 0.875); // 14px
 $font-xs: ($font-base * 0.75); // 12px
 
-$h1-size: $font-base * 2.5;
+$h1-size: $font-base * 4.5;
 $h2-size: $font-base * 2;
 $h3-size: $font-base * 1.75;
 $h4-size: $font-base * 1.5;
@@ -34,6 +34,10 @@ $titles-extrabold: 900;
 	color: map-get($theme-colors, 'secondary');
 	text-transform: capitalize;
 }
+.red {
+	color: map-get($theme-colors, 'primary');
+	text-transform: uppercase;
+}
 h1,
 h2,
 h3,
@@ -45,10 +49,9 @@ h6 {
 
 h1 {
 	font-size: ($h1-size);
-	letter-spacing: 6px;
 }
 h2 {
-	color: map-get($theme-colors, 'primary');
+	color: map-get($theme-colors, 'text');
 	@include font-line-height(40px);
 	font-weight: $text-normal;
 	position: relative;
@@ -56,19 +59,15 @@ h2 {
 }
 h3 {
 	font-size: ($h3-size);
-	letter-spacing: 6px;
 }
 h4 {
 	font-size: ($h4-size);
-	letter-spacing: 6px;
 }
 h6 {
 	font-size: ($h6-size);
-	letter-spacing: 6px;
 }
 h5 {
 	font-size: ($h5-size);
-	letter-spacing: 6px;
 }
 p {
 	font-size: ($font-base);

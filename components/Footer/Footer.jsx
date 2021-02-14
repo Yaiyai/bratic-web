@@ -82,7 +82,7 @@ const Footer = ({ company }) => {
 							</Link>
 						</li>
 					</ul>
-					<small>© 2021 Bratic S.L.</small>
+					<small>&copy; {company.companyFetched.name}</small>
 				</div>
 			</article>
 		</footer>

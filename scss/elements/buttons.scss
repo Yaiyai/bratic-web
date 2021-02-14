@@ -13,23 +13,40 @@
 	background-color: map-get($theme-colors, 'primary');
 	border: none;
 	color: white;
-	padding: calc(#{$module} / 2) calc(#{$module} / 1);
+	padding: 10px calc(#{$module} / 3);
 	text-transform: uppercase;
 	text-decoration: none;
+	position: relative;
 
 	&:hover {
 		background-color: map-get($theme-colors, 'secondary');
 		color: white;
 		text-decoration: none;
 	}
+
+	&::after {
+		content: '\00bb';
+		margin-left: calc(#{$module} / 2);
+		font-weight: $text-semibold;
+		color: white;
+	}
+
 	&.secondary {
 		background-color: white;
 		color: map-get($theme-colors, 'primary');
-		border: 1px solid map-get($theme-colors, 'primary');
 		border-bottom: 3px solid map-get($theme-colors, 'primary');
+		padding-left: 0;
+		padding-right: 0;
 		&:hover {
 			color: map-get($theme-colors, 'secondary');
 			border-bottom: 3px solid map-get($theme-colors, 'secondary');
+			&::after {
+				color: map-get($theme-colors, 'secondary');
+			}
+		}
+		&::after {
+			margin-left: calc(#{$module} * 2);
+			color: map-get($theme-colors, 'primary');
 		}
 	}
 	&.third {
