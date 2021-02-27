@@ -1,0 +1,39 @@
+.servicios-card {
+	background-color: map-get($theme-colors, 'bkg');
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position-x: -50%;
+	background-position-y: -5%;
+	@include items-grid(4, 16px);
+	padding: calc(#{$module} * 3) $module;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	h3 {
+		@include font-line-height(30px);
+		text-align: center;
+		width: 100%;
+		background-color: white;
+		padding: calc(#{$module} / 6);
+	}
+	ul {
+		margin-top: 150px;
+		li {
+			width: 100%;
+			margin-bottom: calc(#{$module} * 1);
+			font-weight: $text-light;
+			svg {
+				color: map-get($theme-colors, 'text');
+				width: 15px;
+				height: 15px;
+				margin-right: calc(#{$module} / 6);
+			}
+		}
+	}
+	&:hover {
+		background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614447989/illustration-digital-hover.svg') !important;
+		svg {
+			color: map-get($theme-colors, 'primary');
+		}
+	}
+}
