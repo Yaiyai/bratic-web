@@ -1,11 +1,10 @@
-header {
+.home-header {
 	padding: calc(#{$module} * 6) 0;
 	height: 60vh;
 	.bratic-container {
 		display: flex;
 		height: auto;
 		.left {
-			width: calc((100% / 12) * 6);
 			.logo {
 				width: 396px;
 				height: 109px;
@@ -30,7 +29,6 @@ header {
 		}
 		.right {
 			position: relative;
-			width: calc((100% / 12) * 6);
 			height: auto;
 			figure {
 				position: absolute;

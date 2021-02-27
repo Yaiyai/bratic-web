@@ -9,8 +9,8 @@ const NavBar = ({ company }) => {
 	const theNav = useRef(null)
 
 	useEffect(() => {
-		setHeight(theNav.current.clientHeight)
 		if (theNav) {
+			setHeight(theNav.current.clientHeight)
 			window.addEventListener('scroll', addClass)
 		}
 		return () => {
@@ -41,7 +41,7 @@ const NavBar = ({ company }) => {
 	return (
 		<nav ref={theNav} className='desktop-nav'>
 			<div className='bratic-container'>
-				<Link href='/'>
+				<Link href='/#inicio'>
 					<a>
 						<figure className='logo'>
 							<img src={company.companyFetched.mainLogo} alt='Bratic Logo' />
@@ -51,29 +51,24 @@ const NavBar = ({ company }) => {
 				<article className='links'>
 					<ul className='normal'>
 						<li>
-							<Link href='/'>
+							<Link href='/#quienes-somos'>
 								<a>Quiénes Somos</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='/'>
+							<Link href='/servicios'>
 								<a>Servicios</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='/'>
-								<a>Partners</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/'>
+							<Link href='/#clientes'>
 								<a>Clientes</a>
 							</Link>
 						</li>
 					</ul>
 					<ul className='important'>
 						<li>
-							<Link href='/'>
+							<Link href='/#contacto'>
 								<a>Contacto</a>
 							</Link>
 						</li>

@@ -52,7 +52,7 @@ const Metodologia = () => {
 					</p>
 				</div>
 			</article>
-			<Button type='primary' text='Saber más' link='/' />
+			<Button type='primary' text='Saber más' link='/servicios#metodologia' />
 		</section>
 	)
 }
