@@ -1,7 +1,6 @@
 #services-section {
 	padding: calc(#{$module} * 4) 0;
-	.container {
+	&.bratic-container {
 		display: flex;
-		flex-wrap: wrap;
 	}
 }

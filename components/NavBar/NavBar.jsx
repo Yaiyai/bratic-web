@@ -40,7 +40,7 @@ const NavBar = ({ company }) => {
 
 	return (
 		<nav ref={theNav} className='desktop-nav'>
-			<div className='container'>
+			<div className='bratic-container'>
 				<Link href='/'>
 					<a>
 						<figure className='logo'>

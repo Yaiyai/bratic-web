@@ -1,0 +1,32 @@
+#quienes-somos {
+	display: flex;
+	padding: calc(#{$module} * 4) 0;
+	.left,
+	.right {
+		width: calc((100% / 12) * 6);
+	}
+	h2 {
+		position: relative;
+		width: 100%;
+		text-align: right;
+		img {
+			position: absolute;
+			top: 0;
+		}
+	}
+	.left {
+		padding-right: calc(#{$module} * 3);
+	}
+	.right {
+		h3 {
+			margin-bottom: calc(#{$module} * 1);
+			@include font-line-height(24px);
+		}
+		p {
+			margin-bottom: calc(#{$module} * 1);
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
