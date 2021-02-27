@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import useWindowResize from '../../hook/useWindowResize'
+import Button from '../ui/Button/Button'
 
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
@@ -50,12 +51,8 @@ const Header = ({ company }) => {
 						Tu <span className='red'>partner digital</span>
 					</h2>
 					<div className='btn-group'>
-						<Link href='/'>
-							<a className='my-btn'>Quiénes Somos</a>
-						</Link>
-						<Link href='/'>
-							<a className='my-btn secondary'>Servicios</a>
-						</Link>
+						<Button link='/' text='Quiénes Somos' type='primary' />
+						<Button link='/' text='Servicios' type='secondary' />
 					</div>
 				</article>
 

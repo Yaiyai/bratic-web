@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import Button from '../Button/Button'
 
 const Card = ({ title, text, link }) => {
 	return (
@@ -8,9 +8,7 @@ const Card = ({ title, text, link }) => {
 				<p className='title'>{title}</p>
 				<p className='text'>{text}</p>
 			</div>
-			<Link href={link}>
-				<a className='my-btn-more'>Saber más</a>
-			</Link>
+			<Button link={link} text='Saber más' type='more' />
 		</article>
 	)
 }
