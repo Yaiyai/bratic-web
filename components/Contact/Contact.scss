@@ -2,43 +2,159 @@
 	padding: calc(#{$module} * 4) 0;
 	background-color: white;
 	.bratic-container {
-		display: flex;
-		.left,
-		.right {
-			width: calc((100% / 12) * 6);
+		.pre-title {
+			color: map-get($theme-colors, 'primary');
+			font-weight: $titles-bold;
+			font-family: $font-titles;
+			text-transform: uppercase;
+			@include font-line-height($font-xl);
 		}
-		.left {
-			.pre-title {
-				color: map-get($theme-colors, 'primary');
-				font-weight: $titles-bold;
-				font-family: $font-titles;
-				text-transform: uppercase;
-				@include font-line-height($font-xl);
-			}
-			h2 {
-				@include font-line-height(72px);
-			}
-			.red {
-				font-weight: $text-semibold;
-				text-transform: none;
-			}
-			ul {
-				margin-top: calc(#{$module} * 2);
-				li {
-					margin-bottom: calc(#{$module} * 1);
-					display: flex;
-					align-items: center;
-					svg {
-						background-color: map-get($theme-colors, 'primary');
-						padding: 4px;
-						border-radius: 10px;
-						color: white;
-						width: 9px;
-						height: 9px;
-						margin-right: calc(#{$module} / 3);
+		h2 {
+			@include font-line-height(72px);
+		}
+		.fix {
+			display: flex;
+			.left {
+				padding-right: calc(#{$module} * 2);
+				.red {
+					font-weight: $text-semibold;
+					text-transform: none;
+				}
+				ul {
+					margin-top: calc(#{$module} * 2);
+					li {
+						margin-bottom: calc(#{$module} * 1);
+						display: flex;
+						align-items: center;
+						svg {
+							background-color: map-get($theme-colors, 'primary');
+							padding: 4px;
+							border-radius: 10px;
+							color: white;
+							width: 9px;
+							height: 9px;
+							margin-right: calc(#{$module} / 3);
+						}
+						span {
+							margin-right: calc(#{$module} / 3);
+						}
 					}
-					span {
-						margin-right: calc(#{$module} / 3);
+				}
+			}
+			.right {
+				position: relative;
+				&:after {
+					position: absolute;
+					content: '';
+					width: 936px;
+					height: 728px;
+					background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614441484/contact-bkg.png');
+					background-repeat: no-repeat;
+					background-size: cover;
+					top: -196px;
+					z-index: 0;
+					right: -100px;
+				}
+				form {
+					position: relative;
+					z-index: 1;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					input[type='submit'] {
+						height: calc(#{$module} * 3);
+						width: 30%;
+						align-self: flex-end;
+					}
+					.input-group {
+						background-color: white;
+						width: 100%;
+						display: flex;
+						align-items: center;
+						box-sizing: border-box;
+						border-right: 1px solid map-get($theme-colors, 'light-grey');
+						border-left: 1px solid map-get($theme-colors, 'light-grey');
+						border-bottom: 1px solid map-get($theme-colors, 'light-grey');
+						padding: 0;
+						&.text-area {
+							align-items: flex-end;
+							.icon {
+								border-top: 1px solid map-get($theme-colors, 'light-grey');
+							}
+						}
+						.icon {
+							width: calc(#{$module} * 3);
+							height: calc(#{$module} * 3);
+							background-color: map-get($theme-colors, 'bkg');
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+							border-left: 1px solid map-get($theme-colors, 'light-grey');
+
+							svg {
+								color: map-get($theme-colors, 'secondary');
+								width: 15px;
+								height: 15px;
+							}
+						}
+						&:first-child {
+							border-top: 1px solid map-get($theme-colors, 'light-grey');
+						}
+
+						input,
+						textarea {
+							padding: 0;
+							flex-grow: 1;
+							box-sizing: border-box;
+							padding: calc(#{$module} / 2);
+							outline: none;
+							border: none;
+							border-top: none;
+							height: calc(#{$module} * 3);
+							font-family: $font-titles;
+							&:focus,
+							&:active {
+								border: 1px solid map-get($theme-colors, 'primary');
+							}
+							&::placeholder {
+								padding: 0;
+							}
+						}
+						input {
+							height: calc(#{$module} * 3);
+						}
+						textarea {
+							height: calc(#{$module} * 6);
+						}
+					}
+					.phone-email {
+						width: 100%;
+						display: flex;
+						.input-group {
+							border-top: none;
+							&:last-child {
+								border-left: none;
+							}
+						}
+					}
+					.submit-group {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						.checkbox {
+							display: flex;
+							align-items: center;
+							label {
+								text-transform: none;
+								font-family: $font-titles;
+								a {
+									text-transform: none;
+									display: inline-block;
+								}
+							}
+						}
 					}
 				}
 			}

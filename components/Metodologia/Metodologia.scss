@@ -46,11 +46,11 @@
 		justify-content: space-between;
 		.each {
 			width: calc((100% / 12) * 4);
+			box-sizing: border-box;
 			padding-right: $module;
 			ul {
 				margin-top: calc(#{$module}* 1);
 				li {
-					@include font-line-height($font-lg);
 					margin-bottom: calc(#{$module} / 1.5);
 					font-weight: $text-light;
 					svg {
@@ -63,7 +63,6 @@
 			}
 			p {
 				margin-top: calc(#{$module}* 1);
-				@include font-line-height($font-lg);
 				font-weight: $text-light;
 
 				span {
