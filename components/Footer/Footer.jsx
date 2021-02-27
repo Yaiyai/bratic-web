@@ -15,7 +15,7 @@ const Footer = ({ company }) => {
 	return (
 		<footer>
 			<article className='top'>
-				<div className='container'>
+				<div className='bratic-container'>
 					<div className='up'>
 						<h2>
 							En <span className='orange'>bratic</span> queremos ser tu <span className='orange'>partner digital</span>
@@ -68,7 +68,7 @@ const Footer = ({ company }) => {
 				</div>
 			</article>
 			<article className='bottom'>
-				<div className='container'>
+				<div className='bratic-container'>
 					<ul>
 						<li>
 							<Link href='/'>

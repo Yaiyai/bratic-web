@@ -1,12 +1,15 @@
 .each-card {
-	@include items-grid(4, 16px);
+	@include items-grid(4, 24px);
+	min-width: 0;
 	border: 1px solid map-get($theme-colors, 'grey');
 	background-color: white;
-	padding: $module;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
+	.fix {
+		padding: $module;
+	}
 	.title {
 		width: 100%;
 		font-family: $font-titles;
@@ -21,5 +24,18 @@
 	}
 	.my-btn-more {
 		align-self: flex-end;
+		padding-right: $module;
+		padding-bottom: $module;
+	}
+	&:hover {
+		background-color: map-get($theme-colors, 'primary');
+		border-color: map-get($theme-colors, 'primary');
+		.title,
+		.text {
+			color: white;
+		}
+		.my-btn-more {
+			color: white;
+		}
 	}
 }

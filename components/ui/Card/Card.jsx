@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Card = ({ title, text, link }) => {
 	return (
 		<article className='each-card'>
-			<div>
+			<div className='fix'>
 				<p className='title'>{title}</p>
 				<p className='text'>{text}</p>
 			</div>

@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
+import useWindowResize from '../../hook/useWindowResize'
 
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
 	const theHeader = useRef(null)
 	const theContainer = useRef(null)
+	const size = useWindowResize()
 
 	const [rightStyle, setRightStyle] = useState({ right: 0 })
 
@@ -19,13 +21,26 @@ const Header = ({ company }) => {
 			let headerWidth = theHeader.current.offsetWidth
 			let containerWidth = theContainer.current.offsetWidth
 
-			setRightStyle({ right: -(headerWidth - containerWidth) / 2 })
+			setRightStyle((rightStyle) => {
+				return { right: -(headerWidth - containerWidth) / 2 }
+			})
 		}
 	}, [])
 
+	useEffect(() => {
+		window.addEventListener('resize', () => {
+			let headerWidth = theHeader.current.offsetWidth
+			let containerWidth = theContainer.current.offsetWidth
+
+			setRightStyle((rightStyle) => {
+				return { right: -(headerWidth - containerWidth) / 2 }
+			})
+		})
+	}, [size])
+
 	return (
 		<header ref={theHeader}>
-			<div ref={theContainer} className='container'>
+			<div ref={theContainer} className='bratic-container'>
 				<article className='left'>
 					<div className='logo'>
 						<img src={company.mainLogo} alt='' />
