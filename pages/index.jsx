@@ -1,4 +1,5 @@
 import { getCompany } from '../api/company'
+import Clientes from '../components/Clientes/Clientes'
 import Header from '../components/Header/Header'
 import Metodologia from '../components/Metodologia/Metodologia'
 import QuienesSomos from '../components/QuienesSomos/QuienesSomos'
@@ -12,6 +13,7 @@ const Home = ({ companyFetched }) => {
 			<Services />
 			<Metodologia />
 			<QuienesSomos />
+			<Clientes />
 		</BraticLayout>
 	)
 }
