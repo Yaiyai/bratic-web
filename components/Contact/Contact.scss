@@ -1,0 +1,47 @@
+.contact {
+	padding: calc(#{$module} * 4) 0;
+	background-color: white;
+	.bratic-container {
+		display: flex;
+		.left,
+		.right {
+			width: calc((100% / 12) * 6);
+		}
+		.left {
+			.pre-title {
+				color: map-get($theme-colors, 'primary');
+				font-weight: $titles-bold;
+				font-family: $font-titles;
+				text-transform: uppercase;
+				@include font-line-height($font-xl);
+			}
+			h2 {
+				@include font-line-height(72px);
+			}
+			.red {
+				font-weight: $text-semibold;
+				text-transform: none;
+			}
+			ul {
+				margin-top: calc(#{$module} * 2);
+				li {
+					margin-bottom: calc(#{$module} * 1);
+					display: flex;
+					align-items: center;
+					svg {
+						background-color: map-get($theme-colors, 'primary');
+						padding: 4px;
+						border-radius: 10px;
+						color: white;
+						width: 9px;
+						height: 9px;
+						margin-right: calc(#{$module} / 3);
+					}
+					span {
+						margin-right: calc(#{$module} / 3);
+					}
+				}
+			}
+		}
+	}
+}
