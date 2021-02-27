@@ -37,8 +37,8 @@ h5 {
 	font-size: ($h5-size);
 }
 p {
-	font-size: ($font-base);
-	font-weight: $text-light;
+	@include font-line-height($font-base);
+	font-weight: $text-normal;
 	@include breakpoint(lg-down) {
 		@include font-line-height($font-sm);
 	}

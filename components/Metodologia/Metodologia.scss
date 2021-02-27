@@ -64,6 +64,7 @@
 			p {
 				margin-top: calc(#{$module}* 1);
 				@include font-line-height($font-lg);
+				font-weight: $text-light;
 
 				span {
 					font-weight: $text-bold;
