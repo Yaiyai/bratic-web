@@ -10,11 +10,15 @@ import BraticLayout from '../layout/BraticLayout'
 const Home = ({ companyFetched }) => {
 	return (
 		<BraticLayout>
+			<a id='inicio'></a>
 			<Header company={companyFetched} />
 			<Services />
 			<Metodologia />
+			<a id='quienes-somos'></a>
 			<QuienesSomos />
+			<a id='clientes'></a>
 			<Clientes />
+			<a id='contacto'></a>
 			<Contact company={companyFetched} />
 		</BraticLayout>
 	)

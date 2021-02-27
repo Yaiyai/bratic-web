@@ -40,7 +40,7 @@ const Header = ({ company }) => {
 	}, [size])
 
 	return (
-		<header ref={theHeader}>
+		<header className='home-header' ref={theHeader}>
 			<div ref={theContainer} className='bratic-container'>
 				<article className='left'>
 					<div className='logo'>
@@ -51,8 +51,8 @@ const Header = ({ company }) => {
 						Tu <span className='red'>partner digital</span>
 					</h2>
 					<div className='btn-group'>
-						<Button link='/' text='Quiénes Somos' type='primary' />
-						<Button link='/' text='Servicios' type='secondary' />
+						<Button link='/#quienes-somos' text='Quiénes Somos' type='primary' />
+						<Button link='/servicios' text='Servicios' type='secondary' />
 					</div>
 				</article>
 
