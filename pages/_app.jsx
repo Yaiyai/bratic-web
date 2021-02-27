@@ -1,5 +1,6 @@
 import { CompanyContext } from '../context/CompanyContext'
 import '../scss/global.scss'
+import 'react-animated-css'
 
 function MyApp({ Component, pageProps }) {
 	const companyFetched = pageProps.companyFetched
