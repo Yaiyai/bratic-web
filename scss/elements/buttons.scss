@@ -1,0 +1,95 @@
+*[class^='my-btn'] {
+	&:focus,
+	&:active {
+		outline: 0;
+		box-shadow: none;
+	}
+}
+
+.my-btn {
+	font-family: $font-titles;
+	font-weight: $titles-semibold;
+	font-size: $font-sm;
+	background-color: map-get($theme-colors, 'primary');
+	border: none;
+	color: white;
+	padding: 10px calc(#{$module} / 3);
+	text-transform: uppercase;
+	text-decoration: none;
+	position: relative;
+
+	&:hover {
+		background-color: map-get($theme-colors, 'secondary');
+		color: white;
+		text-decoration: none;
+	}
+
+	&::after {
+		content: '\00bb';
+		margin-left: calc(#{$module} / 2);
+		font-weight: $text-semibold;
+		color: white;
+	}
+
+	&.secondary {
+		background-color: white;
+		color: map-get($theme-colors, 'primary');
+		border-bottom: 3px solid map-get($theme-colors, 'primary');
+		padding-left: 0;
+		padding-right: 0;
+		&:hover {
+			color: map-get($theme-colors, 'secondary');
+			border-bottom: 3px solid map-get($theme-colors, 'secondary');
+			&::after {
+				color: map-get($theme-colors, 'secondary');
+			}
+		}
+		&::after {
+			margin-left: calc(#{$module} * 2);
+			color: map-get($theme-colors, 'primary');
+		}
+	}
+	&.third {
+		background-color: white;
+		color: map-get($theme-colors, 'secondary');
+		border: 1px solid map-get($theme-colors, 'secondary');
+		border-bottom: 3px solid map-get($theme-colors, 'secondary');
+
+		&:hover {
+			color: map-get($theme-colors, 'primary');
+			border: 1px solid map-get($theme-colors, 'primary');
+			border-bottom: 3px solid map-get($theme-colors, 'primary');
+		}
+	}
+	&.mini {
+		font-size: 10px;
+		padding: calc(#{$module} / 6) calc(#{$module} / 4);
+	}
+}
+
+.my-btn-back {
+	color: map-get($theme-colors, 'primary');
+	text-transform: uppercase;
+	font-size: $font-xs;
+
+	&::before {
+		content: '\f323';
+		font-family: $fontawesome;
+		color: map-get($theme-colors, 'primary');
+		margin-right: calc(#{$module} / 6);
+	}
+}
+
+.my-btn-more {
+	color: map-get($theme-colors, 'primary');
+	text-transform: uppercase;
+	font-size: $font-xs;
+	text-decoration: none;
+	@include font-line-height($font-xs);
+
+	&::after {
+		content: '\00bb';
+		color: map-get($theme-colors, 'primary');
+		margin-left: calc(#{$module} / 6);
+	}
+}
