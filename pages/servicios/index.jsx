@@ -1,5 +1,6 @@
 import React from 'react'
 import { getCompany } from '../../api/company'
+import ComoTrabajamos from '../../components/ComoTrabajamos/ComoTrabajamos'
 import Contact from '../../components/Contact/Contact'
 import Metodologia from '../../components/Metodologia/Metodologia'
 import Services from '../../components/Services/ServicesPage/Services'
@@ -14,6 +15,7 @@ const ServiciosPage = ({ companyFetched }) => {
 				<Services />
 				<a id='metodologia' />
 				<Metodologia />
+				<ComoTrabajamos />
 				<Contact company={companyFetched} />
 			</section>
 		</BraticLayout>

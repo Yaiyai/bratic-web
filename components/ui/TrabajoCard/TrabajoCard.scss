@@ -1,0 +1,56 @@
+.each-trabajo {
+	@include items-grid(4, 16px);
+	padding: calc(#{$module} * 2) $module calc(#{$module} * 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: map-get($theme-colors, 'bkg');
+	text-align: center;
+	svg {
+		color: map-get($theme-colors, 'primary');
+		width: 18px;
+		height: 18px;
+	}
+
+	span {
+		width: 100px;
+		height: 100px;
+		z-index: 0;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+	h3 {
+		position: relative;
+		z-index: 1;
+		@include font-line-height(30px);
+		text-align: center;
+		width: 100%;
+		padding: calc(#{$module} * 1) 0;
+	}
+	p {
+		margin: calc(#{$module} * 1) 0;
+		&:last-child {
+			font-weight: $text-bold;
+			color: map-get($theme-colors, 'primary');
+			font-style: italic;
+		}
+	}
+
+	&:hover {
+		span {
+			&.entender {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614512145/illustration-entender-hover_lh7zga.svg') !important;
+			}
+			&.analizar {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614512143/illustration-analize-hover_fii8sv.svg') !important;
+			}
+			&.proponer {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614512143/illustration-propose-hover_jbmtom.svg') !important;
+			}
+			&.validar {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614512143/illustration-validate-hover_bcmikg.svg') !important;
+			}
+		}
+	}
+}

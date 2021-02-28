@@ -17,26 +17,6 @@
 		background-position-x: -50%;
 		background-position-y: -5%;
 		top: 0;
-		&.consultoria {
-			&:hover {
-				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614447989/illustration-digital-hover.svg') !important;
-			}
-		}
-		&.industria {
-			&:hover {
-				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-industry-hover.svg') !important;
-			}
-		}
-		&.ciberseguridad {
-			&:hover {
-				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-cibersecurity-hover.svg') !important;
-			}
-		}
-		&.formacion {
-			&:hover {
-				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-formation-hover.svg') !important;
-			}
-		}
 	}
 	h3 {
 		position: relative;
@@ -65,6 +45,21 @@
 		}
 	}
 	&:hover {
+		span {
+			&.consultoria {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614447989/illustration-digital-hover.svg') !important;
+			}
+			&.industria {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-industry-hover.svg') !important;
+			}
+			&.ciberseguridad {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-cibersecurity-hover.svg') !important;
+			}
+			&.formacion {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-formation-hover.svg') !important;
+			}
+		}
+
 		svg {
 			color: map-get($theme-colors, 'primary');
 		}

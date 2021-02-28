@@ -1,0 +1,7 @@
+#como-trabajamos {
+	padding: calc(#{$module} * 3) 0;
+	.trabajos {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
