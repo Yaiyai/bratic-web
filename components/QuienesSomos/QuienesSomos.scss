@@ -1,6 +1,6 @@
 #quienes-somos {
 	display: flex;
-	padding: calc(#{$module} * 4) 0;
+	padding: 0;
 	.left,
 	.right {
 		width: calc((100% / 12) * 6);
