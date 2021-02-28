@@ -63,6 +63,9 @@ svg {
 	padding-left: 0;
 	padding-right: 0;
 	margin: 0 auto;
+	@include breakpoint(xl) {
+		max-width: 1200px;
+	}
 	@include breakpoint(lg) {
 		max-width: 960px;
 	}

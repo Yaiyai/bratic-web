@@ -1,15 +1,26 @@
 .servicios-card {
-	background-color: map-get($theme-colors, 'bkg');
-	background-repeat: no-repeat;
-	background-size: 80%;
-	background-position-x: -50%;
-	background-position-y: -5%;
+	position: relative;
 	@include items-grid(4, 16px);
-	padding: calc(#{$module} * 3) $module;
+	padding: calc(#{$module} * 3) $module calc(#{$module} * 1);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: map-get($theme-colors, 'bkg');
+	z-index: 0;
+	span {
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: 80%;
+		background-position-x: -50%;
+		background-position-y: -5%;
+		top: 0;
+	}
 	h3 {
+		position: relative;
+		z-index: 1;
 		@include font-line-height(30px);
 		text-align: center;
 		width: 100%;
@@ -17,6 +28,9 @@
 		padding: calc(#{$module} / 6);
 	}
 	ul {
+		position: relative;
+		z-index: 1;
+
 		margin-top: 150px;
 		li {
 			width: 100%;
@@ -31,7 +45,21 @@
 		}
 	}
 	&:hover {
-		background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614447989/illustration-digital-hover.svg') !important;
+		span {
+			&.consultoria {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614447989/illustration-digital-hover.svg') !important;
+			}
+			&.industria {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-industry-hover.svg') !important;
+			}
+			&.ciberseguridad {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-cibersecurity-hover.svg') !important;
+			}
+			&.formacion {
+				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-formation-hover.svg') !important;
+			}
+		}
+
 		svg {
 			color: map-get($theme-colors, 'primary');
 		}

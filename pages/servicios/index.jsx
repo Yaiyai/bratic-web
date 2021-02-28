@@ -1,6 +1,8 @@
 import React from 'react'
 import { getCompany } from '../../api/company'
+import ComoTrabajamos from '../../components/ComoTrabajamos/ComoTrabajamos'
 import Contact from '../../components/Contact/Contact'
+import GestionAyudas from '../../components/GestionAyudas/GestionAyudas'
 import Metodologia from '../../components/Metodologia/Metodologia'
 import Services from '../../components/Services/ServicesPage/Services'
 import PageHeader from '../../components/ui/PageHeader/PageHeader'
@@ -14,6 +16,8 @@ const ServiciosPage = ({ companyFetched }) => {
 				<Services />
 				<a id='metodologia' />
 				<Metodologia />
+				<ComoTrabajamos />
+				<GestionAyudas />
 				<Contact company={companyFetched} />
 			</section>
 		</BraticLayout>

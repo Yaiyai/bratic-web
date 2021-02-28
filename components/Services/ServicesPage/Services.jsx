@@ -22,14 +22,19 @@ const Services = () => {
 	return (
 		<section id='services-page-section' className='bratic-container'>
 			<ServicesCard
-				especialClass='consultoria'
 				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614447762/illustration-digital.svg'
+				specialClass='consultoria'
 				title='Consultoría Digital'
 				features={consultoriaFeatures}
 			/>
-			<ServicesCard especialClass='industria' bkg='/' title='Industria 4.0' features={industriaFeatures} />
-			<ServicesCard especialClass='ciberseguridad' bkg='/' title='Ciberseguridad' features={ciberseguridadFeatures} />
-			<ServicesCard especialClass='formacion' bkg='/' title='Formación' features={formacionFeatures} />
+			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-industry.svg' specialClass='industria' title='Industria 4.0' features={industriaFeatures} />
+			<ServicesCard
+				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508510/illustration-cibersecurity.svg'
+				specialClass='ciberseguridad'
+				title='Ciberseguridad'
+				features={ciberseguridadFeatures}
+			/>
+			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg' specialClass='formacion' title='Formación' features={formacionFeatures} />
 		</section>
 	)
 }
