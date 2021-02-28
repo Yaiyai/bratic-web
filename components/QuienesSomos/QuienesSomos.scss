@@ -1,10 +1,6 @@
 #quienes-somos {
 	display: flex;
 	padding: 0;
-	.left,
-	.right {
-		width: calc((100% / 12) * 6);
-	}
 	h2 {
 		position: relative;
 		width: 100%;
