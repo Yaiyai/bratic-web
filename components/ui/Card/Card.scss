@@ -7,6 +7,7 @@
 	box-sizing: border-box;
 	align-items: flex-start;
 	justify-content: space-between;
+	cursor: pointer;
 	.fix {
 		padding: $module;
 	}
@@ -36,6 +37,9 @@
 		}
 		.my-btn-more {
 			color: white;
+			&::after {
+				color: white;
+			}
 		}
 	}
 }
