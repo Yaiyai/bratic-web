@@ -1,32 +1,34 @@
 import React from 'react'
+import { FaAngleRight } from "react-icons/fa";
+
 
 const QuienesSomos = () => {
-	let quienesSomosImage = 'https://res.cloudinary.com/bratic-app/image/upload/v1614428249/quienes-somos.png'
+	let quienesSomosImage = 'https://res.cloudinary.com/bratic-app/image/upload/v1617037439/web/Image-squares.png'
 	return (
 		<section id='quienes-somos' className='bratic-container'>
 			<article className='left'>
 				<h2>
 					Quiénes Somos
-					<img src={quienesSomosImage} alt='' />
+					<img src={ quienesSomosImage } alt='' />
 				</h2>
 			</article>
 			<article className='right'>
 				<p>
-					BRATIC Consultoría Digital nace en un momento clave en que las empresas y sus miembros deben dar el paso hacia la Transformación Digital, en un mundo cada vez más conectado. Nacida de una
-					doble experiencia en dos sectores que ahora se unen más que nunca: <span className='red'>INDUSTRIAL</span> y <span className='orange'>DIGITAL</span>.
+					Somos consultores con una doble experiencia en dos sectores que ahora se unen más que nunca: <span className='red'>INDUSTRIAL</span> y <span className='orange'>DIGITAL</span>, especializados en proyectos de Transformación Digital e implementación de tecnologías habilitadoras.
 				</p>
 				<p>
-					Somos un equipo multidisciplinar de profesionales con amplia experiencia en ambos mundos, en continua formación para ayudar a las empresas a dar el salto hacia la digitalización. Y además
-					contamos con socios tecnológicos de referencia.
+					Nuestra misión es acompañar a las empresas en los retos de la cuarta Revolución Industrial; Dar soluciones innovadoras a problemas reales.
 				</p>
-				<p>BRATIC surge de empresas industriales para empresas industriales, de pymes para pymes, de personas para personas.</p>
-				<p>La experiencia de siempre, con la innovación tecnológica, formando la industria de mañana.</p>
-				<h3 className='red'>¿A dónde vamos?</h3>
-				<p>Nuestra misión es acompañar a las empresas en los retos de la cuarta Revolución Industrial. Dar soluciones innovadoras a problemas reales.</p>
-				<p className='orange'>En BRATIC somos expertos en las últimas tecnologías...</p>
-				<p>Las nuevas tecnologías permiten la optimización de procesos productivos con un aumento significativo de la eficiencia a través de numerosas tecnologías habilitadoras.</p>
-				<p className='orange'>...y hablamos tu idioma, entendemos tus problemas.</p>
-				<p>Porque venimos de tu mundo, de las Empresas Industriales.</p>
+				<h4>¿POR QUÉ bratic? / ¿QUÉ NOS DIFERENCIA?</h4>
+				<p>Somos un equipo venido del mundo empresarial, con experiencia real sobre el terreno, y conocimientos técnicos *****.</p>
+				<p>La experiencia de siempre, formando la industria del futuro:</p>
+				<ul>
+					<li><FaAngleRight />Experiencia</li>
+					<li><FaAngleRight />Innovación</li>
+					<li><FaAngleRight />Liderazgo</li>
+					<li><FaAngleRight />Resultados</li>
+				</ul>
+				<p>Además, recorreremos junto a ti todo el camino, desde que se origina la necesidad hasta cerrar el ciclo con la puesta en marcha.</p>
 			</article>
 		</section>
 	)

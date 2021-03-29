@@ -18,7 +18,7 @@ const ServiciosPage = ({ companyFetched }) => {
 				<Metodologia />
 				<ComoTrabajamos />
 				<GestionAyudas />
-				<Contact company={companyFetched} />
+				<Contact company={ companyFetched } />
 			</section>
 		</BraticLayout>
 	)

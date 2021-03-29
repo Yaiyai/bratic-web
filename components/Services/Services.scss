@@ -3,6 +3,8 @@
 #services-section {
 	padding: calc(#{$module} * 4) 0;
 	&.bratic-container {
-		display: flex;
+		> div {
+			display: flex;
+		}
 	}
 }
