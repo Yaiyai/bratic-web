@@ -39,12 +39,12 @@ const NavBar = ({ company }) => {
 	}
 
 	return (
-		<nav ref={theNav} className='desktop-nav'>
+		<nav ref={ theNav } className='desktop-nav'>
 			<div className='bratic-container'>
 				<Link href='/#inicio'>
 					<a>
 						<figure className='logo'>
-							<img src={company.companyFetched.mainLogo} alt='Bratic Logo' />
+							<img src={ company.companyFetched.mainLogo } alt='bratic Logo' />
 						</figure>
 					</a>
 				</Link>
@@ -61,7 +61,7 @@ const NavBar = ({ company }) => {
 							</Link>
 						</li>
 						<li>
-							<Link href='/#clientes'>
+							<Link href='/#'>
 								<a>Clientes</a>
 							</Link>
 						</li>
@@ -72,8 +72,8 @@ const NavBar = ({ company }) => {
 								<a>Contacto</a>
 							</Link>
 						</li>
-						<a href={company.companyFetched.linkedin} className='rrss-icon' target='new'>
-							<FontAwesomeIcon icon={faLinkedin} />
+						<a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
+							<FontAwesomeIcon icon={ faLinkedin } />
 						</a>
 					</ul>
 				</article>

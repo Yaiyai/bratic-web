@@ -6,7 +6,7 @@ import Button from '../ui/Button/Button'
 const Metodologia = () => {
 	return (
 		<section className='metodologia bratic-container'>
-			<h2>Metodología BRATIC</h2>
+			<h2>Metodología bratic</h2>
 			<article className='time-line'>
 				<div className='number'>
 					<p>1</p>
@@ -23,15 +23,15 @@ const Metodologia = () => {
 					<h3>Diagnóstico</h3>
 					<ul>
 						<li>
-							<FontAwesomeIcon icon={faCheckCircle} />
+							<FontAwesomeIcon icon={ faCheckCircle } />
 							Visita a tu empresa y diagnóstico de la situación actual.
 						</li>
 						<li>
-							<FontAwesomeIcon icon={faCheckCircle} />
+							<FontAwesomeIcon icon={ faCheckCircle } />
 							Retos & Oportunidades.
 						</li>
 						<li>
-							<FontAwesomeIcon icon={faCheckCircle} />
+							<FontAwesomeIcon icon={ faCheckCircle } />
 							Workshop colaborativo contigo y los tuyos.
 						</li>
 					</ul>
@@ -40,7 +40,7 @@ const Metodologia = () => {
 					<h3>Plan</h3>
 					<ul>
 						<li>
-							<FontAwesomeIcon icon={faCheckCircle} />
+							<FontAwesomeIcon icon={ faCheckCircle } />
 							Elaboración del Plan de Transformación Digital.
 						</li>
 					</ul>

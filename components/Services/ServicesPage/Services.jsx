@@ -25,16 +25,16 @@ const Services = () => {
 				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614447762/illustration-digital.svg'
 				specialClass='consultoria'
 				title='Consultoría Digital'
-				features={consultoriaFeatures}
+				features={ consultoriaFeatures }
 			/>
-			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-industry.svg' specialClass='industria' title='Industria 4.0' features={industriaFeatures} />
+			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-industry.svg' specialClass='industria' title='Industria 4.0' features={ industriaFeatures } />
 			<ServicesCard
 				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508510/illustration-cibersecurity.svg'
 				specialClass='ciberseguridad'
 				title='Ciberseguridad'
-				features={ciberseguridadFeatures}
+				features={ ciberseguridadFeatures }
 			/>
-			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg' specialClass='formacion' title='Formación' features={formacionFeatures} />
+			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg' specialClass='formacion' title='Formación' features={ formacionFeatures } />
 		</section>
 	)
 }

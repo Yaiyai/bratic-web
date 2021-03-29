@@ -16,11 +16,11 @@ const BraticLayout = (props) => {
 				<meta name='robots' content='index, follow' />
 				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-				<title>Bratic</title>
+				<title>bratic</title>
 			</Head>
-			<NavBar company={companyFetched} />
-			<main>{children}</main>
-			<Footer company={companyFetched} />
+			<NavBar company={ companyFetched } />
+			<main>{ children }</main>
+			<Footer company={ companyFetched } />
 		</>
 	)
 }

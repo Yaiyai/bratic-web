@@ -11,15 +11,12 @@ const Home = ({ companyFetched }) => {
 	return (
 		<BraticLayout>
 			<a id='inicio'></a>
-			<Header company={companyFetched} />
-			<Services />
-			<Metodologia />
+			<Header company={ companyFetched } />
 			<a id='quienes-somos'></a>
 			<QuienesSomos />
-			<a id='clientes'></a>
-			<Clientes />
+			<Services />
 			<a id='contacto'></a>
-			<Contact company={companyFetched} />
+			<Contact company={ companyFetched } />
 		</BraticLayout>
 	)
 }

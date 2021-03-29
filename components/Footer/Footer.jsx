@@ -29,7 +29,7 @@ const Footer = ({ company }) => {
 							<Link href='/'>
 								<a>
 									<figure className='logo'>
-										<img src={company.companyFetched.secondaryLogo} alt='Bratic Logo' />
+										<img src={ company.companyFetched.secondaryLogo } alt='bratic Logo' />
 									</figure>
 								</a>
 							</Link>
@@ -57,11 +57,11 @@ const Footer = ({ company }) => {
 							</ul>
 						</div>
 						<div className='right'>
-							<a href={company.companyFetched.linkedin} className='rrss-icon' target='new'>
-								<FontAwesomeIcon icon={faLinkedin} />
+							<a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
+								<FontAwesomeIcon icon={ faLinkedin } />
 							</a>
-							<a href={`mailto:${company.companyFetched.mainEmail}`} className='rrss-icon' target='new'>
-								<FontAwesomeIcon icon={faEnvelope} />
+							<a href={ `mailto:${company.companyFetched.mainEmail}` } className='rrss-icon' target='new'>
+								<FontAwesomeIcon icon={ faEnvelope } />
 							</a>
 						</div>
 					</nav>
@@ -82,7 +82,7 @@ const Footer = ({ company }) => {
 							</Link>
 						</li>
 					</ul>
-					<small>&copy; {company.companyFetched.name}</small>
+					<small>&copy; { company.companyFetched.name }</small>
 				</div>
 			</article>
 		</footer>
