@@ -1,5 +1,5 @@
 .home-header {
-	padding: calc(#{$module} * 6) 0;
+	padding: calc(#{$module} * 6) 0 calc(#{$module} * 2);
 	height: 60vh;
 	.bratic-container {
 		display: flex;

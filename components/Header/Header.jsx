@@ -3,6 +3,9 @@ import Link from 'next/link'
 import useWindowResize from '../../hook/useWindowResize'
 import Button from '../ui/Button/Button'
 
+import { Animated } from "react-animated-css";
+import useOnScreen from '../../hook/useOnScreen';
+
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
 	const theHeader = useRef(null)
@@ -10,6 +13,13 @@ const Header = ({ company }) => {
 	const size = useWindowResize()
 
 	const [rightStyle, setRightStyle] = useState({ right: 0 })
+
+	//Animation
+	const animatedImage = useRef()
+	const isVisibleImage = useOnScreen(animatedImage)
+
+	const animatedLogo = useRef()
+	const isLogoVisible = useOnScreen(animatedLogo)
 
 	useEffect(() => {
 		return () => {
@@ -40,12 +50,14 @@ const Header = ({ company }) => {
 	}, [size])
 
 	return (
-		<header className='home-header' ref={theHeader}>
-			<div ref={theContainer} className='bratic-container'>
+		<header className='home-header' ref={ theHeader }>
+			<div ref={ theContainer } className='bratic-container'>
 				<article className='left'>
-					<div className='logo'>
-						<img src={company.mainLogo} alt='' />
-					</div>
+					<Animated animationInDuration={ 500 } animationIn="fadeInDown" isVisible={ isLogoVisible }>
+						<div ref={ animatedLogo } className='logo'>
+							<img src={ company.mainLogo } alt='' />
+						</div>
+					</Animated>
 					<h1>Consultoría Digital</h1>
 					<h2>
 						Tu <span className='red'>partner digital</span>
@@ -56,10 +68,13 @@ const Header = ({ company }) => {
 					</div>
 				</article>
 
+
 				<article className='right'>
-					<figure style={rightStyle}>
-						<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
-					</figure>
+					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isVisibleImage }>
+						<figure ref={ animatedImage } style={ rightStyle }>
+							<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
+						</figure>
+					</Animated>
 				</article>
 			</div>
 		</header>

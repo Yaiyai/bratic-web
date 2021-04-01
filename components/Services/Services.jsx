@@ -4,7 +4,7 @@ import Card from '../ui/Card/Card'
 const Services = () => {
 	return (
 		<section id='services-section' className='bratic-container'>
-			<h2>¿QUÉ PODEMOS HACER POR TU EMPRESA?</h2>
+			<h2>¿Qué podemos hacer por tu empresa?</h2>
 
 			<div>
 				<Card

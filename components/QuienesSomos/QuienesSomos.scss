@@ -1,41 +1,50 @@
 #quienes-somos {
 	display: flex;
-	padding: 0 0 calc(#{$module} * 6);
-	h2 {
-		position: relative;
-		width: 100%;
-		text-align: right;
-		img {
-			position: absolute;
-			top: 0;
-		}
-	}
-	.left {
-		padding-right: calc(#{$module} * 3);
-	}
-	.right {
-		h3 {
-			margin-bottom: calc(#{$module} * 1);
-			@include font-line-height(24px);
-		}
-		h4 {
-			margin-bottom: calc(#{$module} * 1);
-		}
-		p {
-			margin-bottom: calc(#{$module} * 1);
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-		ul {
-			margin-bottom: calc(#{$module} * 1);
-			li {
-				display: flex;
-				align-items: center;
-				svg {
-					margin-right: calc(#{$module} / 8);
+	padding: 0 0 calc(#{$module} * 8);
+	@include full-width-module;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	z-index: 2;
+	.bratic-container {
+		display: flex;
+		.left {
+			padding-right: calc(#{$module} * 3);
+			h2 {
+				position: relative;
+				width: 100%;
+				text-align: right;
+				img {
+					position: absolute;
+					top: 0;
 				}
 			}
 		}
+		.right {
+			.introduction {
+				@include font-line-height($font-xl);
+				.red {
+					text-transform: none;
+				}
+			}
+			p {
+				margin-bottom: calc(#{$module} * 1);
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+#somos-features {
+	padding: calc(#{$module} * 8) 0 calc(#{$module} * 0);
+	@include full-width-module;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	z-index: 1;
+	.features {
+		display: flex;
+		flex-wrap: wrap;
+		padding: calc(#{$module} * 6);
 	}
 }
