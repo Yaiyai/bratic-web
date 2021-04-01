@@ -5,17 +5,33 @@
 	background-color: rgba(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 2;
+	@include breakpoint(sm-down) {
+		padding: 0;
+		padding-top: calc(#{$module} * 2);
+	}
 	.bratic-container {
 		display: flex;
+		@include breakpoint(sm-down) {
+			flex-direction: column;
+		}
 		.left {
 			padding-right: calc(#{$module} * 3);
+			@include breakpoint(sm-down) {
+				padding-right: 0;
+			}
 			h2 {
 				position: relative;
 				width: 100%;
 				text-align: right;
+				@include breakpoint(sm-down) {
+					text-align: left;
+				}
 				img {
 					position: absolute;
 					top: 0;
+					@include breakpoint(sm-down) {
+						display: none;
+					}
 				}
 			}
 		}
@@ -42,9 +58,15 @@
 	background-color: rgba(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 1;
+	@include breakpoint(sm-down) {
+		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
+	}
 	.features {
 		display: flex;
 		flex-wrap: wrap;
-		padding: calc(#{$module} * 6);
+		padding: calc(#{$module} * 6) 0;
+		@include breakpoint(sm-down) {
+			padding: calc(#{$module} * 2) 0;
+		}
 	}
 }

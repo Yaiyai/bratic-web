@@ -2,9 +2,11 @@
 
 #services-section {
 	padding: calc(#{$module} * 4) 0;
-	&.bratic-container {
-		> div {
+	.bratic-container {
+		display: flex;
+		.all-cards {
 			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 }
