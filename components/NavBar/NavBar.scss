@@ -1,4 +1,7 @@
-.desktop-nav {
+@import './Desktop/Desktop.scss';
+@import './Mobile/Mobile.scss';
+
+.main-nav {
 	background-color: white;
 	border-bottom: solid 1px map-get($theme-colors, 'grey');
 	.bratic-container {
@@ -11,39 +14,14 @@
 			height: 40px;
 			overflow: hidden;
 			margin: 0;
+			@include breakpoint(md-down) {
+				width: 100px;
+			}
 			img {
 				object-fit: contain;
 				object-position: center;
 				width: 100%;
 				height: 100%;
-			}
-		}
-		.links {
-			display: flex;
-			.normal {
-				display: flex;
-				align-items: center;
-				padding: 0 calc(#{$module} * 2);
-				a {
-					font-family: $font-titles;
-					color: map-get($theme-colors, 'text');
-					margin-left: $module;
-					font-size: $font-sm;
-				}
-			}
-			.important {
-				display: flex;
-				align-items: center;
-				background-color: map-get($theme-colors, 'primary');
-				padding: calc(#{$module} * 1) calc(#{$module} * 1.5);
-				a {
-					font-family: $font-titles;
-					font-size: $font-sm;
-					color: white;
-					&:first-child {
-						margin-right: calc(#{$module} * 1);
-					}
-				}
 			}
 		}
 	}

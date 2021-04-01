@@ -2,11 +2,17 @@ import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import useWindowResize from '../../hook/useWindowResize'
+
+import Desktop from './Desktop/Desktop'
+import Mobile from './Mobile/Mobile'
 
 const NavBar = ({ company }) => {
 	const [theHeight, setHeight] = useState(0)
 	const isMounted = useRef(true)
 	const theNav = useRef(null)
+
+	const size = useWindowResize()
 
 	useEffect(() => {
 		if (theNav) {
@@ -39,7 +45,7 @@ const NavBar = ({ company }) => {
 	}
 
 	return (
-		<nav ref={ theNav } className='desktop-nav'>
+		<nav ref={ theNav } className='main-nav'>
 			<div className='bratic-container'>
 				<Link href='/#inicio'>
 					<a>
@@ -48,35 +54,8 @@ const NavBar = ({ company }) => {
 						</figure>
 					</a>
 				</Link>
-				<article className='links'>
-					<ul className='normal'>
-						<li>
-							<Link href='/#quienes-somos'>
-								<a>Quiénes Somos</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/servicios'>
-								<a>Servicios</a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/#'>
-								<a>Clientes</a>
-							</Link>
-						</li>
-					</ul>
-					<ul className='important'>
-						<li>
-							<Link href='/#contacto'>
-								<a>Contacto</a>
-							</Link>
-						</li>
-						<a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
-							<FontAwesomeIcon icon={ faLinkedin } />
-						</a>
-					</ul>
-				</article>
+				{ size[0] <= 991 && <Mobile company={ company } menuHeight={ theHeight } /> }
+				{ size[0] > 992 && <Desktop company={ company } /> }
 			</div>
 		</nav>
 	)
