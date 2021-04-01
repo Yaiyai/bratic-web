@@ -7,6 +7,9 @@
 	position: relative;
 	border-bottom: 5px solid map-get($theme-colors, 'primary');
 	filter: grayscale(0%);
+	@include breakpoint(sm-down) {
+		background-size: cover;
+	}
 
 	.bratic-container {
 		h1 {

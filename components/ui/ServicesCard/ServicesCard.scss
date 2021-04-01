@@ -1,13 +1,25 @@
 .servicios-card {
-	position: relative;
-	@include items-grid(4, 16px);
+	position: relative !important;
 	padding: calc(#{$module} * 3) $module calc(#{$module} * 1);
 	background-color: map-get($theme-colors, 'bkg');
 	z-index: 0;
+	@include breakpoint(lg-up) {
+		@include items-grid(4, 16px);
+	}
+	@include breakpoint(md) {
+		@include items-grid(2, 16px);
+	}
+	@include breakpoint(sm-down) {
+		@include items-grid(1, $module * 2);
+		padding-left: 0;
+	}
 	article {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		@include breakpoint(sm-down) {
+			align-items: flex-start;
+		}
 	}
 	span {
 		width: 100%;
@@ -19,6 +31,10 @@
 		background-position-x: -50%;
 		background-position-y: -5%;
 		top: 0;
+		@include breakpoint(sm-down) {
+			background-size: 50%;
+			background-position-x: -10%;
+		}
 	}
 	h3 {
 		position: relative;
@@ -34,6 +50,9 @@
 		z-index: 1;
 
 		margin-top: 150px;
+		@include breakpoint(sm-down) {
+			padding-left: 24px;
+		}
 		li {
 			width: 100%;
 			margin-bottom: calc(#{$module} * 1);
