@@ -8,6 +8,7 @@ const PageHeader = ({ title, bkg }) => {
 
 	useEffect(() => {
 		isInViewport(animatedPageHeader) && setHeaderIsInView(true)
+		window.addEventListener('scroll', () => isInViewport(animatedPageHeader) && setHeaderIsInView(true))
 	}, [isInViewport])
 
 	let headerStyle = {

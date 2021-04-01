@@ -21,10 +21,13 @@ const Header = ({ company }) => {
 	const [isImageVisible, setIsImageVisible] = useState(false)
 
 	useEffect(() => {
-		if (isMounted.current) {
+		isInViewport(animatedLogo) && setIsLogoVisible(true)
+		isInViewport(animatedHeaderImage) && setIsImageVisible(true)
+		window.addEventListener('scroll', () => {
 			isInViewport(animatedLogo) && setIsLogoVisible(true)
 			isInViewport(animatedHeaderImage) && setIsImageVisible(true)
-		}
+
+		})
 	}, [isInViewport])
 
 	useEffect(() => {

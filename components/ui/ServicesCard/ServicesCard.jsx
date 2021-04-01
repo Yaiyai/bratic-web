@@ -10,6 +10,7 @@ const ServicesCard = ({ bkg, features, title, specialClass, delay }) => {
 
 	useEffect(() => {
 		isInViewport(animatedFeature) && setFeatureIsInView(true)
+		window.addEventListener('scroll', () => isInViewport(animatedFeature) && setFeatureIsInView(true))
 	}, [isInViewport])
 
 	let imageCard = {
