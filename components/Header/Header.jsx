@@ -8,8 +8,7 @@ import { isInViewport } from '../../helpers/isInViewport.helper';
 
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
-	const theHeader = useRef(null)
-	const theContainer = useRef(null)
+	const theContainer = useRef()
 	const size = useWindowResize()
 
 	const [rightStyle, setRightStyle] = useState({ right: 0 })
@@ -36,30 +35,21 @@ const Header = ({ company }) => {
 		}
 	}, [])
 
-	useEffect(() => {
-		if (isMounted.current) {
-			let headerWidth = theHeader.current.offsetWidth
-			let containerWidth = theContainer.current.offsetWidth
-
-			setRightStyle((rightStyle) => {
-				return { right: -(headerWidth - containerWidth) / 2 }
-			})
-		}
-	}, [])
 
 	useEffect(() => {
+		let containerWidth = theContainer.current.offsetWidth
+		setRightStyle((rightStyle) => {
+			return { right: -(size[0] - containerWidth) / 2 }
+		})
 		window.addEventListener('resize', () => {
-			let headerWidth = theHeader.current.offsetWidth
-			let containerWidth = theContainer.current.offsetWidth
-
 			setRightStyle((rightStyle) => {
-				return { right: -(headerWidth - containerWidth) / 2 }
+				return { right: -(size[0] - containerWidth) / 2 }
 			})
 		})
-	}, [size])
+	}, [size, setRightStyle])
 
 	return (
-		<header className='home-header' ref={ theHeader }>
+		<header className='home-header' >
 			<div ref={ theContainer } className='bratic-container'>
 				<article className='left'>
 					<Animated animationInDuration={ 500 } animationIn="fadeInDown" isVisible={ isLogoVisible }>

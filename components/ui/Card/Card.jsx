@@ -24,7 +24,7 @@ const Card = ({ title, text, link, delay }) => {
 						<p className='title'>{ title }</p>
 						<p className='text'>{ text }</p>
 					</div>
-					<Button link={ link } text='Saber más' type='more' />
+					<Button text='Saber más' type='more' />
 				</a>
 			</Link>
 		</Animated>
