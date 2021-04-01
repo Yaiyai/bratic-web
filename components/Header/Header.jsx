@@ -4,7 +4,7 @@ import useWindowResize from '../../hook/useWindowResize'
 import Button from '../ui/Button/Button'
 
 import { Animated } from "react-animated-css";
-import useOnScreen from '../../hook/useOnScreen';
+import { isInViewport } from '../../helpers/isInViewport.helper';
 
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
@@ -15,11 +15,17 @@ const Header = ({ company }) => {
 	const [rightStyle, setRightStyle] = useState({ right: 0 })
 
 	//Animation
-	const animatedImage = useRef()
-	const isVisibleImage = useOnScreen(animatedImage)
-
+	const animatedHeaderImage = useRef()
 	const animatedLogo = useRef()
-	const isLogoVisible = useOnScreen(animatedLogo)
+	const [isLogoVisible, setIsLogoVisible] = useState(false)
+	const [isImageVisible, setIsImageVisible] = useState(false)
+
+	useEffect(() => {
+		if (isMounted.current) {
+			isInViewport(animatedLogo) && setIsLogoVisible(true)
+			isInViewport(animatedHeaderImage) && setIsImageVisible(true)
+		}
+	}, [isInViewport])
 
 	useEffect(() => {
 		return () => {
@@ -70,8 +76,8 @@ const Header = ({ company }) => {
 
 
 				<article className='right'>
-					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isVisibleImage }>
-						<figure ref={ animatedImage } style={ rightStyle }>
+					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isImageVisible }>
+						<figure ref={ animatedHeaderImage } style={ rightStyle }>
 							<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
 						</figure>
 					</Animated>

@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaAngleRight } from 'react-icons/fa'
+import { Animated } from 'react-animated-css'
+import { isInViewport } from '../../../helpers/isInViewport.helper'
 
-const FeatureCard = ({ image, title, text, list = false }) => {
+const FeatureCard = ({ image, title, text, list = false, delay }) => {
+    const animatedFeature = useRef()
+    const [featureIsInView, setFeatureIsInView] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            isInViewport(animatedFeature) && setFeatureIsInView(true)
+        })
+    }, [isInViewport])
+
+
     return (
         <article className="each-feature">
-            <figure>
-                <img src={ image } alt="" />
-            </figure>
+            <Animated animationIn="fadeInDown" isVisible={ featureIsInView } animationInDelay={ delay }>
+                <figure ref={ animatedFeature }>
+                    <img src={ image } alt="" />
+                </figure>
+            </Animated>
             <div className="content">
                 <h3 className="title">{ title }</h3>
                 <p>{ text }</p>

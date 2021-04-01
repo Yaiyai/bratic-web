@@ -2,12 +2,16 @@
 	@include items-grid(4, 24px);
 	border: 1px solid map-get($theme-colors, 'grey');
 	background-color: white;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	align-items: flex-start;
-	justify-content: space-between;
 	cursor: pointer;
+	box-sizing: border-box;
+
+	article {
+		display: flex;
+		flex-direction: column;
+
+		align-items: flex-start;
+		justify-content: space-between;
+	}
 	.fix {
 		padding: $module;
 	}

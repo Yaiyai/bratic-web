@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { isInViewport } from '../../../helpers/isInViewport.helper'
+import { Animated } from 'react-animated-css'
 
 const PageHeader = ({ title, bkg }) => {
+	const animatedPageHeader = useRef()
+	const [headerIsInView, setHeaderIsInView] = useState(false)
+
+	useEffect(() => {
+		isInViewport(animatedPageHeader) && setHeaderIsInView(true)
+	}, [isInViewport])
+
 	let headerStyle = {
 		backgroundImage: `url(${bkg})`,
-		filter: `grayscale(100%)`,
 	}
+
 	return (
 		<>
-			<header style={headerStyle} className='page-header'>
-				<div className='bratic-container'>
-					<h2>{title}</h2>
-				</div>
-			</header>
+			<Animated animationIn="fadeInDown" isVisible={ headerIsInView } animationInDuration={ 800 }>
+
+				<header ref={ animatedPageHeader } style={ headerStyle } className='page-header'>
+					<div className='bratic-container'>
+						<h2>{ title }</h2>
+					</div>
+				</header>
+			</Animated>
 		</>
 	)
 }
