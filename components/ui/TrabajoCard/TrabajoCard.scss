@@ -1,11 +1,13 @@
 .each-trabajo {
 	@include items-grid(4, 16px);
 	padding: calc(#{$module} * 2) $module calc(#{$module} * 1);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	background-color: map-get($theme-colors, 'bkg');
 	text-align: center;
+	article {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	svg {
 		color: map-get($theme-colors, 'primary');
 		width: 18px;

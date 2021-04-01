@@ -8,6 +8,7 @@ import { isInViewport } from '../../helpers/isInViewport.helper'
 const QuienesSomos = () => {
 	let quienesSomosImage = 'https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/quienes-somos-squares_ddsxyl.png'
 	let features = ['Experiencia', 'Innovación', 'Liderazgo', 'Resultados']
+	const animatedImage = useRef()
 	const [imageIsInView, setImageIsInView] = useState(false)
 
 	useEffect(() => {
@@ -17,7 +18,6 @@ const QuienesSomos = () => {
 	}, [isInViewport])
 
 
-	const animatedImage = useRef()
 
 	return (
 		<>

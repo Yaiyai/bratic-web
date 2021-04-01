@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+
+import { Animated } from 'react-animated-css'
+import { isInViewport } from '../../helpers/isInViewport.helper'
+
 const GestionAyudas = () => {
+	const animatedImage = useRef()
+	const [imageIsInView, setImageIsInView] = useState(false)
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			isInViewport(animatedImage) && setImageIsInView(true)
+		})
+	}, [isInViewport])
+
 	let quienesSomosImage = 'https://res.cloudinary.com/bratic-app/image/upload/v1617037439/web/Image-squares.png'
 	let ayudas = [
 		'Ayudas a la I+D+i.',
@@ -14,9 +27,10 @@ const GestionAyudas = () => {
 	]
 	return (
 		<section id='gestion-ayudas' className='bratic-container'>
-			<article className='left'>
-				<img src={ quienesSomosImage } alt='' />
-			</article>
+			<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView } className='left'>
+
+				<img ref={ animatedImage } src={ quienesSomosImage } alt='' />
+			</Animated>
 			<article className='right'>
 				<h2>Gestión de ayudas</h2>
 				<p>Ayudamos a las empresas a aprovechar las oportunidades que ofrecerán los fondos europeos de recuperación.</p>
