@@ -60,6 +60,7 @@
 	z-index: 1;
 	@include breakpoint(sm-down) {
 		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
+		margin-right: 0;
 	}
 	.features {
 		display: flex;

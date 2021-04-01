@@ -21,7 +21,7 @@ const PageHeader = ({ title, bkg }) => {
 
 				<header ref={ animatedPageHeader } style={ headerStyle } className='page-header'>
 					<div className='bratic-container'>
-						<h2>{ title }</h2>
+						<h1>{ title }</h1>
 					</div>
 				</header>
 			</Animated>

@@ -1,3 +1,5 @@
+$border: 1px solid map-get($theme-colors, 'light-grey');
+
 .contact {
 	padding: calc(#{$module} * 4) 0;
 	background-color: white;
@@ -8,27 +10,45 @@
 			font-family: $font-titles;
 			text-transform: uppercase;
 			@include font-line-height($font-xl);
+			@include breakpoint(sm-down) {
+				@include font-line-height($font-md);
+			}
 		}
 		h2 {
 			@include font-line-height(72px);
+			@include breakpoint(sm-down) {
+				@include font-line-height(50px);
+			}
 		}
 		.fix {
 			display: flex;
+			@include breakpoint(sm-down) {
+				flex-direction: column;
+			}
 
 			.left {
 				padding-right: calc(#{$module} * 2);
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				@include breakpoint(sm-down) {
+					padding-right: 0;
+				}
 				.red {
 					font-weight: $text-semibold;
 					text-transform: none;
+				}
+				.animated {
+					@include breakpoint(sm-down) {
+						align-self: center;
+					}
 				}
 				figure {
 					width: calc(#{$module} * 10);
 					height: calc(#{$module} * 10);
 					overflow: hidden;
 					margin: 0;
+
 					img {
 						width: 100%;
 						height: 100%;
@@ -59,6 +79,10 @@
 			}
 			.right {
 				position: relative;
+				@include breakpoint(sm-down) {
+					margin-top: calc(#{$module} * 2);
+				}
+
 				&:after {
 					position: absolute;
 					content: '';
@@ -70,6 +94,9 @@
 					top: -196px;
 					z-index: 0;
 					right: -100px;
+					@include breakpoint(sm-down) {
+						background-image: none;
+					}
 				}
 				form {
 					position: relative;
@@ -88,14 +115,14 @@
 						display: flex;
 						align-items: center;
 						box-sizing: border-box;
-						border-right: 1px solid map-get($theme-colors, 'light-grey');
-						border-left: 1px solid map-get($theme-colors, 'light-grey');
-						border-bottom: 1px solid map-get($theme-colors, 'light-grey');
+						border-right: $border;
+						border-left: $border;
+						border-bottom: $border;
 						padding: 0;
 						&.text-area {
 							align-items: flex-end;
 							.icon {
-								border-top: 1px solid map-get($theme-colors, 'light-grey');
+								border-top: $border;
 							}
 						}
 						.icon {
@@ -106,7 +133,7 @@
 							flex-direction: column;
 							align-items: center;
 							justify-content: center;
-							border-left: 1px solid map-get($theme-colors, 'light-grey');
+							border-left: $border;
 
 							svg {
 								color: map-get($theme-colors, 'secondary');
@@ -115,7 +142,7 @@
 							}
 						}
 						&:first-child {
-							border-top: 1px solid map-get($theme-colors, 'light-grey');
+							border-top: $border;
 						}
 
 						input,
@@ -147,10 +174,16 @@
 					.phone-email {
 						width: 100%;
 						display: flex;
+						@include breakpoint(sm-down) {
+							flex-direction: column;
+						}
 						.input-group {
 							border-top: none;
 							&:last-child {
 								border-left: none;
+								@include breakpoint(sm-down) {
+									border-left: $border;
+								}
 							}
 						}
 					}

@@ -4,6 +4,12 @@
 .main-nav {
 	background-color: white;
 	border-bottom: solid 1px map-get($theme-colors, 'grey');
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	width: 100vw;
+
 	.bratic-container {
 		display: flex;
 		justify-content: space-between;
@@ -24,12 +30,5 @@
 				height: 100%;
 			}
 		}
-	}
-	&.scrolled {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 5;
 	}
 }

@@ -42,7 +42,8 @@ h6 {
 h5 {
 	font-size: ($h5-size);
 }
-p {
+p,
+li {
 	@include font-line-height($font-base);
 	font-weight: $text-normal;
 	@include breakpoint(lg-down) {

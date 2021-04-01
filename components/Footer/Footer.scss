@@ -18,6 +18,9 @@ footer {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			@include breakpoint(sm-down) {
+				display: none;
+			}
 			.left {
 				display: flex;
 				align-items: center;

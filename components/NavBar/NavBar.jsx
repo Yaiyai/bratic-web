@@ -17,32 +17,13 @@ const NavBar = ({ company }) => {
 	useEffect(() => {
 		if (theNav) {
 			setHeight(theNav.current.clientHeight)
-			window.addEventListener('scroll', addClass)
 		}
 		return () => {
-			window.removeEventListener('scroll', addClass)
 			isMounted.current = false
 		}
-	}, [theNav, theHeight])
+	}, [theNav, theHeight, size])
 
-	const addClass = () => {
-		if (window.scrollY > theHeight) {
-			return theNav.current.classList.add('scrolled')
-		} else {
-			return theNav.current.classList.remove('scrolled')
-		}
-	}
 
-	const showMenu = () => {
-		theNav.current.classList.toggle('open-submenu')
-		const subMenu = theNav.current.querySelector('.sub-menu')
-		subMenu.classList.toggle('show')
-	}
-
-	const hideMenu = () => {
-		const subMenu = theNav.current.querySelector('.sub-menu')
-		subMenu.classList.remove('show')
-	}
 
 	return (
 		<nav ref={ theNav } className='main-nav'>

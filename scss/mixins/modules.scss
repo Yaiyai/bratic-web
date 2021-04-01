@@ -25,6 +25,13 @@
 		}
 		margin: auto;
 	}
+	@include breakpoint(sm-down) {
+		left: 0;
+		right: 0;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 @mixin module() {

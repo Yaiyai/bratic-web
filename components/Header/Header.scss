@@ -2,7 +2,7 @@
 	padding: calc(#{$module} * 6) 0 calc(#{$module} * 2);
 	height: 60vh;
 	@include breakpoint(sm-down) {
-		padding: calc(#{$module} * 2) 0 calc(#{$module} * 2);
+		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
 		height: auto;
 	}
 	.bratic-container {
