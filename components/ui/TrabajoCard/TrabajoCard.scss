@@ -1,8 +1,16 @@
 .each-trabajo {
-	@include items-grid(4, 16px);
 	padding: calc(#{$module} * 2) $module calc(#{$module} * 1);
 	background-color: map-get($theme-colors, 'bkg');
 	text-align: center;
+	@include breakpoint(lg-up) {
+		@include items-grid(4, 16px);
+	}
+	@include breakpoint(md) {
+		@include items-grid(2, 16px);
+	}
+	@include breakpoint(sm-down) {
+		@include items-grid(1, calc(#{$module} * 2));
+	}
 	article {
 		display: flex;
 		flex-direction: column;
@@ -21,14 +29,20 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
+		@include breakpoint(sm-down) {
+			width: 70px;
+			height: 70px;
+		}
 	}
 	h3 {
 		position: relative;
 		z-index: 1;
-		@include font-line-height(30px);
 		text-align: center;
 		width: 100%;
 		padding: calc(#{$module} * 1) 0;
+		@include breakpoint(sm-down) {
+			padding: calc(#{$module} * 0.5) 0;
+		}
 	}
 	p {
 		margin: calc(#{$module} * 1) 0;
@@ -36,6 +50,9 @@
 			font-weight: $text-bold;
 			color: map-get($theme-colors, 'primary');
 			font-style: italic;
+		}
+		@include breakpoint(sm-down) {
+			margin: calc(#{$module} * 0.5) 0;
 		}
 	}
 

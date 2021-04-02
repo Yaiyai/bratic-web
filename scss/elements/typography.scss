@@ -32,6 +32,9 @@ h2 {
 }
 h3 {
 	font-size: ($h3-size);
+	@include breakpoint(sm-down) {
+		@include font-line-height($font-xl);
+	}
 }
 h4 {
 	font-size: ($h4-size);

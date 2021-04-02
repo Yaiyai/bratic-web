@@ -1,8 +1,11 @@
 #services-page-section {
 	padding: calc(#{$module} * 6) 0;
-	display: flex;
-	flex-wrap: wrap;
+
 	@include breakpoint(sm-down) {
 		padding: calc(#{$module} * 2) 0;
+	}
+	.bratic-container {
+		display: flex;
+		flex-wrap: wrap;
 	}
 }

@@ -3,9 +3,11 @@ import TrabajoCard from '../ui/TrabajoCard/TrabajoCard'
 
 const ComoTrabajamos = () => {
 	return (
-		<section id='como-trabajamos' className='bratic-container'>
-			<h2>¿Cómo trabajamos?</h2>
-			<article className='trabajos'>
+		<section id='como-trabajamos' >
+			<div className='bratic-container'>
+				<h2>¿Cómo trabajamos?</h2>
+			</div>
+			<article className='trabajos bratic-container'>
 				<TrabajoCard
 					delay={ 0 }
 					title='1. Entender'
