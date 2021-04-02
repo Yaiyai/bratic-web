@@ -1,5 +1,17 @@
 #services-page-section {
-	padding: calc(#{$module} * 4) 0;
-	display: flex;
-	flex-wrap: wrap;
+	padding: calc(#{$module} * 6) 0;
+
+	@include breakpoint(lg) {
+		padding: calc(#{$module} * 3) 0 calc(#{$module} * 0);
+	}
+	@include breakpoint(md) {
+		padding: calc(#{$module} * 2) 0 calc(#{$module} * 1);
+	}
+	@include breakpoint(sm-down) {
+		padding: calc(#{$module} * 2) 0;
+	}
+	.bratic-container {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }

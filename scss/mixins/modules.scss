@@ -1,0 +1,39 @@
+@mixin full-width-module() {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	> * {
+		max-width: map-get($container-max-widths, 'xxl');
+
+		@include breakpoint(xl) {
+			max-width: map-get($container-max-widths, 'xl');
+		}
+		@include breakpoint(lg-down) {
+			max-width: map-get($container-max-widths, 'lg');
+		}
+		@include breakpoint(md-down) {
+			max-width: map-get($container-max-widths, 'md');
+		}
+		@include breakpoint(sm-down) {
+			max-width: map-get($container-max-widths, 'sm');
+		}
+		@include breakpoint(xs-down) {
+			max-width: 100vw;
+		}
+		margin: auto;
+	}
+	@include breakpoint(sm-down) {
+		left: 0;
+		right: 0;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@mixin module() {
+	padding: 2em 0;
+}

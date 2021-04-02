@@ -1,6 +1,15 @@
-.desktop-nav {
+@import './Desktop/Desktop.scss';
+@import './Mobile/Mobile.scss';
+
+.main-nav {
 	background-color: white;
 	border-bottom: solid 1px map-get($theme-colors, 'grey');
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	width: 100vw;
+
 	.bratic-container {
 		display: flex;
 		justify-content: space-between;
@@ -11,6 +20,12 @@
 			height: 40px;
 			overflow: hidden;
 			margin: 0;
+			@include breakpoint(md) {
+				width: 120px;
+			}
+			@include breakpoint(sm-down) {
+				width: 100px;
+			}
 			img {
 				object-fit: contain;
 				object-position: center;
@@ -18,40 +33,5 @@
 				height: 100%;
 			}
 		}
-		.links {
-			display: flex;
-			.normal {
-				display: flex;
-				align-items: center;
-				padding: 0 calc(#{$module} * 2);
-				a {
-					font-family: $font-titles;
-					color: map-get($theme-colors, 'text');
-					margin-left: $module;
-					font-size: $font-sm;
-				}
-			}
-			.important {
-				display: flex;
-				align-items: center;
-				background-color: map-get($theme-colors, 'primary');
-				padding: calc(#{$module} * 1) calc(#{$module} * 1.5);
-				a {
-					font-family: $font-titles;
-					font-size: $font-sm;
-					color: white;
-					&:first-child {
-						margin-right: calc(#{$module} * 1);
-					}
-				}
-			}
-		}
-	}
-	&.scrolled {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 5;
 	}
 }

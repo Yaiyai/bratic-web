@@ -1,41 +1,102 @@
-#quienes-somos {
+#quienes-somos-section {
 	display: flex;
-	padding: 0 0 calc(#{$module} * 6);
-	h2 {
-		position: relative;
-		width: 100%;
-		text-align: right;
-		img {
-			position: absolute;
-			top: 0;
-		}
+	padding: calc(#{$module} * 4) 0 calc(#{$module} * 8);
+	@include full-width-module;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	z-index: 2;
+	@include breakpoint(xl) {
+		padding-bottom: calc(#{$module} * 4);
 	}
-	.left {
-		padding-right: calc(#{$module} * 3);
+	@include breakpoint(lg) {
+		padding: calc(#{$module} * 4) 0 calc(#{$module} * 2);
 	}
-	.right {
-		h3 {
-			margin-bottom: calc(#{$module} * 1);
-			@include font-line-height(24px);
+	@include breakpoint(md) {
+		padding: calc(#{$module} * 2) 0 0;
+	}
+	@include breakpoint(sm-down) {
+		padding: 0;
+		padding-top: calc(#{$module} * 2);
+	}
+	.bratic-container {
+		display: flex;
+		@include breakpoint(sm-down) {
+			flex-direction: column;
 		}
-		h4 {
-			margin-bottom: calc(#{$module} * 1);
-		}
-		p {
-			margin-bottom: calc(#{$module} * 1);
-			&:last-child {
-				margin-bottom: 0;
+		.left {
+			padding-right: calc(#{$module} * 3);
+			@include breakpoint(sm-down) {
+				padding-right: 0;
 			}
-		}
-		ul {
-			margin-bottom: calc(#{$module} * 1);
-			li {
-				display: flex;
-				align-items: center;
-				svg {
-					margin-right: calc(#{$module} / 8);
+			h2 {
+				position: relative;
+				width: 100%;
+				text-align: right;
+				@include breakpoint(md) {
+					@include font-line-height($font-xl);
+				}
+				@include breakpoint(sm-down) {
+					text-align: left;
+				}
+				img {
+					position: absolute;
+					top: 0;
+					@include breakpoint(sm-down) {
+						display: none;
+					}
 				}
 			}
+		}
+		.right {
+			.introduction {
+				@include font-line-height($font-xl);
+				@include breakpoint(lg) {
+					@include font-line-height($font-lg);
+				}
+				@include breakpoint(md) {
+					@include font-line-height($font-md);
+				}
+				.red {
+					text-transform: none;
+				}
+			}
+			p {
+				margin-bottom: calc(#{$module} * 1);
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+#somos-features {
+	padding: calc(#{$module} * 8) 0 calc(#{$module} * 0);
+	@include full-width-module;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	z-index: 1;
+	@include breakpoint(md-down) {
+		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
+	}
+	@include breakpoint(sm-down) {
+		margin-right: 0;
+	}
+	.features {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 0 calc(#{$module} * 4);
+		@include breakpoint(xl) {
+			padding-bottom: calc(#{$module} * 3);
+		}
+		@include breakpoint(lg) {
+			padding-bottom: calc(#{$module} * 2);
+		}
+		@include breakpoint(md) {
+			padding-bottom: calc(#{$module} * 1);
+		}
+		@include breakpoint(sm-down) {
+			padding-bottom: calc(#{$module} * 2);
 		}
 	}
 }

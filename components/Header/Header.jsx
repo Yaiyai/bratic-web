@@ -3,13 +3,31 @@ import Link from 'next/link'
 import useWindowResize from '../../hook/useWindowResize'
 import Button from '../ui/Button/Button'
 
+import { Animated } from "react-animated-css";
+import { isInViewport } from '../../helpers/isInViewport.helper';
+
 const Header = ({ company }) => {
 	const isMounted = useRef(true)
-	const theHeader = useRef(null)
-	const theContainer = useRef(null)
+	const theContainer = useRef()
 	const size = useWindowResize()
 
 	const [rightStyle, setRightStyle] = useState({ right: 0 })
+
+	//Animation
+	const animatedHeaderImage = useRef()
+	const animatedLogo = useRef()
+	const [isLogoVisible, setIsLogoVisible] = useState(false)
+	const [isImageVisible, setIsImageVisible] = useState(false)
+
+	useEffect(() => {
+		isInViewport(animatedLogo) && setIsLogoVisible(true)
+		isInViewport(animatedHeaderImage) && setIsImageVisible(true)
+		window.addEventListener('scroll', () => {
+			isInViewport(animatedLogo) && setIsLogoVisible(true)
+			isInViewport(animatedHeaderImage) && setIsImageVisible(true)
+
+		})
+	}, [isInViewport])
 
 	useEffect(() => {
 		return () => {
@@ -17,35 +35,28 @@ const Header = ({ company }) => {
 		}
 	}, [])
 
-	useEffect(() => {
-		if (isMounted.current) {
-			let headerWidth = theHeader.current.offsetWidth
-			let containerWidth = theContainer.current.offsetWidth
-
-			setRightStyle((rightStyle) => {
-				return { right: -(headerWidth - containerWidth) / 2 }
-			})
-		}
-	}, [])
 
 	useEffect(() => {
+		let containerWidth = theContainer.current.offsetWidth
+		setRightStyle((rightStyle) => {
+			return { right: -(size[0] - containerWidth) / 2 }
+		})
 		window.addEventListener('resize', () => {
-			let headerWidth = theHeader.current.offsetWidth
-			let containerWidth = theContainer.current.offsetWidth
-
 			setRightStyle((rightStyle) => {
-				return { right: -(headerWidth - containerWidth) / 2 }
+				return { right: -(size[0] - containerWidth) / 2 }
 			})
 		})
-	}, [size])
+	}, [size, setRightStyle])
 
 	return (
-		<header className='home-header' ref={theHeader}>
-			<div ref={theContainer} className='bratic-container'>
+		<header className='home-header' >
+			<div ref={ theContainer } className='bratic-container'>
 				<article className='left'>
-					<div className='logo'>
-						<img src={company.mainLogo} alt='' />
-					</div>
+					<Animated animationInDuration={ 500 } animationIn="fadeInDown" isVisible={ isLogoVisible }>
+						<div ref={ animatedLogo } className='logo'>
+							<img src={ company.mainLogo } alt='' />
+						</div>
+					</Animated>
 					<h1>Consultoría Digital</h1>
 					<h2>
 						Tu <span className='red'>partner digital</span>
@@ -56,10 +67,13 @@ const Header = ({ company }) => {
 					</div>
 				</article>
 
+
 				<article className='right'>
-					<figure style={rightStyle}>
-						<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
-					</figure>
+					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isImageVisible }>
+						<figure ref={ animatedHeaderImage } style={ rightStyle }>
+							<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
+						</figure>
+					</Animated>
 				</article>
 			</div>
 		</header>

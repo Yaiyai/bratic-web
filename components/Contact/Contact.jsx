@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone, faMapMarkerAlt, faClock, faUser, faBuilding, faComment } from '@fortawesome/free-solid-svg-icons'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
+
+import { isInViewport } from '../../helpers/isInViewport.helper'
+import { Animated } from 'react-animated-css'
+
 const Contact = ({ company }) => {
+	const [imageIsInView, setImageIsInView] = useState(false)
+	const animatedImage = useRef()
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			isInViewport(animatedImage) && setImageIsInView(true)
+		})
+	}, [isInViewport])
+
+
 	const sendEmail = (e) => {
 		e.preventDefault()
 		emailjs
@@ -15,7 +29,13 @@ const Contact = ({ company }) => {
 					confirmButtonText: 'Cerrar',
 				})
 			)
-			.catch((error) => console.log(error.text))
+			.catch((error) => {
+				Swal.fire({
+					title: '¡Oh-Oh',
+					html: 'Ha habido un error en el envío de la consulta, inténtalo de nuevo :)',
+					confirmButtonText: 'Cerrar',
+				})
+			})
 	}
 
 	return (
@@ -26,11 +46,19 @@ const Contact = ({ company }) => {
 					<h2>Contáctanos</h2>
 					<div className='fix'>
 						<article className='left'>
-							<p>
-								Gracias por tu interés en <span className='red'>bratic</span>.
-							</p>
-							<br />
-							<p>Puedes ponerte en contacto con nosotros utilizando el siguiente formulario o a través de hola@bratic.es</p>
+							<div>
+								<p>
+									Gracias por tu interés en <span className='red'>bratic</span>.
+								</p>
+								<br />
+								<p>Puedes ponerte en contacto con nosotros utilizando el siguiente formulario o a través de hola@bratic.es</p>
+							</div>
+							<Animated animationIn={ 'fadeInDownBig' } isVisible={ imageIsInView }>
+								<figure ref={ animatedImage }>
+									<img src='https://res.cloudinary.com/bratic-app/image/upload/v1617289697/web/draw-contact_jcnew3.svg' alt="" />
+								</figure>
+							</Animated>
+
 						</article>
 						<article className='right'>
 							<form onSubmit={ sendEmail }>
@@ -76,7 +104,9 @@ const Contact = ({ company }) => {
 											</a>
 										</label>
 									</div>
-									<input className='my-btn' type='submit' />
+									<button className='my-btn'>
+										<input type='submit' />
+									</button>
 								</div>
 							</form>
 						</article>

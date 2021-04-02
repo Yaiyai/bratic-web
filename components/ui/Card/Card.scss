@@ -1,32 +1,59 @@
 .each-card {
-	@include items-grid(4, 24px);
+	@include breakpoint(xl-up) {
+		@include items-grid(4, $module);
+	}
+	@include breakpoint(lg) {
+		@include items-grid(4, 16px);
+	}
+	@include breakpoint(md) {
+		@include items-grid(2, $module);
+	}
+	@include breakpoint(sm-down) {
+		@include items-grid(1, $module);
+	}
 	border: 1px solid map-get($theme-colors, 'grey');
 	background-color: white;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	align-items: flex-start;
-	justify-content: space-between;
 	cursor: pointer;
-	.fix {
-		padding: $module;
-	}
-	.title {
-		width: 100%;
-		font-family: $font-titles;
-		@include font-line-height(30px);
-		font-weight: $titles-bold;
-		margin-bottom: calc(#{$module} * 0.5);
-	}
-	.text {
-		width: 100%;
-		font-family: $font-text;
-		@include font-line-height($font-base);
-	}
-	.my-btn-more {
-		align-self: flex-end;
-		padding-right: $module;
-		padding-bottom: $module;
+	box-sizing: border-box;
+
+	.link-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		text-decoration: none;
+		color: inherit;
+		height: 100%;
+
+		.fix {
+			padding: $module;
+			@include breakpoint(lg) {
+				padding: calc(#{$module} / 1.5);
+			}
+		}
+		.title {
+			width: 100%;
+			font-family: $font-titles;
+			@include font-line-height(30px);
+			@include breakpoint(lg) {
+				@include font-line-height($font-xl);
+			}
+			font-weight: $titles-bold;
+			margin-bottom: calc(#{$module} * 0.5);
+		}
+		.text {
+			width: 100%;
+			font-family: $font-text;
+			@include font-line-height($font-base);
+			@include breakpoint(lg) {
+				@include font-line-height($font-sm);
+			}
+		}
+		.my-btn-more {
+			align-self: flex-end;
+			padding-right: $module;
+			padding-bottom: $module;
+		}
 	}
 	&:hover {
 		background-color: map-get($theme-colors, 'primary');

@@ -1,5 +1,8 @@
 #como-trabajamos {
 	padding: calc(#{$module} * 3) 0 calc(#{$module} * 8);
+	@include breakpoint(lg-down) {
+		padding: calc(#{$module} * 2) 0;
+	}
 	.trabajos {
 		display: flex;
 		flex-wrap: wrap;

@@ -19,22 +19,25 @@ const Services = () => {
 	]
 	let ciberseguridadFeatures = ['Infraestructuras.', 'Plan Director de Seguridad: SGSI ISO 27001 ENS', 'Problemática asociada al teletrabajo.']
 	let formacionFeatures = ['Herramientas digitales de administración empresarial.', 'Seguridad de la Información.', 'Formación a medida.']
+
 	return (
-		<section id='services-page-section' className='bratic-container'>
-			<ServicesCard
-				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614447762/illustration-digital.svg'
-				specialClass='consultoria'
-				title='Consultoría Digital'
-				features={ consultoriaFeatures }
-			/>
-			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-industry.svg' specialClass='industria' title='Industria 4.0' features={ industriaFeatures } />
-			<ServicesCard
-				bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508510/illustration-cibersecurity.svg'
-				specialClass='ciberseguridad'
-				title='Ciberseguridad'
-				features={ ciberseguridadFeatures }
-			/>
-			<ServicesCard bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg' specialClass='formacion' title='Formación' features={ formacionFeatures } />
+		<section id='services-page-section'>
+			<div className='bratic-container'>
+				<ServicesCard delay={ 500 }
+					bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614447762/illustration-digital.svg'
+					specialClass='consultoria'
+					title='Consultoría Digital'
+					features={ consultoriaFeatures }
+				/>
+				<ServicesCard delay={ 750 } bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-industry.svg' specialClass='industria' title='Industria 4.0' features={ industriaFeatures } />
+				<ServicesCard delay={ 1000 }
+					bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508510/illustration-cibersecurity.svg'
+					specialClass='ciberseguridad'
+					title='Ciberseguridad'
+					features={ ciberseguridadFeatures }
+				/>
+				<ServicesCard delay={ 1250 } bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg' specialClass='formacion' title='Formación' features={ formacionFeatures } />
+			</div>
 		</section>
 	)
 }

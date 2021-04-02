@@ -3,16 +3,19 @@
 	background-size: 100%;
 	background-position: center center;
 	background-repeat: no-repeat;
-	padding: calc(#{$module} * 6) 0;
+	padding: calc(#{$module} * 8) 0 calc(#{$module} * 6);
 	position: relative;
-	&:hover {
-		filter: grayscale(0%);
+	border-bottom: 5px solid map-get($theme-colors, 'primary');
+	filter: grayscale(0%);
+	@include breakpoint(sm-down) {
+		background-size: cover;
 	}
 
 	.bratic-container {
-		h2 {
+		h1 {
 			color: white;
 			text-align: center;
+			line-height: 0;
 		}
 	}
 }

@@ -1,6 +1,12 @@
+$border: 1px solid map-get($theme-colors, 'light-grey');
+
 .contact {
 	padding: calc(#{$module} * 4) 0;
 	background-color: white;
+	overflow: hidden;
+	@include breakpoint(lg) {
+		padding: calc(#{$module} * 3) 0;
+	}
 	.bratic-container {
 		.pre-title {
 			color: map-get($theme-colors, 'primary');
@@ -8,41 +14,62 @@
 			font-family: $font-titles;
 			text-transform: uppercase;
 			@include font-line-height($font-xl);
+			@include breakpoint(md-down) {
+				@include font-line-height($font-md);
+			}
 		}
 		h2 {
 			@include font-line-height(72px);
+			@include breakpoint(lg) {
+				@include font-line-height(62px);
+			}
+			@include breakpoint(md-down) {
+				@include font-line-height(50px);
+			}
 		}
 		.fix {
 			display: flex;
+			@include breakpoint(sm-down) {
+				flex-direction: column;
+			}
+
 			.left {
 				padding-right: calc(#{$module} * 2);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				@include breakpoint(sm-down) {
+					padding-right: 0;
+				}
 				.red {
 					font-weight: $text-semibold;
 					text-transform: none;
 				}
-				ul {
-					margin-top: calc(#{$module} * 2);
-					li {
-						margin-bottom: calc(#{$module} * 1);
-						display: flex;
-						align-items: center;
-						svg {
-							background-color: map-get($theme-colors, 'primary');
-							padding: 4px;
-							border-radius: 10px;
-							color: white;
-							width: 9px;
-							height: 9px;
-							margin-right: calc(#{$module} / 3);
-						}
-						span {
-							margin-right: calc(#{$module} / 3);
-						}
+				.animated {
+					@include breakpoint(sm-down) {
+						align-self: center;
+					}
+				}
+				figure {
+					width: calc(#{$module} * 10);
+					height: calc(#{$module} * 10);
+					overflow: hidden;
+					margin: 0;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+						object-position: center;
 					}
 				}
 			}
 			.right {
 				position: relative;
+				@include breakpoint(sm-down) {
+					margin-top: calc(#{$module} * 2);
+				}
+
 				&:after {
 					position: absolute;
 					content: '';
@@ -54,6 +81,9 @@
 					top: -196px;
 					z-index: 0;
 					right: -100px;
+					@include breakpoint(lg-down) {
+						display: none;
+					}
 				}
 				form {
 					position: relative;
@@ -61,10 +91,29 @@
 					width: 100%;
 					display: flex;
 					flex-direction: column;
-					input[type='submit'] {
-						height: calc(#{$module} * 3);
+					.my-btn {
 						width: 30%;
 						align-self: flex-end;
+						height: calc(#{$module} * 3);
+						@include breakpoint(lg) {
+							height: calc(#{$module} * 2.5);
+						}
+						@include breakpoint(md) {
+							height: calc(#{$module} * 2);
+						}
+						&::after {
+							display: none;
+						}
+					}
+					input[type='submit'] {
+						width: 100%;
+						color: white;
+						font-family: $font-titles;
+						font-weight: 600;
+						text-transform: uppercase;
+						border-radius: none !important;
+						border: none;
+						background: none;
 					}
 					.input-group {
 						background-color: white;
@@ -72,34 +121,40 @@
 						display: flex;
 						align-items: center;
 						box-sizing: border-box;
-						border-right: 1px solid map-get($theme-colors, 'light-grey');
-						border-left: 1px solid map-get($theme-colors, 'light-grey');
-						border-bottom: 1px solid map-get($theme-colors, 'light-grey');
+						border-right: $border;
+						border-left: $border;
+						border-bottom: $border;
 						padding: 0;
 						&.text-area {
 							align-items: flex-end;
 							.icon {
-								border-top: 1px solid map-get($theme-colors, 'light-grey');
+								border-top: $border;
 							}
 						}
 						.icon {
 							width: calc(#{$module} * 3);
 							height: calc(#{$module} * 3);
+							@include breakpoint(lg) {
+								width: calc(#{$module} * 2.5);
+								height: calc(#{$module} * 2.5);
+							}
+							@include breakpoint(md) {
+								width: calc(#{$module} * 2);
+								height: calc(#{$module} * 2);
+							}
 							background-color: map-get($theme-colors, 'bkg');
 							display: flex;
 							flex-direction: column;
 							align-items: center;
 							justify-content: center;
-							border-left: 1px solid map-get($theme-colors, 'light-grey');
+							border-left: $border;
 
 							svg {
 								color: map-get($theme-colors, 'secondary');
-								width: 15px;
-								height: 15px;
 							}
 						}
 						&:first-child {
-							border-top: 1px solid map-get($theme-colors, 'light-grey');
+							border-top: $border;
 						}
 
 						input,
@@ -111,8 +166,9 @@
 							outline: none;
 							border: none;
 							border-top: none;
-							height: calc(#{$module} * 3);
 							font-family: $font-titles;
+							@include font-line-height(10px);
+
 							&:focus,
 							&:active {
 								border: 1px solid map-get($theme-colors, 'primary');
@@ -123,18 +179,37 @@
 						}
 						input {
 							height: calc(#{$module} * 3);
+							@include breakpoint(lg) {
+								height: calc(#{$module} * 2.5);
+							}
+							@include breakpoint(md) {
+								height: calc(#{$module} * 2);
+							}
 						}
 						textarea {
 							height: calc(#{$module} * 6);
+							@include breakpoint(md) {
+								height: calc(#{$module} * 3);
+							}
 						}
 					}
 					.phone-email {
 						width: 100%;
 						display: flex;
+						@include breakpoint(md-down) {
+							flex-direction: column;
+						}
 						.input-group {
 							border-top: none;
+							width: 50%;
+							@include breakpoint(md-down) {
+								width: 100%;
+							}
 							&:last-child {
 								border-left: none;
+								@include breakpoint(md-down) {
+									border-left: $border;
+								}
 							}
 						}
 					}

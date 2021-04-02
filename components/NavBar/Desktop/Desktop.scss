@@ -1,0 +1,28 @@
+.desktop-nav {
+	display: flex;
+	.normal {
+		display: flex;
+		align-items: center;
+		padding: 0 calc(#{$module} * 2);
+		a {
+			font-family: $font-titles;
+			color: map-get($theme-colors, 'text');
+			margin-left: $module;
+			font-size: $font-sm;
+		}
+	}
+	.important {
+		display: flex;
+		align-items: center;
+		background-color: map-get($theme-colors, 'primary');
+		padding: calc(#{$module} * 1) calc(#{$module} * 1.5);
+		a {
+			font-family: $font-titles;
+			font-size: $font-sm;
+			color: white;
+			&:first-child {
+				margin-right: calc(#{$module} * 1);
+			}
+		}
+	}
+}

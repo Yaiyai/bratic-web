@@ -1,24 +1,37 @@
 import React from 'react'
 import Link from 'next/link'
 
-const Button = ({ link, type, text }) => {
+const Button = ({ link = false, type, text }) => {
 	return (
 		<>
 			{type === 'primary' && (
-				<Link href={link}>
-					<a className='my-btn'>{text}</a>
-				</Link>
-			)}
+				link ? (
+					<Link href={ link }>
+						<a className='my-btn'>{ text }</a>
+					</Link>
+				) : (
+					<button className='my-btn'>{ text }</button>
+
+				)
+			) }
 			{type === 'secondary' && (
-				<Link href={link}>
-					<a className='my-btn secondary'>{text}</a>
-				</Link>
-			)}
+				link ? (<Link href={ link }>
+					<a className='my-btn secondary'>{ text }</a>
+				</Link>) : (
+					<button className='my-btn secondary'>{ text }</button>
+
+				)
+			) }
 			{type === 'more' && (
-				<Link href={link}>
-					<a className='my-btn-more'>Saber más</a>
-				</Link>
-			)}
+				link ? (
+					<Link href={ link }>
+						<a className='my-btn-more'>Saber más</a>
+					</Link>
+				) : (
+					<button className='my-btn-more'>Saber más</button>
+
+				)
+			) }
 		</>
 	)
 }
