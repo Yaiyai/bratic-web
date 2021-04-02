@@ -7,10 +7,22 @@ footer {
 			justify-content: space-between;
 			align-items: center;
 			border-bottom: solid 1px map-get($theme-colors, 'secondary');
+			@include breakpoint(sm-down) {
+				flex-direction: column;
+			}
 			h2 {
 				color: white;
 				margin: 0;
 				@include font-line-height(32px);
+				@include breakpoint(sm-down) {
+					margin-bottom: calc(#{$module} * 1);
+					@include font-line-height(24px);
+				}
+			}
+			.my-btn {
+				@include breakpoint(sm-down) {
+					align-self: flex-end;
+				}
 			}
 		}
 		.down {
@@ -80,6 +92,9 @@ footer {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			@include breakpoint(sm-down) {
+				flex-direction: column;
+			}
 			ul {
 				padding: 0;
 				margin: 0;
