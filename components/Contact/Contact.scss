@@ -95,6 +95,8 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						height: calc(#{$module} * 3);
 						width: 30%;
 						align-self: flex-end;
+						border-radius: none;
+						background-color: map-get($theme-colors, 'primary');
 						@include breakpoint(lg) {
 							height: calc(#{$module} * 2.5);
 						}
@@ -138,8 +140,6 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 
 							svg {
 								color: map-get($theme-colors, 'secondary');
-								width: 15px;
-								height: 15px;
 							}
 						}
 						&:first-child {
@@ -185,6 +185,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						.input-group {
 							border-top: none;
 							width: 50%;
+							@include breakpoint(md-down) {
+								width: 100%;
+							}
 							&:last-child {
 								border-left: none;
 								@include breakpoint(md-down) {

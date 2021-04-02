@@ -1,3 +1,5 @@
+$break-xxs-down: 375px;
+$break-xs-up: 376px;
 $break-xs-down: 575px;
 $break-sm-up: 576px;
 $break-sm-down: 767px;
@@ -10,7 +12,20 @@ $break-xl-down: 1499px;
 $break-xxl: 1500px;
 
 @mixin breakpoint($point) {
-	@if $point == xs {
+	@if $point == xxs {
+		@media (max-width: $break-xxs-down) {
+			@content;
+		}
+	}
+	@if $point == xs-up {
+		@media (min-width: $break-xs-up) {
+			@content;
+		}
+	} @else if $point == xs {
+		@media (min-width: $break-xs-up) and (max-width: $break-xs-down) {
+			@content;
+		}
+	} @else if $point == xs-down {
 		@media (max-width: $break-xs-down) {
 			@content;
 		}
@@ -61,6 +76,10 @@ $break-xxl: 1500px;
 		}
 	} @else if $point == xl {
 		@media (min-width: $break-xl-up) and (max-width: $break-xl-down) {
+			@content;
+		}
+	} @else if $point == xl-down {
+		@media (max-width: $break-xl-down) {
 			@content;
 		}
 	} @else if $point == xxl {
