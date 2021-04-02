@@ -40,7 +40,7 @@
 			li {
 				padding: calc(#{$module} / 2);
 				a {
-					@include font-line-height(24px);
+					@include font-line-height($font-xl);
 					text-transform: uppercase;
 					font-family: $font-titles;
 					color: map-get($theme-colors, 'primary');

@@ -3,6 +3,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 .contact {
 	padding: calc(#{$module} * 4) 0;
 	background-color: white;
+	@include breakpoint(lg) {
+		padding: calc(#{$module} * 3) 0;
+	}
 	.bratic-container {
 		.pre-title {
 			color: map-get($theme-colors, 'primary');
@@ -16,6 +19,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 		}
 		h2 {
 			@include font-line-height(72px);
+			@include breakpoint(lg) {
+				@include font-line-height(62px);
+			}
 			@include breakpoint(md-down) {
 				@include font-line-height(50px);
 			}
@@ -74,7 +80,7 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 					top: -196px;
 					z-index: 0;
 					right: -100px;
-					@include breakpoint(md-down) {
+					@include breakpoint(lg-down) {
 						display: none;
 					}
 				}
@@ -88,6 +94,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						height: calc(#{$module} * 3);
 						width: 30%;
 						align-self: flex-end;
+						@include breakpoint(lg) {
+							height: calc(#{$module} * 2.5);
+						}
 						@include breakpoint(md) {
 							height: calc(#{$module} * 2);
 						}
@@ -111,6 +120,10 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						.icon {
 							width: calc(#{$module} * 3);
 							height: calc(#{$module} * 3);
+							@include breakpoint(lg) {
+								width: calc(#{$module} * 2.5);
+								height: calc(#{$module} * 2.5);
+							}
 							@include breakpoint(md) {
 								width: calc(#{$module} * 2);
 								height: calc(#{$module} * 2);
@@ -142,6 +155,7 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 							border: none;
 							border-top: none;
 							font-family: $font-titles;
+							@include font-line-height(10px);
 
 							&:focus,
 							&:active {
@@ -151,12 +165,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 								padding: 0;
 							}
 						}
-						input {
-							height: calc(#{$module} * 3);
-							@include breakpoint(md) {
-								height: calc(#{$module} * 2);
-							}
-						}
+						// input {
+						// 	// la altura del input la da el cuadradito del icono
+						// }
 						textarea {
 							height: calc(#{$module} * 6);
 							@include breakpoint(md) {
@@ -172,6 +183,7 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						}
 						.input-group {
 							border-top: none;
+							width: 50%;
 							&:last-child {
 								border-left: none;
 								@include breakpoint(md-down) {

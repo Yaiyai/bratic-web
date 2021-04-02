@@ -17,6 +17,9 @@
 		max-width: 65%;
 		margin: 0;
 		margin-bottom: calc(#{$module} * 1.5);
+		@include breakpoint(lg) {
+			height: calc(#{$module} * 6);
+		}
 		@include breakpoint(md) {
 			height: calc(#{$module} * 5);
 		}
@@ -39,7 +42,7 @@
 	}
 	.title {
 		text-transform: uppercase;
-		@include font-line-height(24px);
+		@include font-line-height($font-xl);
 		color: map-get($theme-colors, 'primary');
 		font-weight: $titles-normal;
 		margin-bottom: calc(#{$module} / 2);

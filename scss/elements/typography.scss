@@ -17,6 +17,9 @@ h6 {
 
 h1 {
 	@include font-line-height($h1-size);
+	@include breakpoint(lg) {
+		@include font-line-height($font-base * 3.3);
+	}
 	@include breakpoint(md) {
 		@include font-line-height(4rem);
 	}
@@ -29,6 +32,9 @@ h2 {
 	font-weight: $titles-bold;
 	@include font-line-height($h2-size);
 	margin-bottom: calc(#{$module} * 2);
+	@include breakpoint(lg) {
+		@include font-line-height(36px);
+	}
 	@include breakpoint(md) {
 		@include font-line-height(32px);
 	}
@@ -38,6 +44,9 @@ h2 {
 }
 h3 {
 	@include font-line-height($h3-size);
+	@include breakpoint(lg) {
+		@include font-line-height($font-xl);
+	}
 	@include breakpoint(md) {
 		@include font-line-height($font-lg);
 	}

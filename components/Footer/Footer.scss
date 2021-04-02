@@ -16,7 +16,7 @@ footer {
 				@include font-line-height(32px);
 				@include breakpoint(sm-down) {
 					margin-bottom: calc(#{$module} * 1);
-					@include font-line-height(24px);
+					@include font-line-height($font-xl);
 				}
 			}
 			.my-btn {

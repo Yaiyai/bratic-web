@@ -15,15 +15,17 @@ function MyApp({ Component, pageProps }) {
 
 	useEffect(() => {
 
+		const bodyContainer = document.querySelector('body')
 		router.events.on('routeChangeStart', handleStart)
 		router.events.on('routeChangeComplete', handleComplete)
 		router.events.on('routeChangeError', handleComplete)
 		if (loading) {
-			const bodyContainer = document.querySelector('body')
-			bodyContainer.classList.toggle('no-scroll')
+			bodyContainer.classList.add('no-scroll')
+		} else {
+			bodyContainer.classList.remove('no-scroll')
 		}
 
-	}, [router])
+	}, [router, loading])
 
 	return (
 		<CompanyContext.Provider value={ { companyFetched } }>

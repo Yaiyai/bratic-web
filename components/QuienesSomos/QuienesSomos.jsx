@@ -12,6 +12,7 @@ const QuienesSomos = () => {
 	const [imageIsInView, setImageIsInView] = useState(false)
 
 	useEffect(() => {
+		isInViewport(animatedImage) && setImageIsInView(true)
 		window.addEventListener('scroll', () => {
 			isInViewport(animatedImage) && setImageIsInView(true)
 		})
