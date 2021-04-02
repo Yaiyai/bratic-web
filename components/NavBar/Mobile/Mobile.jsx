@@ -15,22 +15,26 @@ const Mobile = ({ company, menuHeight }) => {
         subMenu.current.setAttribute('style', `top: ${menuHeight}px`)
     }
 
+    const closeMenu = () => {
+        setShowMenu(false)
+    }
+
     return (
         <div className="mobile-nav">
             <Link href='/#contacto'>
-                <a className="contact-btn">Contacto</a>
+                <a onClick={ closeMenu } className="contact-btn">Contacto</a>
             </Link>
             {!showMenu ? <HiMenuAlt3 className="menu-btn" onClick={ () => manageNav() } /> : <HiX className="menu-btn" onClick={ () => manageNav() } /> }
             <div ref={ subMenu } className={ showMenu ? `sub-menu show` : 'sub-menu' }>
                 <ul>
                     <li>
                         <Link href='/#quienes-somos'>
-                            <a>Quiénes Somos</a>
+                            <a onClick={ closeMenu }>Quiénes Somos</a>
                         </Link>
                     </li>
                     <li>
                         <Link href='/servicios'>
-                            <a>Servicios</a>
+                            <a onClick={ closeMenu }>Servicios</a>
                         </Link>
                     </li>
                     <li>

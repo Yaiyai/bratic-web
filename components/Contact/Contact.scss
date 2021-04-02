@@ -95,7 +95,7 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 					z-index: 0;
 					right: -100px;
 					@include breakpoint(sm-down) {
-						background-image: none;
+						display: none;
 					}
 				}
 				form {

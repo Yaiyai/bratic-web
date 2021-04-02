@@ -2,6 +2,9 @@
 
 #services-section {
 	padding: calc(#{$module} * 4) 0;
+	@include breakpoint(sm-down) {
+		padding: 0;
+	}
 	.bratic-container {
 		display: flex;
 		.all-cards {

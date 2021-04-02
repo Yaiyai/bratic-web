@@ -18,6 +18,10 @@ function MyApp({ Component, pageProps }) {
 		router.events.on('routeChangeStart', handleStart)
 		router.events.on('routeChangeComplete', handleComplete)
 		router.events.on('routeChangeError', handleComplete)
+		if (loading) {
+			const bodyContainer = document.querySelector('body')
+			bodyContainer.classList.toggle('no-scroll')
+		}
 
 	}, [router])
 
