@@ -48,6 +48,9 @@
 						svg {
 							width: 25px;
 							height: 25px;
+							color: map-get($theme-colors, 'primary');
+							background-color: transparent;
+							border-radius: 0;
 						}
 					}
 				}

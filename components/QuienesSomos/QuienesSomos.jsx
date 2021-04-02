@@ -21,7 +21,7 @@ const QuienesSomos = () => {
 
 	return (
 		<>
-			<section id='quienes-somos'>
+			<section id='quienes-somos-section'>
 				<div className='bratic-container'>
 					<article className='left'>
 						<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView }>

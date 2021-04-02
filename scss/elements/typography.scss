@@ -30,7 +30,7 @@ h2 {
 	@include font-line-height($h2-size);
 	margin-bottom: calc(#{$module} * 2);
 	@include breakpoint(md) {
-		@include font-line-height(40px);
+		@include font-line-height(32px);
 	}
 	@include breakpoint(sm-down) {
 		@include font-line-height($font-base * 2);

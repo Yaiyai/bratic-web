@@ -2,6 +2,9 @@
 
 #services-section {
 	padding: calc(#{$module} * 4) 0;
+	@include breakpoint(md) {
+		padding: calc(#{$module} * 2) 0 calc(#{$module} * 1);
+	}
 	@include breakpoint(sm-down) {
 		padding: 0;
 	}

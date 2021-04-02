@@ -1,6 +1,9 @@
 .each-feature {
-	@include breakpoint(md-up) {
+	@include breakpoint(lg-up) {
 		@include items-grid(3, $module);
+	}
+	@include breakpoint(md) {
+		@include items-grid(3, 16px);
 	}
 	@include breakpoint(sm-down) {
 		@include items-grid(1, $module * 3);
@@ -8,17 +11,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	.animated {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	figure {
+	.image-container {
 		height: calc(#{$module} * 10);
 		overflow: hidden;
 		max-width: 65%;
 		margin: 0;
 		margin-bottom: calc(#{$module} * 1.5);
+		@include breakpoint(md) {
+			height: calc(#{$module} * 5);
+		}
 		@include breakpoint(sm-down) {
 			height: calc(#{$module} * 7);
 		}
@@ -42,6 +43,9 @@
 		color: map-get($theme-colors, 'primary');
 		font-weight: $titles-normal;
 		margin-bottom: calc(#{$module} / 2);
+		@include breakpoint(md) {
+			@include font-line-height($font-lg);
+		}
 	}
 	ul {
 		margin-top: calc(#{$module} * 0.5);
@@ -49,13 +53,8 @@
 			display: flex;
 			align-items: center;
 			margin-bottom: calc(#{$module} / 3);
-			svg {
-				color: white;
-				width: 15px;
-				height: 15px;
-				margin-right: calc(#{$module} / 6);
-				background-color: map-get($theme-colors, 'primary');
-				border-radius: 10px;
+			@include breakpoint(md) {
+				margin-bottom: calc(#{$module} / 4);
 			}
 		}
 	}

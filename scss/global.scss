@@ -52,6 +52,12 @@ ul {
 			display: block;
 			text-decoration: none;
 		}
+		svg {
+			color: white;
+			background-color: map-get($theme-colors, 'primary');
+			border-radius: 15px;
+			margin-right: calc(#{$module} / 6);
+		}
 	}
 }
 p {
@@ -65,8 +71,12 @@ a {
 	display: block;
 }
 svg {
-	width: 10px;
-	height: 10px;
+	width: 15px;
+	height: 15px;
+	@include breakpoint(md-down) {
+		width: 10px;
+		height: 10px;
+	}
 }
 
 .bratic-container {

@@ -73,10 +73,6 @@ footer {
 					color: white;
 					margin-left: calc(#{$module} / 4);
 					opacity: 0.5;
-					svg {
-						width: 15px;
-						height: 15px;
-					}
 					&:hover {
 						opacity: 1;
 					}

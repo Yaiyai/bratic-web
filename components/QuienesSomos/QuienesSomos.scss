@@ -1,10 +1,13 @@
-#quienes-somos {
+#quienes-somos-section {
 	display: flex;
-	padding: 0 0 calc(#{$module} * 8);
+	padding: calc(#{$module} * 4) 0 calc(#{$module} * 8);
 	@include full-width-module;
 	background-color: rgba(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 2;
+	@include breakpoint(md) {
+		padding: calc(#{$module} * 2) 0 0;
+	}
 	@include breakpoint(sm-down) {
 		padding: 0;
 		padding-top: calc(#{$module} * 2);
@@ -23,6 +26,9 @@
 				position: relative;
 				width: 100%;
 				text-align: right;
+				@include breakpoint(md) {
+					@include font-line-height($font-xl);
+				}
 				@include breakpoint(sm-down) {
 					text-align: left;
 				}
@@ -38,6 +44,9 @@
 		.right {
 			.introduction {
 				@include font-line-height($font-xl);
+				@include breakpoint(md) {
+					@include font-line-height($font-md);
+				}
 				.red {
 					text-transform: none;
 				}
@@ -58,14 +67,19 @@
 	background-color: rgba(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 1;
-	@include breakpoint(sm-down) {
+	@include breakpoint(md-down) {
 		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
+	}
+	@include breakpoint(sm-down) {
 		margin-right: 0;
 	}
 	.features {
 		display: flex;
 		flex-wrap: wrap;
 		padding: calc(#{$module} * 6) 0;
+		@include breakpoint(md) {
+			padding: calc(#{$module} * 1) 0;
+		}
 		@include breakpoint(sm-down) {
 			padding: calc(#{$module} * 2) 0;
 		}
