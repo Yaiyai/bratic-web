@@ -7,7 +7,7 @@
 		@include items-grid(4, 16px);
 	}
 	@include breakpoint(md) {
-		@include items-grid(2, 16px);
+		@include items-grid(2, $module);
 	}
 	@include breakpoint(sm-down) {
 		@include items-grid(1, $module * 2);
@@ -34,12 +34,16 @@
 		background-position-x: -50%;
 		background-position-y: -5%;
 		top: 0;
+		@include breakpoint(md) {
+			background-size: 70%;
+			background-position-x: -10%;
+		}
 		@include breakpoint(sm-down) {
 			background-size: 50%;
 			background-position-x: -10%;
 		}
 	}
-	h3 {
+	h2 {
 		position: relative;
 		z-index: 1;
 		@include font-line-height(30px);
@@ -51,8 +55,10 @@
 	ul {
 		position: relative;
 		z-index: 1;
-
 		margin-top: 150px;
+		@include breakpoint(md) {
+			margin-top: 90px;
+		}
 		@include breakpoint(sm-down) {
 			padding-left: 24px;
 		}
@@ -60,11 +66,18 @@
 			width: 100%;
 			margin-bottom: calc(#{$module} * 1);
 			font-weight: $text-light;
+			@include breakpoint(md-down) {
+				margin-bottom: calc(#{$module} / 2);
+			}
 			svg {
 				color: map-get($theme-colors, 'text');
 				width: 15px;
 				height: 15px;
 				margin-right: calc(#{$module} / 6);
+				@include breakpoint(md-down) {
+					width: 10px;
+					height: 10px;
+				}
 			}
 		}
 	}

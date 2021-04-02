@@ -6,21 +6,35 @@
 	}
 	.bratic-container {
 		display: flex;
+		@include breakpoint(md) {
+			flex-direction: column-reverse;
+		}
 
 		.left {
 			padding-right: calc(#{$module} * 3);
+			@include breakpoint(md) {
+				width: calc((100% / 12) * 12);
+				padding: 0;
+				margin-top: calc(#{$module} * 2);
+			}
 			@include breakpoint(sm-down) {
 				display: none;
 			}
 		}
 
 		.right {
+			@include breakpoint(md) {
+				width: calc((100% / 12) * 12);
+			}
 			h3 {
 				margin-bottom: calc(#{$module} * 1);
 				@include font-line-height(24px);
 			}
 			p {
 				margin-bottom: calc(#{$module} * 1);
+				@include breakpoint(md-down) {
+					margin-bottom: calc(#{$module} * 0.5);
+				}
 				&:last-child {
 					margin-bottom: 0;
 				}
@@ -33,7 +47,7 @@
 					width: 100%;
 					margin-bottom: calc(#{$module} * 1.5);
 					font-weight: $text-normal;
-					@include breakpoint(sm-down) {
+					@include breakpoint(md-down) {
 						margin-bottom: calc(#{$module} * 0.5);
 					}
 					svg {
@@ -41,6 +55,10 @@
 						width: 15px;
 						height: 15px;
 						margin-right: calc(#{$module} / 6);
+						@include breakpoint(md-down) {
+							width: 10px;
+							height: 10px;
+						}
 					}
 				}
 			}

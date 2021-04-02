@@ -21,7 +21,7 @@ const ServicesCard = ({ bkg, features, title, specialClass, delay }) => {
 
 			<article ref={ animatedFeature } >
 				<span className={ `${specialClass}` } style={ imageCard }></span>
-				<h3>{ title }</h3>
+				<h2>{ title }</h2>
 				<ul>
 					{ features?.map((ft, idx) => (
 						<li key={ idx }>

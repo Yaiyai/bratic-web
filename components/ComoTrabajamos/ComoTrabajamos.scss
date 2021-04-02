@@ -1,6 +1,6 @@
 #como-trabajamos {
 	padding: calc(#{$module} * 3) 0 calc(#{$module} * 8);
-	@include breakpoint(sm-down) {
+	@include breakpoint(md-down) {
 		padding: calc(#{$module} * 2) 0;
 	}
 	.trabajos {

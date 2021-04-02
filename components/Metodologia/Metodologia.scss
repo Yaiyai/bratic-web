@@ -1,10 +1,13 @@
 .metodologia {
 	padding: calc(#{$module} * 4) 0;
-	@include breakpoint(sm-down) {
+	@include breakpoint(md-down) {
 		padding: calc(#{$module} * 2) 0;
 	}
 	h2 {
 		margin-bottom: calc(#{$module} * 5);
+		@include breakpoint(md) {
+			margin-bottom: calc(#{$module} * 3);
+		}
 		@include breakpoint(sm-down) {
 			margin-bottom: calc(#{$module} * 1);
 		}
@@ -21,6 +24,9 @@
 			height: 96px;
 			border-top: 1px solid map-get($theme-colors, 'grey');
 			width: calc((100% / 12) * 8);
+			@include breakpoint(md) {
+				height: 48px;
+			}
 			@include breakpoint(sm-down) {
 				display: none;
 			}
@@ -31,6 +37,11 @@
 				height: 96px;
 				position: absolute;
 				bottom: 48px;
+				@include breakpoint(md) {
+					width: 48px;
+					height: 48px;
+					bottom: 24px;
+				}
 				&:first-child {
 					left: 0;
 				}
@@ -42,9 +53,15 @@
 					@include breakpoint(lg) {
 						left: 320px;
 					}
+					@include breakpoint(md) {
+						left: 233px;
+					}
 				}
 				&:last-child {
 					right: -96px;
+					@include breakpoint(md) {
+						right: -50px;
+					}
 				}
 				p {
 					font-size: 48px;
@@ -56,6 +73,10 @@
 					height: 100%;
 					margin: 0;
 					cursor: default;
+					@include breakpoint(md) {
+						font-size: 24px;
+						line-height: 48px;
+					}
 					@include breakpoint(sm-down) {
 						line-height: 48px;
 						font-size: 32px;
@@ -92,11 +113,18 @@
 					li {
 						margin-bottom: calc(#{$module} / 1.5);
 						font-weight: $text-light;
+						@include breakpoint(md) {
+							margin-bottom: calc(#{$module} / 3);
+						}
 						svg {
 							color: map-get($theme-colors, 'primary');
 							width: 15px;
 							height: 15px;
 							margin-right: calc(#{$module} / 6);
+							@include breakpoint(md) {
+								width: 10px;
+								height: 10px;
+							}
 						}
 					}
 				}

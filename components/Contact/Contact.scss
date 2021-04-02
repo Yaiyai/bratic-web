@@ -10,13 +10,13 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 			font-family: $font-titles;
 			text-transform: uppercase;
 			@include font-line-height($font-xl);
-			@include breakpoint(sm-down) {
+			@include breakpoint(md-down) {
 				@include font-line-height($font-md);
 			}
 		}
 		h2 {
 			@include font-line-height(72px);
-			@include breakpoint(sm-down) {
+			@include breakpoint(md-down) {
 				@include font-line-height(50px);
 			}
 		}
@@ -94,7 +94,7 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 					top: -196px;
 					z-index: 0;
 					right: -100px;
-					@include breakpoint(sm-down) {
+					@include breakpoint(md-down) {
 						display: none;
 					}
 				}
@@ -108,6 +108,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						height: calc(#{$module} * 3);
 						width: 30%;
 						align-self: flex-end;
+						@include breakpoint(md) {
+							height: calc(#{$module} * 2);
+						}
 					}
 					.input-group {
 						background-color: white;
@@ -128,6 +131,10 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						.icon {
 							width: calc(#{$module} * 3);
 							height: calc(#{$module} * 3);
+							@include breakpoint(md) {
+								width: calc(#{$module} * 2);
+								height: calc(#{$module} * 2);
+							}
 							background-color: map-get($theme-colors, 'bkg');
 							display: flex;
 							flex-direction: column;
@@ -154,8 +161,8 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 							outline: none;
 							border: none;
 							border-top: none;
-							height: calc(#{$module} * 3);
 							font-family: $font-titles;
+
 							&:focus,
 							&:active {
 								border: 1px solid map-get($theme-colors, 'primary');
@@ -166,22 +173,28 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 						}
 						input {
 							height: calc(#{$module} * 3);
+							@include breakpoint(md) {
+								height: calc(#{$module} * 2);
+							}
 						}
 						textarea {
 							height: calc(#{$module} * 6);
+							@include breakpoint(md) {
+								height: calc(#{$module} * 3);
+							}
 						}
 					}
 					.phone-email {
 						width: 100%;
 						display: flex;
-						@include breakpoint(sm-down) {
+						@include breakpoint(md-down) {
 							flex-direction: column;
 						}
 						.input-group {
 							border-top: none;
 							&:last-child {
 								border-left: none;
-								@include breakpoint(sm-down) {
+								@include breakpoint(md-down) {
 									border-left: $border;
 								}
 							}

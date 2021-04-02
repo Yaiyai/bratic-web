@@ -6,7 +6,7 @@
 		@include items-grid(4, 16px);
 	}
 	@include breakpoint(md) {
-		@include items-grid(2, 16px);
+		@include items-grid(2, $module);
 	}
 	@include breakpoint(sm-down) {
 		@include items-grid(1, calc(#{$module} * 2));
@@ -32,7 +32,7 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
-		@include breakpoint(sm-down) {
+		@include breakpoint(md-down) {
 			width: 70px;
 			height: 70px;
 		}
@@ -43,7 +43,7 @@
 		text-align: center;
 		width: 100%;
 		padding: calc(#{$module} * 1) 0;
-		@include breakpoint(sm-down) {
+		@include breakpoint(md-down) {
 			padding: calc(#{$module} * 0.5) 0;
 		}
 	}
@@ -54,7 +54,7 @@
 			color: map-get($theme-colors, 'primary');
 			font-style: italic;
 		}
-		@include breakpoint(sm-down) {
+		@include breakpoint(md-down) {
 			margin: calc(#{$module} * 0.5) 0;
 		}
 	}

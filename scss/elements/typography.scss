@@ -16,7 +16,10 @@ h6 {
 }
 
 h1 {
-	font-size: ($h1-size);
+	@include font-line-height($h1-size);
+	@include breakpoint(md) {
+		@include font-line-height(4rem);
+	}
 	@include breakpoint(sm-down) {
 		@include font-line-height($font-base * 3.5);
 	}
@@ -26,24 +29,30 @@ h2 {
 	font-weight: $titles-bold;
 	@include font-line-height($h2-size);
 	margin-bottom: calc(#{$module} * 2);
+	@include breakpoint(md) {
+		@include font-line-height(40px);
+	}
 	@include breakpoint(sm-down) {
 		@include font-line-height($font-base * 2);
 	}
 }
 h3 {
-	font-size: ($h3-size);
+	@include font-line-height($h3-size);
+	@include breakpoint(md) {
+		@include font-line-height($font-lg);
+	}
 	@include breakpoint(sm-down) {
 		@include font-line-height($font-xl);
 	}
 }
 h4 {
-	font-size: ($h4-size);
+	@include font-line-height($h4-size);
 }
 h6 {
-	font-size: ($h6-size);
+	@include font-line-height($h6-size);
 }
 h5 {
-	font-size: ($h5-size);
+	@include font-line-height($h5-size);
 }
 p,
 li {
