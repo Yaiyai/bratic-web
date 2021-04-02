@@ -1,9 +1,11 @@
 .home-header {
 	padding: calc(#{$module} * 6) 0 calc(#{$module} * 2);
 	height: 60vh;
+	@include breakpoint(md-down) {
+		height: auto;
+	}
 	@include breakpoint(sm-down) {
 		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
-		height: auto;
 	}
 	.bratic-container {
 		display: flex;
@@ -21,6 +23,11 @@
 				overflow: hidden;
 				margin-bottom: calc(#{$module} * 2);
 				margin-left: -18px;
+				@include breakpoint(md) {
+					margin-left: 0;
+					width: 236px;
+					height: 70px;
+				}
 				@include breakpoint(sm-down) {
 					display: none;
 				}
@@ -32,8 +39,17 @@
 				}
 			}
 			h1 {
+				@include breakpoint(md) {
+					@include font-line-height($font-base * 2.4);
+					margin-bottom: calc(#{$module} / 2);
+				}
 				@include breakpoint(sm-down) {
 					margin-bottom: calc(#{$module} / 1);
+				}
+			}
+			h2 {
+				@include breakpoint(md) {
+					@include font-line-height(28px);
 				}
 			}
 			.btn-group {
@@ -58,6 +74,10 @@
 				height: 600px;
 				width: 849px;
 				z-index: 0;
+				@include breakpoint(md) {
+					height: 370px;
+					width: 369px;
+				}
 				img {
 					object-fit: contain;
 					object-position: right;

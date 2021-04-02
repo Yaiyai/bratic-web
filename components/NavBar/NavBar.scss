@@ -20,7 +20,10 @@
 			height: 40px;
 			overflow: hidden;
 			margin: 0;
-			@include breakpoint(md-down) {
+			@include breakpoint(md) {
+				width: 120px;
+			}
+			@include breakpoint(sm-down) {
 				width: 100px;
 			}
 			img {

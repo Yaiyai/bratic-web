@@ -11,8 +11,11 @@
 		text-decoration: none;
 		font-family: $font-titles;
 		text-align: center;
-		padding: calc(#{$module} / 2) calc(#{$module} / 1);
+		padding: calc(#{$module} / 1);
 		margin-right: calc(#{$module} / 2);
+		@include breakpoint(sm-down) {
+			padding: calc(#{$module} / 2) calc(#{$module} / 1);
+		}
 	}
 	.sub-menu {
 		position: absolute;
