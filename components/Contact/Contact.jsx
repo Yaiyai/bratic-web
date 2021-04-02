@@ -104,7 +104,9 @@ const Contact = ({ company }) => {
 											</a>
 										</label>
 									</div>
-									<input className='my-btn' type='submit' />
+									<button className='my-btn'>
+										<input type='submit' />
+									</button>
 								</div>
 							</form>
 						</article>

@@ -91,18 +91,29 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 					width: 100%;
 					display: flex;
 					flex-direction: column;
-					input[type='submit'] {
-						height: calc(#{$module} * 3);
+					.my-btn {
 						width: 30%;
 						align-self: flex-end;
-						border-radius: none;
-						background-color: map-get($theme-colors, 'primary');
+						height: calc(#{$module} * 3);
 						@include breakpoint(lg) {
 							height: calc(#{$module} * 2.5);
 						}
 						@include breakpoint(md) {
 							height: calc(#{$module} * 2);
 						}
+						&::after {
+							display: none;
+						}
+					}
+					input[type='submit'] {
+						width: 100%;
+						color: white;
+						font-family: $font-titles;
+						font-weight: 600;
+						text-transform: uppercase;
+						border-radius: none !important;
+						border: none;
+						background: none;
 					}
 					.input-group {
 						background-color: white;
@@ -166,9 +177,15 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 								padding: 0;
 							}
 						}
-						// input {
-						// 	// la altura del input la da el cuadradito del icono
-						// }
+						input {
+							height: calc(#{$module} * 3);
+							@include breakpoint(lg) {
+								height: calc(#{$module} * 2.5);
+							}
+							@include breakpoint(md) {
+								height: calc(#{$module} * 2);
+							}
+						}
 						textarea {
 							height: calc(#{$module} * 6);
 							@include breakpoint(md) {
