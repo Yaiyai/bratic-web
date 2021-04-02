@@ -12,6 +12,9 @@
 	@include breakpoint(sm-down) {
 		@include items-grid(1, $module * 2);
 		padding-left: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	article {
 		display: flex;

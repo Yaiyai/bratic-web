@@ -26,24 +26,25 @@ const GestionAyudas = () => {
 		'Ayudas a la digitalización fondos europeos Recuperación y la Resiliencia y programa ­React-EU.',
 	]
 	return (
-		<section id='gestion-ayudas' className='bratic-container'>
-			<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView } className='left'>
-
-				<img ref={ animatedImage } src={ quienesSomosImage } alt='' />
-			</Animated>
-			<article className='right'>
-				<h2>Gestión de ayudas</h2>
-				<p>Ayudamos a las empresas a aprovechar las oportunidades que ofrecerán los fondos europeos de recuperación.</p>
-				<p>Contamos con amplia experiencia en la búsqueda y tramitación de Financiación y Ayudas regionales, estatales y europeas:</p>
-				<ul>
-					{ ayudas?.map((ay, idx) => (
-						<li key={ idx }>
-							<FontAwesomeIcon icon={ faCheckCircle } />
-							{ay }
-						</li>
-					)) }
-				</ul>
-			</article>
+		<section id='gestion-ayudas'>
+			<div className="bratic-container">
+				<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView } className='left'>
+					<img ref={ animatedImage } src={ quienesSomosImage } alt='' />
+				</Animated>
+				<article className='right'>
+					<h2>Gestión de ayudas</h2>
+					<p>Ayudamos a las empresas a aprovechar las oportunidades que ofrecerán los fondos europeos de recuperación.</p>
+					<p>Contamos con amplia experiencia en la búsqueda y tramitación de Financiación y Ayudas regionales, estatales y europeas:</p>
+					<ul>
+						{ ayudas?.map((ay, idx) => (
+							<li key={ idx }>
+								<FontAwesomeIcon icon={ faCheckCircle } />
+								{ay }
+							</li>
+						)) }
+					</ul>
+				</article>
+			</div>
 		</section>
 	)
 }

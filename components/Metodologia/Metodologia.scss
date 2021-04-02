@@ -83,6 +83,9 @@
 					width: 100%;
 					padding-right: 0;
 					margin-bottom: calc(#{$module} * 2);
+					&:last-child {
+						margin-bottom: 0;
+					}
 				}
 				ul {
 					margin-top: calc(#{$module}* 1);
