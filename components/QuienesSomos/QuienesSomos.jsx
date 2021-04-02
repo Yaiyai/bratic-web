@@ -1,4 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react'
+import useWindowResize from '../../hook/useWindowResize'
+
 import { FaAngleRight } from 'react-icons/fa'
 import FeatureCard from '../ui/FeatureCard/FeatureCard'
 
@@ -10,6 +12,7 @@ const QuienesSomos = () => {
 	let features = ['Experiencia', 'Innovación', 'Liderazgo', 'Resultados']
 	const animatedImage = useRef()
 	const [imageIsInView, setImageIsInView] = useState(false)
+	const size = useWindowResize()
 
 	useEffect(() => {
 		isInViewport(animatedImage) && setImageIsInView(true)
@@ -17,6 +20,16 @@ const QuienesSomos = () => {
 			isInViewport(animatedImage) && setImageIsInView(true)
 		})
 	}, [isInViewport])
+
+	const [delays, setDelays] = useState({ first: 0, second: 500, third: 1000 })
+
+	useEffect(() => {
+		if (size[0] <= 767) {
+			setDelays({ first: 0, second: 0, third: 0 })
+		} else {
+			setDelays({ first: 0, second: 500, third: 1000 })
+		}
+	}, [size])
 
 
 
@@ -49,20 +62,20 @@ const QuienesSomos = () => {
 					<h2>¿Por qué bratic? / ¿Qué nos diferencia?</h2>
 					<div className='features bratic-container'>
 						<FeatureCard
-							delay={ 0 }
+							delay={ delays.first }
 							title={ 'Equipo' }
 							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-team_uda23m.svg'
 							text={ 'Somos un equipo venido del mundo empresarial, con experiencia real sobre el terreno, y conocimientos técnicos *****.' }
 						/>
 						<FeatureCard
-							delay={ 500 }
+							delay={ delays.second }
 							title={ 'Experiencia' }
 							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-experience_at9hrn.svg'
 							text={ 'La experiencia de siempre, formando la industria del futuro:' }
 							list={ features }
 						/>
 						<FeatureCard
-							delay={ 1000 }
+							delay={ delays.third }
 							title={ 'Camino' }
 							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-camino_whodr7.svg'
 							text={ 'Además, recorreremos junto a ti todo el camino, desde que se origina la necesidad hasta cerrar el ciclo con la puesta en marcha.' }
