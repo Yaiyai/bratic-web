@@ -50,7 +50,7 @@
 					width: 100%;
 					margin-bottom: calc(#{$module} * 1.5);
 					font-weight: $text-normal;
-					@include breakpoint(lg) {
+					@include breakpoint(xl-down) {
 						margin-bottom: calc(#{$module} * 1);
 					}
 					@include breakpoint(md-down) {

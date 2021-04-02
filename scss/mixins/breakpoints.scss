@@ -51,6 +51,10 @@ $break-xxl: 1500px;
 		@media (max-width: $break-lg-down) {
 			@content;
 		}
+	} @else if $point == xl-down {
+		@media (max-width: $break-xl-down) {
+			@content;
+		}
 	} @else if $point == xl-up {
 		@media (min-width: $break-xl-up) {
 			@content;

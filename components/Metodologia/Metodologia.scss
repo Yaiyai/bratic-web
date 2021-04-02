@@ -1,5 +1,8 @@
 .metodologia {
 	padding: calc(#{$module} * 4) 0;
+	@include breakpoint(xl) {
+		padding: 0 0 calc(#{$module} * 3);
+	}
 	@include breakpoint(lg-down) {
 		padding: calc(#{$module} * 2) 0;
 	}
@@ -48,7 +51,7 @@
 				&:nth-child(2n) {
 					left: 460px;
 					@include breakpoint(xl) {
-						left: 400px;
+						left: 380px;
 					}
 					@include breakpoint(lg) {
 						left: 320px;

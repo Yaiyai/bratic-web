@@ -1,11 +1,8 @@
 .home-header {
-	padding: calc(#{$module} * 6) 0 calc(#{$module} * 2);
-	height: 60vh;
+	padding: calc(#{$module} * 6) 0 calc(#{$module} * 6);
+	height: auto;
 	@include breakpoint(lg) {
 		padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
-	}
-	@include breakpoint(lg-down) {
-		height: auto;
 	}
 	@include breakpoint(sm-down) {
 		padding: calc(#{$module} * 4) 0 calc(#{$module} * 0);
@@ -26,6 +23,10 @@
 				overflow: hidden;
 				margin-bottom: calc(#{$module} * 2);
 				margin-left: -18px;
+				@include breakpoint(xl) {
+					width: 335px;
+					height: 85px;
+				}
 				@include breakpoint(lg) {
 					margin-left: 0;
 					width: 209px;
@@ -82,6 +83,10 @@
 				height: 600px;
 				width: 849px;
 				z-index: 0;
+				@include breakpoint(xl) {
+					width: 520px;
+					height: 510px;
+				}
 				@include breakpoint(lg) {
 					width: 524px;
 					height: 420px;

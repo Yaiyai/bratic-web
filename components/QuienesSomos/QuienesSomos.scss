@@ -5,6 +5,9 @@
 	background-color: rgba(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 2;
+	@include breakpoint(xl) {
+		padding-bottom: calc(#{$module} * 4);
+	}
 	@include breakpoint(lg) {
 		padding: calc(#{$module} * 4) 0 calc(#{$module} * 2);
 	}
@@ -82,15 +85,18 @@
 	.features {
 		display: flex;
 		flex-wrap: wrap;
-		padding: calc(#{$module} * 6) 0;
+		padding: 0 0 calc(#{$module} * 4);
+		@include breakpoint(xl) {
+			padding-bottom: calc(#{$module} * 3);
+		}
 		@include breakpoint(lg) {
-			padding: calc(#{$module} * 2) 0;
+			padding-bottom: calc(#{$module} * 2);
 		}
 		@include breakpoint(md) {
-			padding: calc(#{$module} * 1) 0;
+			padding-bottom: calc(#{$module} * 1);
 		}
 		@include breakpoint(sm-down) {
-			padding: calc(#{$module} * 2) 0;
+			padding-bottom: calc(#{$module} * 2);
 		}
 	}
 }
