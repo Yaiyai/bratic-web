@@ -12,10 +12,12 @@ const Services = ({ servicios }) => {
 		let time = 0
 
 		allServices.forEach((elm) => {
-			auxServices.push({ title: elm.split('((TITLE))')[0], description: elm.split('((TITLE))')[1], delay: time })
 			if (size[0] > 768) {
 				time += 250
+			} else {
+				time = 0
 			}
+			auxServices.push({ title: elm.split('((TITLE))')[0], description: elm.split('((TITLE))')[1], delay: time })
 		})
 		setCleanServicios(auxServices)
 
@@ -31,7 +33,7 @@ const Services = ({ servicios }) => {
 
 			<div className='bratic-container'>
 				<div className="all-cards">
-					{ cleanServicios.length > 0 && cleanServicios.map(service => (<Card delay={ service.delay } title={ service.title } text={ service.description } link='/servicios' />)) }
+					{ cleanServicios.length > 0 && cleanServicios.map((service, idx) => (<Card key={ idx } delay={ service.delay } title={ service.title } text={ service.description } link='/servicios' />)) }
 				</div>
 			</div>
 		</section>

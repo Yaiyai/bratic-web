@@ -61,35 +61,39 @@
 			@include font-line-height(20px);
 		}
 	}
-	ul {
-		position: relative;
-		z-index: 1;
-		margin-top: 150px;
-		@include breakpoint(xl) {
-			margin-top: 60px;
-		}
-		@include breakpoint(lg) {
-			margin-top: 30px;
-		}
-		@include breakpoint(md) {
-			margin-top: 90px;
-		}
-		@include breakpoint(sm-down) {
-			padding-left: $module;
-		}
-		li {
-			width: 100%;
-			margin-bottom: calc(#{$module} * 1);
-			font-weight: $text-light;
-			@include breakpoint(xl-down) {
-				margin-bottom: calc(#{$module} / 3);
+	.features {
+		ul {
+			position: relative;
+			z-index: 1;
+			margin-top: 150px;
+			@include breakpoint(xl) {
+				margin-top: 60px;
 			}
-			@include breakpoint(md-down) {
-				margin-bottom: calc(#{$module} / 2);
+			@include breakpoint(lg) {
+				margin-top: 30px;
 			}
-			svg {
-				color: map-get($theme-colors, 'text');
-				background-color: transparent;
+			@include breakpoint(md) {
+				margin-top: 90px;
+			}
+			@include breakpoint(sm-down) {
+				padding-left: $module;
+			}
+			li {
+				width: 100%;
+				margin-bottom: calc(#{$module} * 1);
+
+				font-weight: $text-light;
+				@include breakpoint(xl-down) {
+					margin-bottom: calc(#{$module} / 3);
+				}
+				@include breakpoint(md-down) {
+					margin-bottom: calc(#{$module} / 2);
+				}
+				&::before {
+					content: '\00BB';
+					color: map-get($theme-colors, 'text');
+					margin-right: calc(#{$module} / 6);
+				}
 			}
 		}
 	}
@@ -106,6 +110,15 @@
 			}
 			&.formacion {
 				background-image: url('https://res.cloudinary.com/bratic-app/image/upload/v1614511385/illustration-formation-hover.svg') !important;
+			}
+		}
+		.features {
+			ul {
+				li {
+					&::before {
+						color: map-get($theme-colors, 'primary');
+					}
+				}
 			}
 		}
 
