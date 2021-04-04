@@ -49,15 +49,17 @@
 		}
 		.right {
 			.introduction {
-				@include font-line-height($font-xl);
-				@include breakpoint(lg) {
-					@include font-line-height($font-lg);
-				}
-				@include breakpoint(md) {
-					@include font-line-height($font-md);
-				}
-				.red {
-					text-transform: none;
+				p {
+					@include font-line-height($font-xl);
+					@include breakpoint(lg) {
+						@include font-line-height($font-lg);
+					}
+					@include breakpoint(md) {
+						@include font-line-height($font-md);
+					}
+					.red {
+						text-transform: none;
+					}
 				}
 			}
 			p {
