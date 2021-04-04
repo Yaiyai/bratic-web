@@ -4,7 +4,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { isInViewport } from '../../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
 
-const TrabajoCard = ({ title, icon, problem, solution, specialClass, delay }) => {
+const TrabajoCard = ({ title, icon, trabajo, specialClass, delay }) => {
 	const animatedFeature = useRef()
 	const [featureIsInView, setFeatureIsInView] = useState(false)
 
@@ -23,9 +23,7 @@ const TrabajoCard = ({ title, icon, problem, solution, specialClass, delay }) =>
 			<article ref={ animatedFeature }>
 				<span style={ iconCard } className={ specialClass }></span>
 				<h3>{ title }</h3>
-				<p>{ problem }</p>
-				<FontAwesomeIcon icon={ faChevronDown } />
-				<p>{ solution }</p>
+				<div className="problem-solution" dangerouslySetInnerHTML={ { __html: trabajo } }></div>
 			</article>
 		</Animated>
 	)
