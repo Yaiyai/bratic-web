@@ -119,6 +119,11 @@
 						@include breakpoint(md) {
 							margin-bottom: calc(#{$module} / 3);
 						}
+						&::before {
+							content: '\00BB';
+							color: map-get($theme-colors, 'primary');
+							margin-right: calc(#{$module} / 6);
+						}
 					}
 				}
 				p {

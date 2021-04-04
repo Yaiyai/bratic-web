@@ -6,7 +6,7 @@ import { Animated } from 'react-animated-css'
 import { isInViewport } from '../../helpers/isInViewport.helper'
 
 
-const Metodologia = () => {
+const Metodologia = ({ metodologia }) => {
 	const number1 = useRef()
 	const number2 = useRef()
 	const number3 = useRef()
@@ -23,10 +23,14 @@ const Metodologia = () => {
 		})
 	}, [isInViewport])
 
+	useEffect(() => {
+		let allMetodos = metodologia.parsedText.__html.split('((METODO))')
+
+	}, [])
 
 	return (
 		<section className='metodologia bratic-container'>
-			<h2>Metodología bratic</h2>
+			<h2>{ metodologia.title }</h2>
 			<div className="fix">
 				<article className='time-line'>
 					<Animated isVisible={ isNumer1Visible } animationIn="fadeInLeft" animationInDelay={ 0 } className='number'>
@@ -41,36 +45,16 @@ const Metodologia = () => {
 				</article>
 				<article className='descriptions'>
 					<div className='each'>
-						<h3>Diagnóstico</h3>
-						<ul>
-							<li>
-								<FontAwesomeIcon icon={ faCheckCircle } />
-								Visita a tu empresa y diagnóstico de la situación actual.
-							</li>
-							<li>
-								<FontAwesomeIcon icon={ faCheckCircle } />
-								Retos & Oportunidades.
-							</li>
-							<li>
-								<FontAwesomeIcon icon={ faCheckCircle } />
-								Workshop colaborativo contigo y los tuyos.
-							</li>
-						</ul>
+						<h3>{ metodologia.features[0] }</h3>
+						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[0] } }></div>
 					</div>
 					<div className='each'>
-						<h3>Plan</h3>
-						<ul>
-							<li>
-								<FontAwesomeIcon icon={ faCheckCircle } />
-								Elaboración del Plan de Transformación Digital.
-							</li>
-						</ul>
+						<h3>{ metodologia.features[1] }</h3>
+						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[1] } }></div>
 					</div>
 					<div className='each'>
-						<h3>Partner Digital</h3>
-						<p>
-							<span>¿Te interesa algún proyecto?</span> <br /> ¡Te acompañamos en todo el proceso de puesta en marcha!
-						</p>
+						<h3>{ metodologia.features[2] }</h3>
+						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[2] } }></div>
 					</div>
 				</article>
 			</div>

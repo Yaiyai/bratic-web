@@ -9,13 +9,13 @@ import Services from '../../components/Services/ServicesPage/Services'
 import PageHeader from '../../components/ui/PageHeader/PageHeader'
 import BraticLayout from '../../layout/BraticLayout'
 
-const ServiciosPage = ({ companyFetched, header, contacto, servicios }) => {
+const ServiciosPage = ({ companyFetched, header, contacto, servicios, metodologia }) => {
 	return (
 		<BraticLayout>
 			<PageHeader bkg={ header.uniqueImage } title={ header.title } />
 			<section id='servicios-container'>
 				<Services servicios={ servicios } />
-				<Metodologia />
+				<Metodologia metodologia={ metodologia } />
 				<ComoTrabajamos />
 				<GestionAyudas />
 				<Contact contacto={ contacto } company={ companyFetched } />
@@ -25,10 +25,8 @@ const ServiciosPage = ({ companyFetched, header, contacto, servicios }) => {
 }
 
 export const getServerSideProps = async () => {
-	const [companyFetched, header, contacto, servicios] = await Promise.all([getCompany(), getSection('6069d5237844ac00158eedc3'), getSection('6069d3f47844ac00158eedc2'), getSection('6069dfe9165c6f00159f27f0')])
-	console.log(servicios);
-
-	return { props: { companyFetched, header, contacto, servicios } }
+	const [companyFetched, header, contacto, servicios, metodologia] = await Promise.all([getCompany(), getSection('6069d5237844ac00158eedc3'), getSection('6069d3f47844ac00158eedc2'), getSection('6069dfe9165c6f00159f27f0'), getSection('6069e314165c6f00159f27f1')])
+	return { props: { companyFetched, header, contacto, servicios, metodologia } }
 }
 
 export default ServiciosPage
