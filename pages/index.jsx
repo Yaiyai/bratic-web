@@ -1,4 +1,5 @@
 import { getCompany } from '../api/company'
+import { getSection } from '../api/sections'
 import Clientes from '../components/Clientes/Clientes'
 import Contact from '../components/Contact/Contact'
 import Header from '../components/Header/Header'
@@ -7,11 +8,11 @@ import QuienesSomos from '../components/QuienesSomos/QuienesSomos'
 import Services from '../components/Services/Services'
 import BraticLayout from '../layout/BraticLayout'
 
-const Home = ({ companyFetched }) => {
+const Home = ({ companyFetched, header }) => {
 	return (
 		<BraticLayout>
 			<a id='inicio'></a>
-			<Header company={ companyFetched } />
+			<Header company={ companyFetched } header={ header } />
 			<a id='quienes-somos'></a>
 			<QuienesSomos />
 			<Services />
@@ -22,9 +23,9 @@ const Home = ({ companyFetched }) => {
 }
 
 export const getServerSideProps = async () => {
-	const companyFetched = await getCompany()
-
-	return { props: { companyFetched } }
+	const [companyFetched, header] = await Promise.all([getCompany(), getSection('6069bd8c7844ac00158eedbf')])
+	return { props: { companyFetched, header } }
 }
 
 export default Home
+
