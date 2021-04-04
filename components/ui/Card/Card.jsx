@@ -21,8 +21,8 @@ const Card = ({ title, text, link, delay }) => {
 			<Link href={ link }>
 				<a className="link-container" ref={ card } >
 					<div className='fix'>
-						<p className='title'>{ title }</p>
-						<p className='text'>{ text }</p>
+						<div dangerouslySetInnerHTML={ { __html: title } } className='title'></div>
+						<div dangerouslySetInnerHTML={ { __html: text } } className='text'></div>
 					</div>
 					<Button text='Saber más' type='more' />
 				</a>

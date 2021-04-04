@@ -35,23 +35,13 @@ const Footer = ({ company }) => {
 							</Link>
 							<ul className='footer-links'>
 								<li>
-									<Link href='/'>
+									<Link href='/#quienes-somos'>
 										<a>Quiénes Somos</a>
 									</Link>
 								</li>
 								<li>
-									<Link href='/'>
+									<Link href='/servicios'>
 										<a>Servicios</a>
-									</Link>
-								</li>
-								<li>
-									<Link href='/'>
-										<a>Partners</a>
-									</Link>
-								</li>
-								<li>
-									<Link href='/'>
-										<a>Clientes</a>
 									</Link>
 								</li>
 							</ul>

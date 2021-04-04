@@ -8,23 +8,35 @@ import QuienesSomos from '../components/QuienesSomos/QuienesSomos'
 import Services from '../components/Services/Services'
 import BraticLayout from '../layout/BraticLayout'
 
-const Home = ({ companyFetched, header, somos }) => {
+const Home = ({ companyFetched, header, somos, servicios, contacto }) => {
 	return (
 		<BraticLayout>
 			<a id='inicio'></a>
 			<Header company={ companyFetched } header={ header } />
 			<a id='quienes-somos'></a>
 			<QuienesSomos somos={ somos } />
-			<Services />
+			<Services servicios={ servicios } />
 			<a id='contacto'></a>
-			<Contact company={ companyFetched } />
+			<Contact contacto={ contacto } company={ companyFetched } />
 		</BraticLayout>
 	)
 }
 
 export const getServerSideProps = async () => {
-	const [companyFetched, header, somos] = await Promise.all([getCompany(), getSection('6069bd8c7844ac00158eedbf'), getSection('6069c8097844ac00158eedc0')])
-	return { props: { companyFetched, header, somos } }
+	const [
+		companyFetched,
+		header,
+		somos,
+		servicios,
+		contacto
+	] = await Promise.all([
+		getCompany(),
+		getSection('6069bd8c7844ac00158eedbf'),
+		getSection('6069c8097844ac00158eedc0'),
+		getSection('6069cfec7844ac00158eedc1'),
+		getSection('6069d3f47844ac00158eedc2')
+	])
+	return { props: { companyFetched, header, somos, servicios, contacto } }
 }
 
 export default Home
