@@ -61,14 +61,14 @@ const Footer = ({ company }) => {
 				<div className='bratic-container'>
 					<ul>
 						<li>
-							<Link href='/'>
-								<a href='/'>Política de Privacidad</a>
+							<Link href='/politica-privacidad'>
+								<a>Política de Privacidad</a>
 							</Link>
 						</li>
 						<span>·</span>
 						<li>
-							<Link href='/'>
-								<a href='/'>Términos y Condiciones</a>
+							<Link href='/aviso-legal'>
+								<a>Aviso Legal</a>
 							</Link>
 						</li>
 					</ul>
