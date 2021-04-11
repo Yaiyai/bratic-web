@@ -9,7 +9,7 @@ const TermsConditionsPage = ({ terminos }) => {
         <BraticLayout>
             <PageHeader title={ terminos.title } bkg={ terminos.uniqueImage } />
 
-            <div className="bratic-container lgal-page" dangerouslySetInnerHTML={ terminos.parsedText }></div>
+            <div className="bratic-container legal-page" dangerouslySetInnerHTML={ terminos.parsedText }></div>
         </BraticLayout>
     )
 }
