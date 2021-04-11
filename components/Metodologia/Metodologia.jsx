@@ -45,15 +45,15 @@ const Metodologia = ({ metodologia }) => {
 				</article>
 				<article className='descriptions'>
 					<div className='each'>
-						<h3>{ metodologia.features[0] }</h3>
+						<h3><span className="number">1.</span>{ metodologia.features[0] }</h3>
 						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[0] } }></div>
 					</div>
 					<div className='each'>
-						<h3>{ metodologia.features[1] }</h3>
+						<h3><span className="number">2.</span>{ metodologia.features[1] }</h3>
 						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[1] } }></div>
 					</div>
 					<div className='each'>
-						<h3>{ metodologia.features[2] }</h3>
+						<h3><span className="number">3.</span>{ metodologia.features[2] }</h3>
 						<div dangerouslySetInnerHTML={ { __html: metodologia.text.split('((METODO))')[2] } }></div>
 					</div>
 				</article>

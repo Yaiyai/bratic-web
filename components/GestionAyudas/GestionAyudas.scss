@@ -6,18 +6,18 @@
 
 	h2 {
 		width: 100%;
+		@include breakpoint(sm-down) {
+			margin-bottom: calc(#{$module} * 1);
+		}
 	}
 	.bratic-container {
 		display: flex;
-		@include breakpoint(md) {
-			flex-direction: column-reverse;
-		}
 
 		.left {
 			padding-right: calc(#{$module} * 3);
 			@include breakpoint(md) {
 				width: calc((100% / 12) * 12);
-				padding: 0;
+				padding-right: calc(#{$module} * 1);
 				margin-top: calc(#{$module} * 2);
 			}
 			@include breakpoint(sm-down) {

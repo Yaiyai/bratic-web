@@ -70,7 +70,7 @@ const Contact = ({ company, contacto }) => {
 										</div>
 									</div>
 									<div className='input-group'>
-										<input type='email' name='email' placeholder='Correo Electrónico*' required />
+										<input type='email' name='email' placeholder='Correo electrónico*' required />
 										<div className='icon'>
 											<FontAwesomeIcon icon={ faEnvelope } />
 										</div>

@@ -66,10 +66,12 @@
 		}
 	}
 	.features {
-		margin-top: 150px;
 		ul {
 			position: relative;
 			z-index: 1;
+			@include breakpoint(xxl) {
+				margin-top: 150px;
+			}
 			@include breakpoint(xl) {
 				margin-top: 60px;
 			}

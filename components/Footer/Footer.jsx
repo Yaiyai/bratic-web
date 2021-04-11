@@ -20,7 +20,7 @@ const Footer = ({ company }) => {
 						<h2>
 							En <span className='orange'>bratic</span> queremos ser tu <span className='orange'>partner digital</span>
 						</h2>
-						<Link href='/'>
+						<Link href='/#contacto'>
 							<a className='my-btn'>¡Hablemos!</a>
 						</Link>
 					</div>

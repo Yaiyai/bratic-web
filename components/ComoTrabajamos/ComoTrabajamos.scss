@@ -3,6 +3,11 @@
 	@include breakpoint(lg-down) {
 		padding: calc(#{$module} * 2) 0;
 	}
+	h2 {
+		@include breakpoint(sm-down) {
+			margin-bottom: calc(#{$module} * 1);
+		}
+	}
 	.trabajos {
 		display: flex;
 		flex-wrap: wrap;

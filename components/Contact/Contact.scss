@@ -26,6 +26,9 @@ $border: 1px solid map-get($theme-colors, 'light-grey');
 			@include breakpoint(md-down) {
 				@include font-line-height(50px);
 			}
+			@include breakpoint(sm-down) {
+				margin-bottom: calc(#{$module} * 1);
+			}
 		}
 		.fix {
 			display: flex;
