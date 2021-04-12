@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 
 import { isInViewport } from '../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
+import Link from 'next/link'
 
 const Contact = ({ company, contacto }) => {
 	const [imageIsInView, setImageIsInView] = useState(false)
@@ -93,9 +94,11 @@ const Contact = ({ company, contacto }) => {
 										<input type='checkbox' name='checkbox' id='check' required />
 										<label htmlFor='check'>
 											Acepto la{ ' ' }
-											<a href='' className='red'>
-												política de privacidad
-											</a>
+											<Link href='/politica-privacidad'>
+												<a className='red'>
+													política de privacidad
+												</a>
+											</Link>
 										</label>
 									</div>
 									<button className='my-btn'>
