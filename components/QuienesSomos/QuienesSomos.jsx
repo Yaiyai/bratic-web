@@ -79,13 +79,13 @@ const QuienesSomos = ({ somos }) => {
 						<FeatureCard
 							delay={ delays.second }
 							title={ somos.features[1] }
-							image={ somos.gallery[1] }
+							image={ somos.gallery[0] }
 							text={ somosSection?.features[1] }
 						/>
 						<FeatureCard
 							delay={ delays.third }
 							title={ somos.features[2] }
-							image={ somos.gallery[0] }
+							image={ somos.gallery[1] }
 							text={ somosSection?.features[2] }
 						/>
 					</div>
