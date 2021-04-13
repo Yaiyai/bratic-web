@@ -59,7 +59,7 @@ const Services = ({ servicios }) => {
 							features={ cleanServicios[2].description }
 						/>
 						<ServicesCard delay={ cleanServicios[3].delay }
-							bkg='https://res.cloudinary.com/bratic-app/image/upload/v1614508328/illustration-formation.svg'
+							bkg='https://res.cloudinary.com/bratic-app/image/upload/v1618306112/web/illustration-smart-rural_fkddpm.svg'
 							specialClass='formacion'
 							title={ servicios.features[3] }
 							features={ cleanServicios[3].description } />
