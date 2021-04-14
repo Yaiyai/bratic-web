@@ -12,11 +12,11 @@ const BraticLayout = (props) => {
 		<>
 			<Head>
 				<link rel='icon' href='/favicon.ico' />
-				<meta name='description' content='Mecanizado de precisión CAD CAM CNC' />
+				<meta name='description' content='Consultoría Digital. Tu PARTNER DIGITAL' />
 				<meta name='robots' content='index, follow' />
 				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-				<title>bratic</title>
+				<title>bratic || Consultoría Digital</title>
 			</Head>
 			<NavBar company={ companyFetched } />
 			<main>{ children }</main>

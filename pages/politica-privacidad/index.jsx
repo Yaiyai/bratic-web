@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import { getCompany } from '../../api/company'
 import { getSection } from '../../api/sections'
@@ -8,6 +9,15 @@ import BraticLayout from '../../layout/BraticLayout'
 const PoliticaPrivacidadPage = ({ privacidad }) => {
     return (
         <BraticLayout>
+            <Head>
+                <link rel='icon' href='/favicon.ico' />
+                <meta name='description' content='Política de Privacidad Bratic' />
+                <meta name='robots' content='noindex, nofollow' />
+                <meta name='googlebot' content='noindex, nofollow' />
+                <meta name='bingbot' content='noindex, nofollow' />
+                <title>bratic || Política de Privacidad</title>
+            </Head>
+
             <PageHeader title={ privacidad.title } bkg={ privacidad.uniqueImage } />
 
             <div className="bratic-container legal-page" dangerouslySetInnerHTML={ privacidad.parsedText }></div>
