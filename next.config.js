@@ -1,5 +1,6 @@
 module.exports = {
 	distDir: 'build',
+	target: 'serverless',
 	env: {
 		baseURL: 'https://bratic-app.herokuapp.com/api',
 		serviceEmail: 'contacto_hola_bratic',
