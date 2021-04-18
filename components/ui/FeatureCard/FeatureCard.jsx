@@ -17,7 +17,7 @@ const FeatureCard = ({ image, title, text, delay }) => {
     return (
         <article className="each-feature">
             <Animated animationIn="fadeInDown" isVisible={ featureIsInView } animationInDelay={ delay } className="image-container">
-                <img ref={ animatedFeature } src={ image } alt="" />
+                <img ref={ animatedFeature } src={ image } alt="bratic" />
             </Animated>
             <div className="content">
                 <h3 className="title">{ title }</h3>

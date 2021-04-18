@@ -50,7 +50,7 @@ const Contact = ({ company, contacto }) => {
 							<div dangerouslySetInnerHTML={ contacto.parsedText }></div>
 							<Animated animationIn={ 'fadeInDownBig' } isVisible={ imageIsInView }>
 								<figure ref={ animatedImage }>
-									<img src={ contacto.uniqueImage } alt="" />
+									<img src={ contacto.uniqueImage } alt="Contacto bratic" />
 								</figure>
 							</Animated>
 

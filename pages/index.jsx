@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { getCompany } from '../api/company'
 import { getSection } from '../api/sections'
 import Clientes from '../components/Clientes/Clientes'
@@ -12,7 +13,6 @@ const Home = ({ companyFetched, header, somos, servicios, contacto }) => {
 	return (
 		<BraticLayout>
 			<Head>
-				<link rel='icon' href='/favicon.ico' />
 				<meta name='description' content='bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos.' />
 
 				<meta name='robots' content='index, follow' />

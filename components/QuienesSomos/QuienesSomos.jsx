@@ -56,7 +56,7 @@ const QuienesSomos = ({ somos }) => {
 						<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView }>
 							<h2 ref={ animatedImage }>
 								{ somos.title }
-								<img src={ quienesSomosImage } alt='' />
+								<img src={ quienesSomosImage } alt='bratic quienes somos' />
 							</h2>
 						</Animated>
 					</article>

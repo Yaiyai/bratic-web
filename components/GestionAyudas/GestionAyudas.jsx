@@ -21,7 +21,7 @@ const GestionAyudas = ({ gestionAyudas }) => {
 		<section id='gestion-ayudas'>
 			<div className="bratic-container">
 				<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView } className='left'>
-					<img ref={ animatedImage } src={ quienesSomosImage } alt='' />
+					<img ref={ animatedImage } src={ quienesSomosImage } alt='bratic quienes somos' />
 				</Animated>
 				<article className='right'>
 					<h2>{ gestionAyudas.title }</h2>

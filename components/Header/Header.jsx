@@ -54,7 +54,7 @@ const Header = ({ company, header }) => {
 				<article className='left'>
 					<Animated animationInDuration={ 500 } animationIn="fadeInDown" isVisible={ isLogoVisible }>
 						<div ref={ animatedLogo } className='logo'>
-							<img src={ company.mainLogo } alt='' />
+							<img src={ company.mainLogo } alt='bratic logo' />
 						</div>
 					</Animated>
 					<h1>{ header.title }</h1>
@@ -69,7 +69,7 @@ const Header = ({ company, header }) => {
 				<article className='right'>
 					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isImageVisible }>
 						<figure ref={ animatedHeaderImage } style={ rightStyle }>
-							<img src={ header.uniqueImage } alt='' />
+							<img src={ header.uniqueImage } alt='bratic consultoria digital' />
 						</figure>
 					</Animated>
 				</article>
