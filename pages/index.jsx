@@ -11,6 +11,22 @@ import BraticLayout from '../layout/BraticLayout'
 const Home = ({ companyFetched, header, somos, servicios, contacto }) => {
 	return (
 		<BraticLayout>
+			<Head>
+				<link rel='icon' href='/favicon.ico' />
+				<meta name='description' content='bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos.' />
+
+				<meta name='robots' content='index, follow' />
+				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+
+				<meta property="og:title" content="bratic || Consultoría Digital" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content=" http://www.bratic.es/" />
+				<meta property="og:description" content="bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos." />
+
+				<title>bratic || Consultoría Digital</title>
+			</Head>
+
 			<a id='inicio'></a>
 			<Header company={ companyFetched } header={ header } />
 			<a id='quienes-somos'></a>

@@ -17,10 +17,14 @@ const ServiciosPage = ({ companyFetched, header, contacto, servicios, metodologi
 			<BraticLayout>
 				<Head>
 					<link rel='icon' href='/favicon.ico' />
-					<meta name='description' content='Servicios Consultoría Digital' />
+					<meta name='description' content='Servicios bratic Consultoría Digital' />
 					<meta name='robots' content='index, follow' />
 					<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 					<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+					<meta property="og:title" content="bratic || Servicios" />
+					<meta property="og:type" content="website" />
+					<meta property="og:url" content=" http://www.bratic.es/servicios" />
+					<meta property="og:description" content="Servicios bratic Consultoría Digital" />
 					<title>bratic || Servicios</title>
 				</Head>
 
