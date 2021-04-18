@@ -5,3 +5,6 @@ Disallow: /nogooglebot/
 # Group 2
 User-agent: *
 Allow: /
+
+Sitemap: http://bratic.es/sitemap.xml
+Sitemap: http://www.bratic.es/sitemap.xml
