@@ -6,8 +6,9 @@ import Swal from 'sweetalert2'
 
 import { isInViewport } from '../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
+import Link from 'next/link'
 
-const Contact = ({ company }) => {
+const Contact = ({ company, contacto }) => {
 	const [imageIsInView, setImageIsInView] = useState(false)
 	const animatedImage = useRef()
 
@@ -42,20 +43,14 @@ const Contact = ({ company }) => {
 		<>
 			<section className='contact'>
 				<div className='bratic-container'>
-					<p className='pre-title'>¿Tienes alguna duda o necesitas ayuda?</p>
-					<h2>Contáctanos</h2>
+					<p className='pre-title'>{ contacto.subtitle }</p>
+					<h2>{ contacto.title }</h2>
 					<div className='fix'>
 						<article className='left'>
-							<div>
-								<p>
-									Gracias por tu interés en <span className='red'>bratic</span>.
-								</p>
-								<br />
-								<p>Puedes ponerte en contacto con nosotros utilizando el siguiente formulario o a través de hola@bratic.es</p>
-							</div>
+							<div dangerouslySetInnerHTML={ contacto.parsedText }></div>
 							<Animated animationIn={ 'fadeInDownBig' } isVisible={ imageIsInView }>
 								<figure ref={ animatedImage }>
-									<img src='https://res.cloudinary.com/bratic-app/image/upload/v1617289697/web/draw-contact_jcnew3.svg' alt="" />
+									<img src={ contacto.uniqueImage } alt="Contacto bratic" />
 								</figure>
 							</Animated>
 
@@ -76,7 +71,7 @@ const Contact = ({ company }) => {
 										</div>
 									</div>
 									<div className='input-group'>
-										<input type='email' name='email' placeholder='Correo Electrónico*' required />
+										<input type='email' name='email' placeholder='Correo electrónico*' required />
 										<div className='icon'>
 											<FontAwesomeIcon icon={ faEnvelope } />
 										</div>
@@ -99,9 +94,11 @@ const Contact = ({ company }) => {
 										<input type='checkbox' name='checkbox' id='check' required />
 										<label htmlFor='check'>
 											Acepto la{ ' ' }
-											<a href='' className='red'>
-												política de privacidad
-											</a>
+											<Link href='/politica-privacidad'>
+												<a className='red'>
+													política de privacidad
+												</a>
+											</Link>
 										</label>
 									</div>
 									<button className='my-btn'>

@@ -106,9 +106,25 @@
 				@include breakpoint(sm-down) {
 					width: 100%;
 					padding-right: 0;
-					margin-bottom: calc(#{$module} * 2);
+					margin-bottom: calc(#{$module} * 1);
 					&:last-child {
 						margin-bottom: 0;
+					}
+				}
+				h3 {
+					@include breakpoint(sm-down) {
+						display: flex;
+						align-items: center;
+					}
+					.number {
+						display: none;
+						margin: 0;
+						margin-right: calc(#{$module} / 6);
+						border: 1px map-get($theme-colors, 'primary') solid;
+						padding: calc(#{$module} / 4) calc(#{$module} / 2);
+						@include breakpoint(sm-down) {
+							display: flex;
+						}
 					}
 				}
 				ul {
@@ -118,6 +134,11 @@
 						font-weight: $text-light;
 						@include breakpoint(md) {
 							margin-bottom: calc(#{$module} / 3);
+						}
+						&::before {
+							content: '\00BB';
+							color: map-get($theme-colors, 'primary');
+							margin-right: calc(#{$module} / 6);
 						}
 					}
 				}

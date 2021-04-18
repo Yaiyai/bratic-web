@@ -1,15 +1,33 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react'
+import useWindowResize from '../../hook/useWindowResize'
+
 import { FaAngleRight } from 'react-icons/fa'
 import FeatureCard from '../ui/FeatureCard/FeatureCard'
 
 import { Animated } from 'react-animated-css'
 import { isInViewport } from '../../helpers/isInViewport.helper'
 
-const QuienesSomos = () => {
-	let quienesSomosImage = 'https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/quienes-somos-squares_ddsxyl.png'
-	let features = ['Experiencia', 'Innovación', 'Liderazgo', 'Resultados']
+const QuienesSomos = ({ somos }) => {
+	let quienesSomosImage = somos.uniqueImage
+	const [somosSection, setSomosSection] = useState({ intro: '', subintro: '', features: [] })
+
 	const animatedImage = useRef()
 	const [imageIsInView, setImageIsInView] = useState(false)
+	const size = useWindowResize()
+
+	useEffect(() => {
+		let primaryText = somos.parsedText.__html
+		let firstSplit = primaryText.split('((INTRO))')
+		let secondSplit = firstSplit[1].split('((SUBINTRO))')
+		let thirdSplit = secondSplit[1].split('((FEATURES))')
+
+		setSomosSection({
+			intro: firstSplit[0],
+			subintro: secondSplit[0],
+			features: thirdSplit
+		})
+	}, []);
+
 
 	useEffect(() => {
 		isInViewport(animatedImage) && setImageIsInView(true)
@@ -17,6 +35,16 @@ const QuienesSomos = () => {
 			isInViewport(animatedImage) && setImageIsInView(true)
 		})
 	}, [isInViewport])
+
+	const [delays, setDelays] = useState({ first: 0, second: 500, third: 1000 })
+
+	useEffect(() => {
+		if (size[0] <= 767) {
+			setDelays({ first: 0, second: 0, third: 0 })
+		} else {
+			setDelays({ first: 0, second: 500, third: 1000 })
+		}
+	}, [size])
 
 
 
@@ -27,45 +55,38 @@ const QuienesSomos = () => {
 					<article className='left'>
 						<Animated animationIn={ 'fadeInLeft' } isVisible={ imageIsInView }>
 							<h2 ref={ animatedImage }>
-								Quiénes Somos
-								<img src={ quienesSomosImage } alt='' />
+								{ somos.title }
+								<img src={ quienesSomosImage } alt='bratic quienes somos' />
 							</h2>
 						</Animated>
 					</article>
 					<article className='right'>
-						<p className='introduction'>
-							Nuestra misión es <span className='red'>acompañar a las empresas</span> en los retos de la <span className='orange'>cuarta Revolución Industrial</span>; dar soluciones innovadoras a
-							problemas reales.
-						</p>
-						<p>
-							Somos consultores con una doble experiencia en dos sectores que ahora se unen más que nunca: <span className='red'>INDUSTRIAL</span> y <span className='orange'>DIGITAL</span>,
-							especializados en proyectos de Transformación Digital e implementación de tecnologías habilitadoras.
-						</p>
+						<div className='introduction' dangerouslySetInnerHTML={ { __html: somosSection?.intro } }></div>
+						<div dangerouslySetInnerHTML={ { __html: somosSection?.subintro } }></div>
 					</article>
 				</div>
 			</section>
 			<section id='somos-features'>
 				<div className="bratic-container">
-					<h2>¿Por qué bratic? / ¿Qué nos diferencia?</h2>
+					<h2>{ somos.subtitle }</h2>
 					<div className='features bratic-container'>
 						<FeatureCard
-							delay={ 0 }
-							title={ 'Equipo' }
-							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-team_uda23m.svg'
-							text={ 'Somos un equipo venido del mundo empresarial, con experiencia real sobre el terreno, y conocimientos técnicos *****.' }
+							delay={ delays.first }
+							title={ somos.features[0] }
+							image={ somos.gallery[2] }
+							text={ somosSection?.features[0] }
 						/>
 						<FeatureCard
-							delay={ 500 }
-							title={ 'Experiencia' }
-							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-experience_at9hrn.svg'
-							text={ 'La experiencia de siempre, formando la industria del futuro:' }
-							list={ features }
+							delay={ delays.second }
+							title={ somos.features[1] }
+							image={ somos.gallery[0] }
+							text={ somosSection?.features[1] }
 						/>
 						<FeatureCard
-							delay={ 1000 }
-							title={ 'Camino' }
-							image='https://res.cloudinary.com/bratic-app/image/upload/v1617278455/web/draw-camino_whodr7.svg'
-							text={ 'Además, recorreremos junto a ti todo el camino, desde que se origina la necesidad hasta cerrar el ciclo con la puesta en marcha.' }
+							delay={ delays.third }
+							title={ somos.features[2] }
+							image={ somos.gallery[1] }
+							text={ somosSection?.features[2] }
 						/>
 					</div>
 				</div>

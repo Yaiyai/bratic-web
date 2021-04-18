@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { isInViewport } from '../../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
 
@@ -22,14 +20,7 @@ const ServicesCard = ({ bkg, features, title, specialClass, delay }) => {
 			<article ref={ animatedFeature } >
 				<span className={ `${specialClass}` } style={ imageCard }></span>
 				<h2>{ title }</h2>
-				<ul>
-					{ features?.map((ft, idx) => (
-						<li key={ idx }>
-							<FontAwesomeIcon icon={ faCheckCircle } />
-							{ft }
-						</li>
-					)) }
-				</ul>
+				<div className="features" dangerouslySetInnerHTML={ { __html: features } }></div>
 			</article>
 		</Animated>
 	)

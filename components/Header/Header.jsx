@@ -6,7 +6,7 @@ import Button from '../ui/Button/Button'
 import { Animated } from "react-animated-css";
 import { isInViewport } from '../../helpers/isInViewport.helper';
 
-const Header = ({ company }) => {
+const Header = ({ company, header }) => {
 	const isMounted = useRef(true)
 	const theContainer = useRef()
 	const size = useWindowResize()
@@ -54,13 +54,11 @@ const Header = ({ company }) => {
 				<article className='left'>
 					<Animated animationInDuration={ 500 } animationIn="fadeInDown" isVisible={ isLogoVisible }>
 						<div ref={ animatedLogo } className='logo'>
-							<img src={ company.mainLogo } alt='' />
+							<img src={ company.mainLogo } alt='bratic logo' />
 						</div>
 					</Animated>
-					<h1>Consultoría Digital</h1>
-					<h2>
-						Tu <span className='red'>partner digital</span>
-					</h2>
+					<h1>{ header.title }</h1>
+					<h2>{ header.subtitle }</h2>
 					<div className='btn-group'>
 						<Button link='/#quienes-somos' text='Quiénes Somos' type='primary' />
 						<Button link='/servicios' text='Servicios' type='secondary' />
@@ -71,7 +69,7 @@ const Header = ({ company }) => {
 				<article className='right'>
 					<Animated animationInDuration={ 1500 } animationIn="fadeInRight" isVisible={ isImageVisible }>
 						<figure ref={ animatedHeaderImage } style={ rightStyle }>
-							<img src='https://res.cloudinary.com/bratic-app/image/upload/v1613322131/header.png' alt='' />
+							<img src={ header.uniqueImage } alt='bratic consultoria digital' />
 						</figure>
 					</Animated>
 				</article>

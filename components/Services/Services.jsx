@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import useWindowResize from '../../hook/useWindowResize'
 import Card from '../ui/Card/Card'
 
-const Services = () => {
+const Services = ({ servicios }) => {
+	const size = useWindowResize()
+	const [cleanServicios, setCleanServicios] = useState([])
+
+	useEffect(() => {
+		let allServices = servicios.text.split('((SERVICIO))')
+		let auxServices = []
+		let time = 0
+
+		allServices.forEach((elm) => {
+			if (size[0] > 768) {
+				time += 250
+			} else {
+				time = 0
+			}
+			auxServices.push({ title: elm.split('((TITLE))')[0], description: elm.split('((TITLE))')[1], delay: time })
+		})
+		setCleanServicios(auxServices)
+
+	}, [size]);
+
+
 	return (
 		<section id='services-section'>
 
@@ -11,14 +33,7 @@ const Services = () => {
 
 			<div className='bratic-container'>
 				<div className="all-cards">
-					<Card delay={ 0 }
-						title='Consultoría digital'
-						text='Diagnóstico y asesoramiento experto para transformar tu empresa a través de la tecnología, con soluciones adaptadas a tus necesidades.'
-						link='/servicios'
-					/>
-					<Card delay={ 250 } title='Industria 4.0' text='Análisis, definición e implantación de soluciones específicas que optimicen los procesos de empresas industriales y logísticas.' link='/servicios' />
-					<Card delay={ 500 } title='Ciberseguridad' text='Analizamos y proponemos las herramientas y procesos que aseguren a tu empresa ante posibles ataques externos.' link='/servicios' />
-					<Card delay={ 750 } title='Formación' text='Formación específica para asegurar las competencias necesarias que conviertan a las personas en impulsoras del cambio.' link='/servicios' />
+					{ cleanServicios.length > 0 && cleanServicios.map((service, idx) => (<Card key={ idx } delay={ service.delay } title={ service.title } text={ service.description } link='/servicios' />)) }
 				</div>
 			</div>
 		</section>

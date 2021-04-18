@@ -20,7 +20,7 @@ const Footer = ({ company }) => {
 						<h2>
 							En <span className='orange'>bratic</span> queremos ser tu <span className='orange'>partner digital</span>
 						</h2>
-						<Link href='/'>
+						<Link href='/#contacto'>
 							<a className='my-btn'>¡Hablemos!</a>
 						</Link>
 					</div>
@@ -35,23 +35,13 @@ const Footer = ({ company }) => {
 							</Link>
 							<ul className='footer-links'>
 								<li>
-									<Link href='/'>
+									<Link href='/#quienes-somos'>
 										<a>Quiénes Somos</a>
 									</Link>
 								</li>
 								<li>
-									<Link href='/'>
+									<Link href='/servicios'>
 										<a>Servicios</a>
-									</Link>
-								</li>
-								<li>
-									<Link href='/'>
-										<a>Partners</a>
-									</Link>
-								</li>
-								<li>
-									<Link href='/'>
-										<a>Clientes</a>
 									</Link>
 								</li>
 							</ul>
@@ -71,14 +61,14 @@ const Footer = ({ company }) => {
 				<div className='bratic-container'>
 					<ul>
 						<li>
-							<Link href='/'>
-								<a href='/'>Política de Privacidad</a>
+							<Link href='/politica-privacidad'>
+								<a>Política de Privacidad</a>
 							</Link>
 						</li>
 						<span>·</span>
 						<li>
-							<Link href='/'>
-								<a href='/'>Términos y Condiciones</a>
+							<Link href='/aviso-legal'>
+								<a>Aviso Legal</a>
 							</Link>
 						</li>
 					</ul>

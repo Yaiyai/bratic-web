@@ -3,7 +3,7 @@ import { FaAngleRight } from 'react-icons/fa'
 import { Animated } from 'react-animated-css'
 import { isInViewport } from '../../../helpers/isInViewport.helper'
 
-const FeatureCard = ({ image, title, text, list = false, delay }) => {
+const FeatureCard = ({ image, title, text, delay }) => {
     const animatedFeature = useRef()
     const [featureIsInView, setFeatureIsInView] = useState(false)
 
@@ -17,20 +17,11 @@ const FeatureCard = ({ image, title, text, list = false, delay }) => {
     return (
         <article className="each-feature">
             <Animated animationIn="fadeInDown" isVisible={ featureIsInView } animationInDelay={ delay } className="image-container">
-                <img ref={ animatedFeature } src={ image } alt="" />
+                <img ref={ animatedFeature } src={ image } alt="bratic" />
             </Animated>
             <div className="content">
                 <h3 className="title">{ title }</h3>
-                <p>{ text }</p>
-                { list &&
-                    <ul>
-                        {
-                            list.map(list => (
-                                <li key={ list }><FaAngleRight />{ list }</li>
-                            ))
-                        }
-                    </ul>
-                }
+                <div className='text-editor' dangerouslySetInnerHTML={ { __html: text } }></div>
             </div>
         </article>
     )
