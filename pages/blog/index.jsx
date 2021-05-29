@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { getCompany } from '../../api/company'
-import { getPublications } from '../../api/publications'
+import { getMorePublications, getPublications } from '../../api/publications'
 import { FaChevronDown, FaEye, FaSearch } from "react-icons/fa";
 
 import dayjs from 'dayjs'
@@ -40,8 +40,14 @@ const BlogPage = ({ publications, companyFetched }) => {
         setInitialPosts()
     }, [])
 
+    const morePosts = async () => {
+        let publicationsAux = [...publications].splice(posts.rest.length + 1, 3)
+        setPosts(posts => ({ ...posts, rest: [...posts.rest, ...publicationsAux] }))
+        setIsSearching(false)
+    }
+
     const setInitialPosts = () => {
-        let publicationsAux = [...publications]
+        let publicationsAux = [...publications].splice(0, 4)
         let firstAux = publicationsAux.shift()
         setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
         setIsSearching(false)
@@ -51,7 +57,7 @@ const BlogPage = ({ publications, companyFetched }) => {
         if (target.value !== 'todas') {
             let publicationsAux = publications.filter(pub => pub.categories.length > 0 && pub.categories.includes(target.value))
             let firstAux = publicationsAux.shift()
-            setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
+            setPosts(posts => ({ rest: publicationsAux }))
         } else {
             setInitialPosts()
         }
@@ -92,7 +98,7 @@ const BlogPage = ({ publications, companyFetched }) => {
                     <div>
                         <div className="select-input">
                             <select onChange={ filterPosts }>
-                                <option hidden selected>Filtrar por categoría</option>
+                                <option hidden defaultValue>Filtrar por categoría</option>
                                 { categories?.length > 0 && categories?.map(cat => (<option value={ cat } key={ cat } >{ cat }</option>)) }
                                 <option value="todas">Ver todas</option>
                             </select>
@@ -146,6 +152,8 @@ const BlogPage = ({ publications, companyFetched }) => {
                                     </div>
                                 )
                             }
+                            { publications.length > 3 && !isSearching && <button className="my-btn primary" onClick={ morePosts }>Ver más</button> }
+
 
                         </>
 
