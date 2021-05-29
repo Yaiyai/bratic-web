@@ -1,8 +1,26 @@
 import Head from 'next/head'
-import React from 'react'
+import Link from 'next/Link'
+import React, { useEffect, useState } from 'react'
 import { getCompany } from '../../api/company'
+import { getPublications } from '../../api/publications'
+import { FaChevronDown, FaSearch } from "react-icons/fa";
 
-const BlogPage = () => {
+import dayjs from 'dayjs'
+import 'dayjs/locale/es' // load on demand
+
+dayjs.locale('es')
+
+
+const BlogPage = ({ publications, companyFetched }) => {
+    const { categories } = companyFetched
+    const [posts, setPosts] = useState({})
+
+    useEffect(() => {
+        let publicationsAux = [...publications]
+        let firstAux = publicationsAux.shift()
+        setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
+    }, [])
+
     return (
         <>
             <Head>
@@ -20,18 +38,55 @@ const BlogPage = () => {
                 <title>bratic || Blog</title>
             </Head>
 
-
-
-
-            soy el bloooooogr
+            <div className="bratic-container">
+                <header className="blog-header">
+                    <h1>Publicaciones</h1>
+                    <div>
+                        <div className="select-input">
+                            <select>
+                                <option>Filtrar por categoría</option>
+                                { categories?.length > 0 && categories?.map(cat => (<option value={ cat } key={ cat } >{ cat }</option>)) }
+                            </select>
+                            <FaChevronDown />
+                        </div>
+                        <div className="input-search">
+                            <input type="text" placeholder="Buscar..." />
+                            <FaSearch />
+                        </div>
+                    </div>
+                </header>
+                <Link href={ `/blog/${posts?.firstPost?.slug}` }>
+                    <a className="first-post">
+                        <figure className="left">
+                            <img src={ posts?.firstPost?.content.image[0].image } alt="" />
+                        </figure>
+                        <div className="right">
+                            <div className="cat-date">
+                                { posts?.firstPost?.categories?.length > 0 && (
+                                    <div className="categories">
+                                        {
+                                            posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
+                                        }
+                                    </div>
+                                ) }
+                                <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
+                            </div>
+                            <h2>{ posts?.firstPost?.title }</h2>
+                            <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
+                        </div>
+                    </a>
+                </Link>
+            </div>
         </>
     )
 }
 export const getServerSideProps = async () => {
-    const [companyFetched] = await Promise.all([
+    const [companyFetched, publications] = await Promise.all([
         getCompany(),
+        getPublications()
     ])
-    return { props: { companyFetched } }
+
+    return { props: { companyFetched, publications } }
 }
 
 export default BlogPage

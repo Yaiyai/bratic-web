@@ -4,6 +4,7 @@ label {
 	margin-bottom: 0;
 }
 input,
+select,
 textarea {
 	border: map-get($theme-colors, 'grey') 1px solid;
 	border-radius: 0;
@@ -23,6 +24,7 @@ textarea {
 		margin-right: calc(#{$module} / 6);
 	}
 }
+
 textarea {
 	resize: none;
 	height: calc(#{$module} * 4);

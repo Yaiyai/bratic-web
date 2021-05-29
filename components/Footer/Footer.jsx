@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
+
 
 const Footer = ({ company }) => {
 	const isMounted = useRef(true)
@@ -48,10 +47,10 @@ const Footer = ({ company }) => {
 						</div>
 						<div className='right'>
 							<a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
-								<FontAwesomeIcon icon={ faLinkedin } />
+								<FaLinkedin />
 							</a>
 							<a href={ `mailto:${company.companyFetched.mainEmail}` } className='rrss-icon' target='new'>
-								<FontAwesomeIcon icon={ faEnvelope } />
+								<FaEnvelope />
 							</a>
 						</div>
 					</nav>

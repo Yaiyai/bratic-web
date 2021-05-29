@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone, faMapMarkerAlt, faClock, faUser, faBuilding, faComment } from '@fortawesome/free-solid-svg-icons'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 
 import { isInViewport } from '../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
 import Link from 'next/link'
+import { FaUserm, FaEnvelope, FaPhone, FaBuilding, FaComment } from "react-icons/fa";
 
 const Contact = ({ company, contacto }) => {
 	const [imageIsInView, setImageIsInView] = useState(false)
@@ -60,33 +59,33 @@ const Contact = ({ company, contacto }) => {
 								<div className='input-group'>
 									<input type='text' name='name' placeholder='Nombre y apellidos*' required />
 									<div className='icon'>
-										<FontAwesomeIcon icon={ faUser } />
+										<FaUser />
 									</div>
 								</div>
 								<div className='phone-email'>
 									<div className='input-group'>
 										<input type='phone' name='phone' placeholder='Teléfono de contacto*' required />
 										<div className='icon'>
-											<FontAwesomeIcon icon={ faPhone } />
+											<FaPhone />
 										</div>
 									</div>
 									<div className='input-group'>
 										<input type='email' name='email' placeholder='Correo electrónico*' required />
 										<div className='icon'>
-											<FontAwesomeIcon icon={ faEnvelope } />
+											<FaEnvelope />
 										</div>
 									</div>
 								</div>
 								<div className='input-group'>
 									<input type='text' name='company' placeholder='Empresa*' required />
 									<div className='icon'>
-										<FontAwesomeIcon icon={ faBuilding } />
+										<FaBuilding />
 									</div>
 								</div>
 								<div className='input-group text-area'>
 									<textarea name='message' placeholder='Mensaje' />
 									<div className='icon'>
-										<FontAwesomeIcon icon={ faComment } />
+										<FaComment />
 									</div>
 								</div>
 								<div className='submit-group'>
