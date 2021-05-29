@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { isInViewport } from '../../helpers/isInViewport.helper'
 import { Animated } from 'react-animated-css'
 import Link from 'next/link'
-import { FaUserm, FaEnvelope, FaPhone, FaBuilding, FaComment } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaPhone, FaBuilding, FaComment } from "react-icons/fa";
 
 const Contact = ({ company, contacto }) => {
 	const [imageIsInView, setImageIsInView] = useState(false)

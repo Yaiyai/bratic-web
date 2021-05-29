@@ -16,21 +16,23 @@ dayjs.locale('es')
 const SinglePost = ({ post }) => {
     return (
         <section className="single-post">
-            <h1>{ post?.title }</h1>
-            <div className="date-cat">
-                { post?.categories.length > 0 && (
-                    <div className="categories">
-                        {
-                            post?.categories?.map(cat => (
-                                <small key={ cat }>{ cat }</small>
-                            ))
-                        }
-                    </div>
-                ) }
-                { post?.categories.length > 0 && <span className="separator"> · </span> }
-                {
-                    post?.postDate ? <small>{ dayjs(post?.postDate).format('DD/MM/YYYY') }</small> : <small>{ dayjs(post?.createdAt).format('DD/MM/YYYY') }</small>
-                }
+            <div className="post-title bratic-container">
+                <h1>{ post?.title }</h1>
+                <div className="date-cat">
+                    { post?.categories.length > 0 && (
+                        <div className="categories">
+                            {
+                                post?.categories?.map(cat => (
+                                    <small key={ cat }>{ cat }</small>
+                                ))
+                            }
+                        </div>
+                    ) }
+                    { post?.categories.length > 0 && <span className="separator"> · </span> }
+                    {
+                        post?.postDate ? <small>{ dayjs(post?.postDate).format('DD/MM/YYYY') }</small> : <small>{ dayjs(post?.createdAt).format('DD/MM/YYYY') }</small>
+                    }
+                </div>
             </div>
             { post?.content?.image.length > 0 && (
                 <figure className="main-image">
@@ -38,7 +40,7 @@ const SinglePost = ({ post }) => {
                 </figure>
             ) }
             { }
-            <div className="app-container">
+            <div className="app-container bratic-container">
                 { post?.subtitle && <h2>{ post?.subtitle }</h2> }
                 { post?.content?.text?.length > 0 && (
                     post?.content?.text?.map((txt, idx) => (

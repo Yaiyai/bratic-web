@@ -1,3 +1,4 @@
+@import './[postSlug]/SinglePost.scss';
 .blog-header {
 	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
 	display: flex;
@@ -71,19 +72,26 @@
 	.right {
 		width: calc((100% / 12) * 4);
 
-		padding: calc(#{$module} * 1);
+		padding: 0 calc(#{$module} * 1);
 		h2 {
 			@include font-line-height(30px);
 		}
 		.cat-date {
 			display: flex;
 			align-items: center;
+			margin-bottom: calc(#{$module} / 2);
+			p {
+				color: map-get($theme-colors, 'grey');
+				font-weight: $text-light;
+				text-transform: uppercase;
+				@include font-line-height(14px);
+				margin-right: calc(#{$module} / 3);
+			}
 			.categories {
 				display: flex;
 				align-items: center;
 				p {
-					text-transform: uppercase;
-					margin-right: calc(#{$module} / 3);
+					color: map-get($theme-colors, 'secondary');
 				}
 			}
 		}

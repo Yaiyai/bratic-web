@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Link from 'next/Link'
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
 import { getCompany } from '../../api/company'
 import { getPublications } from '../../api/publications'
 import { FaChevronDown, FaSearch } from "react-icons/fa";
