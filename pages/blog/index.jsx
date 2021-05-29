@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { getCompany } from '../../api/company'
@@ -9,6 +9,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/es' // load on demand
 import BlogCard from '../../components/ui/BlogCard/BlogCard'
 import Button from '../../components/ui/Button/Button'
+import useForm from '../../hook/useForm'
 
 dayjs.locale('es')
 
@@ -16,6 +17,24 @@ dayjs.locale('es')
 const BlogPage = ({ publications, companyFetched }) => {
     const { categories } = companyFetched
     const [posts, setPosts] = useState({})
+    const { values, handleInputChange, resetForm } = useForm()
+    const searchInput = useRef()
+    const [isSearching, setIsSearching] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (values.search) {
+            searchPost(values.search)
+            resetForm()
+            searchInput.current.value = ''
+            setIsSearching(true)
+        }
+    }
+    const handleKeySubmit = (e) => {
+        if (event.key === 'Enter') {
+            handleSubmit(e)
+        }
+    }
 
     useEffect(() => {
         setInitialPosts()
@@ -25,6 +44,7 @@ const BlogPage = ({ publications, companyFetched }) => {
         let publicationsAux = [...publications]
         let firstAux = publicationsAux.shift()
         setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
+        setIsSearching(false)
     }
 
     const filterPosts = ({ target }) => {
@@ -35,6 +55,16 @@ const BlogPage = ({ publications, companyFetched }) => {
         } else {
             setInitialPosts()
         }
+    }
+
+    const searchPost = (search) => {
+        let cleanSearch = search.toLowerCase().trim()
+        let publicationsAux = publications.filter(pub => {
+            if (pub.title.toLowerCase().includes(cleanSearch)) {
+                return pub
+            }
+        })
+        setPosts(posts => ({ rest: publicationsAux }))
     }
 
     return (
@@ -69,38 +99,42 @@ const BlogPage = ({ publications, companyFetched }) => {
                             <FaChevronDown />
                         </div>
                         <div className="input-search">
-                            <input type="text" placeholder="Buscar..." />
-                            <FaSearch />
+                            <input name="search" ref={ searchInput } onChange={ handleInputChange } onKeyDown={ handleKeySubmit } type="text" placeholder="Buscar..." />
+                            <FaSearch onClick={ handleSubmit } />
                         </div>
                     </div>
                 </header>
 
-
+                { isSearching && <button className="my-btn primary" onClick={ setInitialPosts }>Volver</button> }
                 {
                     posts?.rest?.length > 0 ? (
                         <>
-                            <Link href={ `/blog/${posts?.firstPost?.slug}` }>
-                                <a className="first-post">
-                                    <figure className="left">
-                                        <img src={ posts?.firstPost?.content.image[0].image } alt="" />
-                                        <span>Ver publicación <FaEye /></span>
-                                    </figure>
-                                    <div className="right">
-                                        <div className="cat-date">
-                                            { posts?.firstPost?.categories?.length > 0 && (
-                                                <div className="categories">
-                                                    {
-                                                        posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
-                                                    }
+                            {
+                                posts?.firstPost && (
+                                    <Link href={ `/blog/${posts?.firstPost?.slug}` }>
+                                        <a className="first-post">
+                                            <figure className="left">
+                                                <img src={ posts?.firstPost?.content.image[0].image } alt="" />
+                                                <span>Ver publicación <FaEye /></span>
+                                            </figure>
+                                            <div className="right">
+                                                <div className="cat-date">
+                                                    { posts?.firstPost?.categories?.length > 0 && (
+                                                        <div className="categories">
+                                                            {
+                                                                posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
+                                                            }
+                                                        </div>
+                                                    ) }
+                                                    <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
                                                 </div>
-                                            ) }
-                                            <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
-                                        </div>
-                                        <h2>{ posts?.firstPost?.title }</h2>
-                                        <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
-                                    </div>
-                                </a>
-                            </Link>
+                                                <h2>{ posts?.firstPost?.title }</h2>
+                                                <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
+                                            </div>
+                                        </a>
+                                    </Link>
+                                )
+                            }
                             {
                                 posts?.rest?.length > 0 && (
                                     <div className="all-posts">
@@ -112,6 +146,7 @@ const BlogPage = ({ publications, companyFetched }) => {
                                     </div>
                                 )
                             }
+
                         </>
 
                     ) : (
