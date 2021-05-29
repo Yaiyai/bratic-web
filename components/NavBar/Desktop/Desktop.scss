@@ -9,6 +9,9 @@
 			color: map-get($theme-colors, 'text');
 			margin-left: $module;
 			font-size: $font-sm;
+			&.active {
+				color: map-get($theme-colors, 'primary');
+			}
 		}
 	}
 	.important {

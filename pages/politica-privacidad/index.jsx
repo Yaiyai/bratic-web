@@ -3,12 +3,11 @@ import React from 'react'
 import { getCompany } from '../../api/company'
 import { getSection } from '../../api/sections'
 import PageHeader from '../../components/ui/PageHeader/PageHeader'
-import BraticLayout from '../../layout/BraticLayout'
 
 
 const PoliticaPrivacidadPage = ({ privacidad }) => {
     return (
-        <BraticLayout>
+        <>
             <Head>
                 <link rel='icon' href='/favicon.ico' />
                 <meta name='description' content='Política de Privacidad Bratic' />
@@ -21,7 +20,7 @@ const PoliticaPrivacidadPage = ({ privacidad }) => {
             <PageHeader title={ privacidad.title } bkg={ privacidad.uniqueImage } />
 
             <div className="bratic-container legal-page" dangerouslySetInnerHTML={ privacidad.parsedText }></div>
-        </BraticLayout>
+        </>
     )
 }
 export const getServerSideProps = async () => {

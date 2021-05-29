@@ -38,6 +38,11 @@ const Mobile = ({ company, menuHeight }) => {
                         </Link>
                     </li>
                     <li>
+                        <Link href='/blog'>
+                            <a onClick={ closeMenu }>Blog</a>
+                        </Link>
+                    </li>
+                    <li>
                         <a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
                             <FaLinkedin />
                         </a>

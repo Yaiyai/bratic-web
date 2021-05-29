@@ -1,20 +1,26 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 import { FaLinkedin } from "react-icons/fa";
 
 const Desktop = ({ company }) => {
+    const [active, setActive] = useState('home')
     return (
         <article className='desktop-nav'>
 
             <ul className='normal'>
                 <li>
                     <Link href='/#quienes-somos'>
-                        <a>Quiénes Somos</a>
+                        <a className={ active === 'home' ? 'active' : null } onClick={ () => setActive('home') }>Quiénes Somos</a>
                     </Link>
                 </li>
                 <li>
                     <Link href='/servicios'>
-                        <a>Servicios</a>
+                        <a className={ active === 'servicios' ? 'active' : null } onClick={ () => setActive('servicios') }>Servicios</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href='/blog'>
+                        <a className={ active === 'blog' ? 'active' : null } onClick={ () => setActive('blog') }>Blog</a>
                     </Link>
                 </li>
             </ul>

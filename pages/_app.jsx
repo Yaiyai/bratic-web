@@ -5,6 +5,7 @@ import '../scss/global.scss'
 import 'animate.css'
 import { useEffect, useState } from 'react';
 import Loader from '../components/ui/Loader/Loader';
+import BraticLayout from '../layout/BraticLayout';
 
 function MyApp({ Component, pageProps }) {
 	const companyFetched = pageProps.companyFetched
@@ -29,8 +30,10 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<CompanyContext.Provider value={ { companyFetched } }>
-			<Loader loading={ loading } />
-			<Component { ...pageProps } />
+			<BraticLayout>
+				<Loader loading={ loading } />
+				<Component { ...pageProps } />
+			</BraticLayout>
 		</CompanyContext.Provider>
 	)
 }

@@ -7,11 +7,10 @@ import Header from '../components/Header/Header'
 import Metodologia from '../components/Metodologia/Metodologia'
 import QuienesSomos from '../components/QuienesSomos/QuienesSomos'
 import Services from '../components/Services/Services'
-import BraticLayout from '../layout/BraticLayout'
 
 const Home = ({ companyFetched, header, somos, servicios, contacto }) => {
 	return (
-		<BraticLayout>
+		<>
 			<Head>
 				<meta name='description' content='bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos.' />
 
@@ -34,7 +33,7 @@ const Home = ({ companyFetched, header, somos, servicios, contacto }) => {
 			<Services servicios={ servicios } />
 			<a id='contacto'></a>
 			<Contact contacto={ contacto } company={ companyFetched } />
-		</BraticLayout>
+		</>
 	)
 }
 

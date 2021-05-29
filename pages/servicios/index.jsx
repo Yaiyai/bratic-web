@@ -8,38 +8,34 @@ import GestionAyudas from '../../components/GestionAyudas/GestionAyudas'
 import Metodologia from '../../components/Metodologia/Metodologia'
 import Services from '../../components/Services/ServicesPage/Services'
 import PageHeader from '../../components/ui/PageHeader/PageHeader'
-import BraticLayout from '../../layout/BraticLayout'
 
 const ServiciosPage = ({ companyFetched, header, contacto, servicios, metodologia, comoTrabajamos, gestionAyudas }) => {
 	return (
 		<>
+			<Head>
+				<meta name='description' content='Servicios bratic Consultoría Digital' />
 
-			<BraticLayout>
-				<Head>
-					<meta name='description' content='Servicios bratic Consultoría Digital' />
+				<meta name='robots' content='index, follow' />
+				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 
-					<meta name='robots' content='index, follow' />
-					<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-					<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta property="og:title" content="bratic || Servicios" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content=" http://www.bratic.es/servicios" />
+				<meta property="og:description" content="Servicios bratic Consultoría Digital" />
 
-					<meta property="og:title" content="bratic || Servicios" />
-					<meta property="og:type" content="website" />
-					<meta property="og:url" content=" http://www.bratic.es/servicios" />
-					<meta property="og:description" content="Servicios bratic Consultoría Digital" />
-
-					<title>bratic || Servicios</title>
-				</Head>
+				<title>bratic || Servicios</title>
+			</Head>
 
 
-				<PageHeader bkg={ header.uniqueImage } title={ header.title } />
-				<section id='servicios-container'>
-					<Services servicios={ servicios } />
-					<Metodologia metodologia={ metodologia } />
-					<ComoTrabajamos comoTrabajamos={ comoTrabajamos } />
-					<GestionAyudas gestionAyudas={ gestionAyudas } />
-					<Contact contacto={ contacto } company={ companyFetched } />
-				</section>
-			</BraticLayout>
+			<PageHeader bkg={ header.uniqueImage } title={ header.title } />
+			<section id='servicios-container'>
+				<Services servicios={ servicios } />
+				<Metodologia metodologia={ metodologia } />
+				<ComoTrabajamos comoTrabajamos={ comoTrabajamos } />
+				<GestionAyudas gestionAyudas={ gestionAyudas } />
+				<Contact contacto={ contacto } company={ companyFetched } />
+			</section>
 		</>
 	)
 }
