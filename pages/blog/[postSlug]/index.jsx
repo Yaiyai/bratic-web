@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { getCompany } from '../../../api/company'
 import { getPostBySlug } from '../../../api/publications'
 
@@ -16,7 +16,7 @@ dayjs.locale('es')
 const SinglePost = ({ post }) => {
     const [items, setItems] = useState([])
 
-    useEffect(() => {
+    const cleanImages = useCallback(() => {
         if (post?.isGallery) {
             post?.content?.image.forEach((elm) => {
                 setItems(items => [...items, {
@@ -28,6 +28,11 @@ const SinglePost = ({ post }) => {
             })
         }
     }, [post])
+
+    useEffect(() => {
+        cleanImages()
+    }, [cleanImages])
+
 
     const getThumbnails = (str) => {
         let splitStr = str.split('upload/')

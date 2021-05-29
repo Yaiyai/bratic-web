@@ -3,6 +3,12 @@ import { useRouter } from 'next/router';
 
 import '../scss/global.scss'
 import 'animate.css'
+// Import Swiper styles
+import 'swiper/swiper.scss'
+import 'swiper/components/pagination/pagination.scss'
+//Photoswipe
+import 'react-photoswiper/lib/photoswipe.css'
+
 import { useEffect, useState } from 'react';
 import Loader from '../components/ui/Loader/Loader';
 import BraticLayout from '../layout/BraticLayout';

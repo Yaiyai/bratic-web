@@ -8,6 +8,7 @@ import { FaChevronDown, FaEye, FaSearch } from "react-icons/fa";
 import dayjs from 'dayjs'
 import 'dayjs/locale/es' // load on demand
 import BlogCard from '../../components/ui/BlogCard/BlogCard'
+import Button from '../../components/ui/Button/Button'
 
 dayjs.locale('es')
 
@@ -17,10 +18,24 @@ const BlogPage = ({ publications, companyFetched }) => {
     const [posts, setPosts] = useState({})
 
     useEffect(() => {
+        setInitialPosts()
+    }, [])
+
+    const setInitialPosts = () => {
         let publicationsAux = [...publications]
         let firstAux = publicationsAux.shift()
         setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
-    }, [])
+    }
+
+    const filterPosts = ({ target }) => {
+        if (target.value !== 'todas') {
+            let publicationsAux = publications.filter(pub => pub.categories.length > 0 && pub.categories.includes(target.value))
+            let firstAux = publicationsAux.shift()
+            setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
+        } else {
+            setInitialPosts()
+        }
+    }
 
     return (
         <>
@@ -40,13 +55,16 @@ const BlogPage = ({ publications, companyFetched }) => {
             </Head>
 
             <div className="bratic-container">
+
+
                 <header className="blog-header">
                     <h1>Publicaciones</h1>
                     <div>
                         <div className="select-input">
-                            <select>
-                                <option>Filtrar por categoría</option>
+                            <select onChange={ filterPosts }>
+                                <option hidden selected>Filtrar por categoría</option>
                                 { categories?.length > 0 && categories?.map(cat => (<option value={ cat } key={ cat } >{ cat }</option>)) }
+                                <option value="todas">Ver todas</option>
                             </select>
                             <FaChevronDown />
                         </div>
@@ -56,39 +74,55 @@ const BlogPage = ({ publications, companyFetched }) => {
                         </div>
                     </div>
                 </header>
-                <Link href={ `/blog/${posts?.firstPost?.slug}` }>
-                    <a className="first-post">
-                        <figure className="left">
-                            <img src={ posts?.firstPost?.content.image[0].image } alt="" />
-                            <span>Ver publicación <FaEye /></span>
-                        </figure>
-                        <div className="right">
-                            <div className="cat-date">
-                                { posts?.firstPost?.categories?.length > 0 && (
-                                    <div className="categories">
+
+
+                {
+                    posts?.rest?.length > 0 ? (
+                        <>
+                            <Link href={ `/blog/${posts?.firstPost?.slug}` }>
+                                <a className="first-post">
+                                    <figure className="left">
+                                        <img src={ posts?.firstPost?.content.image[0].image } alt="" />
+                                        <span>Ver publicación <FaEye /></span>
+                                    </figure>
+                                    <div className="right">
+                                        <div className="cat-date">
+                                            { posts?.firstPost?.categories?.length > 0 && (
+                                                <div className="categories">
+                                                    {
+                                                        posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
+                                                    }
+                                                </div>
+                                            ) }
+                                            <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
+                                        </div>
+                                        <h2>{ posts?.firstPost?.title }</h2>
+                                        <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
+                                    </div>
+                                </a>
+                            </Link>
+                            {
+                                posts?.rest?.length > 0 && (
+                                    <div className="all-posts">
                                         {
-                                            posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
+                                            posts.rest.map(post => (
+                                                <BlogCard post={ post } key={ post._id } />
+                                            ))
                                         }
                                     </div>
-                                ) }
-                                <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
-                            </div>
-                            <h2>{ posts?.firstPost?.title }</h2>
-                            <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
-                        </div>
-                    </a>
-                </Link>
-                {
-                    posts?.rest?.length > 0 && (
-                        <div className="all-posts">
-                            {
-                                posts.rest.map(post => (
-                                    <BlogCard post={ post } key={ post._id } />
-                                ))
+                                )
                             }
+                        </>
+
+                    ) : (
+                        <div className="error-blog">
+                            <p className="error-text">No hay posts relacionados con tu búsqueda</p>
+                            <button className="my-btn primary" onClick={ setInitialPosts }>Volver</button>
                         </div>
                     )
                 }
+
+
             </div>
         </>
     )

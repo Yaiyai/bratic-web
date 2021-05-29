@@ -49,6 +49,16 @@
 		}
 	}
 }
+.error-blog {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: calc(#{$module} * 10) 0;
+	.error-text {
+		margin-bottom: calc(#{$module} * 1);
+		text-align: center;
+	}
+}
 .all-posts {
 	display: flex;
 	flex-wrap: wrap;
@@ -59,7 +69,7 @@
 	height: 450px;
 	display: flex;
 	background-color: white;
-	margin-bottom: calc(#{$module} * 4);
+	margin-bottom: calc(#{$module} * 1);
 	text-decoration: none;
 	box-shadow: 0 0 4px 0 #d9ddde;
 	cursor: pointer;
@@ -150,7 +160,16 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: normal;
-			@include font-line-height($font-sm);
+			@include font-line-height($font-xs);
+			p {
+				span {
+					font-size: $font-sm !important;
+				}
+				font-size: $font-sm !important;
+			}
+			a {
+				display: inline-block;
+			}
 		}
 	}
 }

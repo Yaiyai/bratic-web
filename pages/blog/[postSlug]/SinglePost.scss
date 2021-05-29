@@ -1,5 +1,5 @@
 .single-post {
-	padding-top: calc(#{$module} * 6);
+	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
 	.post-title {
 		display: flex;
 		flex-direction: column;
@@ -50,9 +50,13 @@
 		}
 	}
 	.app-container {
-		width: calc((100% / 12) * 10);
+		width: calc((100% / 12) * 8);
 		margin: calc(#{$module} * 1) auto;
 		.post-text {
+			padding: calc(#{$module} * 2) 0;
+			a {
+				display: inline-block;
+			}
 			p {
 				color: map-get($theme-colors, 'text');
 				font-family: $font-text;
