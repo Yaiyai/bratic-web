@@ -3,10 +3,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getCompany } from '../../api/company'
 import { getPublications } from '../../api/publications'
-import { FaChevronDown, FaSearch } from "react-icons/fa";
+import { FaChevronDown, FaEye, FaSearch } from "react-icons/fa";
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/es' // load on demand
+import BlogCard from '../../components/ui/BlogCard/BlogCard'
 
 dayjs.locale('es')
 
@@ -59,6 +60,7 @@ const BlogPage = ({ publications, companyFetched }) => {
                     <a className="first-post">
                         <figure className="left">
                             <img src={ posts?.firstPost?.content.image[0].image } alt="" />
+                            <span>Ver publicación <FaEye /></span>
                         </figure>
                         <div className="right">
                             <div className="cat-date">
@@ -76,6 +78,17 @@ const BlogPage = ({ publications, companyFetched }) => {
                         </div>
                     </a>
                 </Link>
+                {
+                    posts?.rest?.length > 0 && (
+                        <div className="all-posts">
+                            {
+                                posts.rest.map(post => (
+                                    <BlogCard post={ post } key={ post._id } />
+                                ))
+                            }
+                        </div>
+                    )
+                }
             </div>
         </>
     )

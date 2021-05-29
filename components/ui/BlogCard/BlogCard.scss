@@ -1,71 +1,14 @@
-@import './[postSlug]/SinglePost.scss';
-.blog-header {
-	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
+.each-post {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	> div {
-		display: flex;
-		select,
-		input {
-			width: 350px;
-			margin-right: 16px;
-			border-radius: 5px;
-			padding: calc(#{$module} / 2);
-			color: map-get($theme-colors, 'grey');
-		}
-		select {
-			@include font-line-height($font-xs);
-			color: map-get($theme-colors, 'grey');
-			min-height: 16px;
-			-moz-appearance: none; /* Firefox */
-			-webkit-appearance: none; /* Safari and Chrome */
-			appearance: none;
-		}
-		input {
-			margin-right: 0;
-		}
-		.select-input {
-			position: relative;
-			svg {
-				position: absolute;
-				top: 35%;
-				right: 24px;
-				color: map-get($theme-colors, 'primary');
-				width: 15px;
-				height: 15px;
-			}
-		}
-		.input-search {
-			position: relative;
-			svg {
-				position: absolute;
-				top: 35%;
-				right: 12px;
-				color: map-get($theme-colors, 'primary');
-				width: 15px;
-				height: 15px;
-			}
-		}
-	}
-}
-.all-posts {
-	display: flex;
-	flex-wrap: wrap;
-	margin-bottom: calc(#{$module} * 6);
-}
-
-.first-post {
-	height: 450px;
-	display: flex;
+	flex-direction: column;
+	@include items-grid(3, $module);
+	height: 580px;
 	background-color: white;
-	margin-bottom: calc(#{$module} * 4);
-	text-decoration: none;
 	box-shadow: 0 0 4px 0 #d9ddde;
 	cursor: pointer;
 	&:hover {
 		box-shadow: 0 0 8px 0 #d9ddde;
-		.left {
+		.top {
 			span {
 				display: flex;
 			}
@@ -74,10 +17,9 @@
 			}
 		}
 	}
-
-	.left {
-		width: calc((100% / 12) * 8);
-		height: 100%;
+	.top {
+		width: 100%;
+		height: 225px;
 		overflow: hidden;
 		margin-bottom: 0;
 		position: relative;
@@ -117,12 +59,13 @@
 			display: none;
 		}
 	}
-	.right {
-		width: calc((100% / 12) * 4);
-
+	.bottom {
+		width: 100%;
+		flex-grow: 1;
 		padding: calc(#{$module} * 1);
 		h2 {
-			@include font-line-height(30px);
+			@include font-line-height(24px);
+			max-width: 90%;
 		}
 		.cat-date {
 			display: flex;
@@ -144,6 +87,7 @@
 			}
 		}
 		.excerpt {
+			max-width: 90%;
 			-webkit-box-orient: vertical;
 			display: -webkit-box;
 			-webkit-line-clamp: 3;

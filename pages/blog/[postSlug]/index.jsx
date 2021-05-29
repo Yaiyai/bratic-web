@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { getCompany } from '../../../api/company'
 import { getPostBySlug } from '../../../api/publications'
 
@@ -14,6 +14,33 @@ dayjs.locale('es')
 
 
 const SinglePost = ({ post }) => {
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        if (post?.isGallery) {
+            post?.content?.image.forEach((elm) => {
+                setItems(items => [...items, {
+                    src: elm.image,
+                    thumbnail: getThumbnails(elm.image),
+                    w: 1200,
+                    h: 900,
+                }])
+            })
+        }
+    }, [post])
+
+    const getThumbnails = (str) => {
+        let splitStr = str.split('upload/')
+        let newStr = 'upload/w_200/'
+        return `${splitStr[0]}${newStr}${splitStr[1]}`
+    }
+
+    const getThumbnailContent = (item) => {
+        return (
+            <img src={ item.thumbnail } alt='' />
+        )
+    }
+
     return (
         <section className="single-post">
             <div className="post-title bratic-container">
