@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import Head from 'next/head'
 import { getCompany } from '../../../api/company'
 import { getMorePublications, getPostBySlug } from '../../../api/publications'
 
@@ -10,6 +11,7 @@ import 'dayjs/locale/es' // load on demand
 import { PhotoSwipeGallery } from 'react-photoswiper'
 import LatestPubs from '../../../components/LatestPubs/LatestPubs'
 import SocialShare from '../../../components/ui/SocialShare/SocialShare'
+import { cutContent } from '../../../helpers/cleanContent'
 SwiperCore.use([Autoplay, Pagination])
 
 dayjs.locale('es')
@@ -53,6 +55,24 @@ const SinglePost = ({ post, publications }) => {
 
     return (
         <>
+            <Head>
+                <meta name="robots" content="noindex, nofollow" />
+                <meta name="googlebot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+                <meta name="bingbot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+                <title>{ `bratic || ${post?.title}` }</title>
+                <meta name="description" content={ cutContent(post?.content.text[0].text) } />
+                <link rel="canonical" href={ builtUrl }></link>
+                <meta property="og:locale" content="es"></meta>
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={ post?.title } />
+                <meta property="og:image" content={ post?.content.image[0].image } />
+                <meta property="og:description" content={ cutContent(post?.content.text[0].text) } />
+                <meta property="og:url" content={ builtUrl } />
+                <meta property="og:site_name" content="bratic" />
+                <meta property="article:published_time" content={ post?.createdAt } />
+                <meta property="article:modified_time" content={ post?.updatedAt } />
+            </Head>
             <section className="single-post">
                 <div className="post-title bratic-container">
                     <h1>{ post?.title }</h1>

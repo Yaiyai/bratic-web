@@ -11,10 +11,22 @@ const BraticLayout = (props) => {
 	return (
 		<>
 			<Head>
+				<script async src="https://www.googletagmanager.com/gtag/js?id=G-B14LHSL04H"></script>
+				<script dangerouslySetInnerHTML={ {
+					__html: `window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+
+					gtag('config', 'G-B14LHSL04H');
+					`
+				} }></script>
 				<link rel='icon' href='/favicon.ico' />
 
 				<meta name="copyright" content="bratic.es" />
 				<meta name="author" content="yaidev.tech" />
+				<meta property="og:image" content="https://res.cloudinary.com/bratic-app/image/upload/v1622384421/web/bratic_web.png" />
+				<meta property="og:type" content="website" />
+				<meta property="og:locale" content="es"></meta>
 
 				<meta name="keywords" content="Transformación digital, Proyectos de Transformación digital, Consultoría Transformación digital, Industria 4.0, Proyectos Industria 4.0, Consultoría Industria 4.0, Proyectos de digitalización, Consultoría digital, Logística 4.0, Proyectos Logística 4.0, Consultoría de Logística 4.0, Supply chain 4.0, Digitalización de procesos, Innovación industrial, Soluciones software, Herramientas digitalización, Ayudas digitalización, Consultoría de ayudas digitalización, Ayudas innovación, Ayudas fondo de recuperación europeo, Mejora continua, Lean manufacturing, Sistemas industriales, Optimización de procesos, Consultoría de datos, Implantación de soluciones, Implantación ERP, Implantación MES, Formación informática, Formación ciberseguridad, Formación sistemas informáticos, Servicios tecnología, Infraestructura, Cloud, Robótica, Automatización, IOT, Sensórica, Business intelligence, Analítica de datos, Mantenimiento predictivo, Captura de datos en planta, Cálculo OEE, Sistemas de gestión, Optimización trabajo operarios, Captura de datos en planta, Smart Rural, Smart Cities, Territorio Rural inteligente, Conectividad WiFi, Internet de banda ancha rural, Sensorización en el medio rural, Transporte sostenible, Ciberseguridad, Seguridad de la información, Seguridad Informática, Seguridad en Infraestructuras, Plan Director de Seguridad, Phising, Plan Movilidad Sostenible, Movilidad Urbana, Movilidad Rural, Promoción turística, Conservación patrimonial, Servicios al ciudadano, Gestión alumbrado público inteligente, Gestión del agua inteligente, Gestión de residuos inteligente, Auditoría de Ciberseguridad, Consultoría de Ciberseguridad, Proyectos de Ciberseguridad, Digitalización Territorio Rural, Consultoría de Digitalización Territorio Rural, Proyectos de Digitalización Territorio Rural, Transformación digital Cantabria, Proyectos de Transformación digital Cantabria, Consultoría Transformación digital Cantabria, Industria 4.0 Cantabria, Proyectos Industria 4.0 Cantabria, Consultoría Industria 4.0 Cantabria, Proyectos de digitalización Cantabria, Consultoría digital Cantabria, Logística 4.0 Cantabria, Proyectos Logística 4.0 Cantabria, Consultoría de Logística 4.0 Cantabria, Digitalización de procesos Cantabria, Innovación industrial Cantabria, Consultoría de ayudas digitalización Cantabria, Ciberseguridad Cantabria, Consultoría de Ciberseguridad Cantabria, Proyectos de Ciberseguridad Cantabria, Digitalización Territorio Rural Cantabria, Consultoría de Digitalización Territorio Rural Cantabria, Proyectos de Digitalización Territorio Rural Cantabria, Transformación digital Castilla y León, Proyectos de Transformación digital Castilla y León, Consultoría Transformación digital Castilla y León, Industria 4.0 Castilla y León, Proyectos Industria 4.0 Castilla y León, Consultoría Industria 4.0 Castilla y León, Proyectos de digitalización Castilla y León, Consultoría digital Castilla y León, Logística 4.0 Castilla y León, Proyectos Logística 4.0 Castilla y León, Consultoría de Logística 4.0 Castilla y León, Digitalización de procesos Castilla y León, Innovación industrial Castilla y León, Consultoría de ayudas digitalización Castilla y León, Ciberseguridad Castilla y León, Consultoría de Ciberseguridad Castilla y León, Proyectos de Ciberseguridad Castilla y León, Digitalización Territorio Rural Castilla y León, Consultoría de Digitalización Territorio Rural Castilla y León, Proyectos de Digitalización Territorio Rural Castilla y León, " />
 

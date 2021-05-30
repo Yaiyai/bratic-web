@@ -80,9 +80,9 @@ const BlogPage = ({ publications, companyFetched }) => {
             <Head>
                 <meta name='description' content='Blog bratic Consultoría Digital' />
 
-                <meta name='robots' content='index, follow' />
-                <meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
-                <meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+                <meta name='robots' content='noindex, nofollow' />
+                <meta name='googlebot' content='noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+                <meta name='bingbot' content='noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 
                 <meta property="og:title" content="bratic || Blog" />
                 <meta property="og:type" content="website" />

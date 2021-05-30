@@ -21,11 +21,11 @@ const Home = ({ companyFetched, header, somos, servicios, contacto, publicacione
 				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 
 				<meta property="og:title" content="bratic || Consultoría Digital" />
-				<meta property="og:type" content="website" />
 				<meta property="og:url" content=" http://www.bratic.es/" />
+				<meta property="og:type" content="web" />
 				<meta property="og:description" content="bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos." />
+				<link rel="canonical" href="http://www.bratic.es/"></link>
 
-				<title>bratic || Consultoría Digital</title>
 			</Head>
 
 			<a id='inicio'></a>

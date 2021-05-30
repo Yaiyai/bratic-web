@@ -1,7 +1,15 @@
 .each-post {
+	@include breakpoint(xl-up) {
+		@include items-grid(4, $module);
+	}
+	@include breakpoint(lg-down) {
+		@include items-grid(2, $module);
+	}
+	@include breakpoint(sm-down) {
+		@include items-grid(1, $module);
+	}
 	display: flex;
 	flex-direction: column;
-	@include items-grid(4, $module);
 	background-color: white;
 	box-shadow: 0 0 4px 0 #d9ddde;
 	&:hover {
@@ -73,7 +81,8 @@
 		}
 		.cat-date {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
+			flex-direction: column-reverse;
 			margin-bottom: calc(#{$module} / 2);
 			p {
 				color: map-get($theme-colors, 'grey');

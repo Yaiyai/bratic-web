@@ -4,11 +4,25 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	@include breakpoint(lg-down) {
+		flex-direction: column;
+		align-items: center;
+	}
+	@include breakpoint(md-down) {
+		padding-bottom: calc(#{$module} * 2);
+	}
 	h1 {
 		@include font-line-height(48px);
 	}
 	> div {
 		display: flex;
+		@include breakpoint(lg-down) {
+			margin-top: calc(#{$module} * 1);
+		}
+		@include breakpoint(md-down) {
+			flex-direction: column-reverse;
+			align-items: center;
+		}
 		select,
 		input {
 			width: 350px;
@@ -16,6 +30,9 @@
 			border-radius: 5px;
 			padding: calc(#{$module} / 2);
 			color: map-get($theme-colors, 'grey');
+			@include breakpoint(sm-down) {
+				width: 250px;
+			}
 		}
 		select {
 			@include font-line-height($font-xs);
@@ -24,12 +41,20 @@
 			-moz-appearance: none; /* Firefox */
 			-webkit-appearance: none; /* Safari and Chrome */
 			appearance: none;
+			@include breakpoint(md-down) {
+				margin-top: calc(#{$module} / 2);
+				margin-right: 0;
+				width: 100%;
+			}
 		}
 		input {
 			margin-right: 0;
 		}
 		.select-input {
 			position: relative;
+			@include breakpoint(md-down) {
+				width: 100%;
+			}
 			svg {
 				position: absolute;
 				top: 35%;
@@ -37,6 +62,9 @@
 				color: map-get($theme-colors, 'primary');
 				width: 15px;
 				height: 15px;
+				@include breakpoint(md-down) {
+					top: 50%;
+				}
 			}
 		}
 		.input-search {

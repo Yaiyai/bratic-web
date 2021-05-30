@@ -23,6 +23,9 @@
 		overflow: hidden;
 		margin-bottom: 0;
 		position: relative;
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 6);
+		}
 		img {
 			width: 100%;
 			height: 100%;
@@ -67,7 +70,9 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
-
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 6);
+		}
 		.fix {
 			display: flex;
 			flex-direction: column;
