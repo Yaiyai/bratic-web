@@ -20,6 +20,7 @@ const BlogPage = ({ publications, companyFetched }) => {
     const { values, handleInputChange, resetForm } = useForm()
     const searchInput = useRef()
     const [isSearching, setIsSearching] = useState(false)
+    const [morePubs, setMorePubs] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -37,11 +38,13 @@ const BlogPage = ({ publications, companyFetched }) => {
     }
 
     useEffect(() => {
+        publications.length > 4 && setMorePubs(true)
         setInitialPosts()
     }, [])
 
     const morePosts = async () => {
         let publicationsAux = [...publications].splice(posts.rest.length + 1, 3)
+        publicationsAux.length < 3 && setMorePubs(false)
         setPosts(posts => ({ ...posts, rest: [...posts.rest, ...publicationsAux] }))
         setIsSearching(false)
     }
@@ -111,7 +114,8 @@ const BlogPage = ({ publications, companyFetched }) => {
                     </div>
                 </header>
 
-                { isSearching && <button className="my-btn primary" onClick={ setInitialPosts }>Volver</button> }
+                { isSearching && <button className="my-btn-back" onClick={ setInitialPosts }>Volver</button> }
+
                 {
                     posts?.rest?.length > 0 ? (
                         <>
@@ -141,6 +145,7 @@ const BlogPage = ({ publications, companyFetched }) => {
                                     </Link>
                                 )
                             }
+
                             {
                                 posts?.rest?.length > 0 && (
                                     <div className="all-posts">
@@ -152,7 +157,8 @@ const BlogPage = ({ publications, companyFetched }) => {
                                     </div>
                                 )
                             }
-                            { publications.length > 3 && !isSearching && <button className="my-btn primary" onClick={ morePosts }>Ver más</button> }
+
+                            { morePubs && !isSearching && <button className="my-btn primary" onClick={ morePosts }>Ver más</button> }
 
 
                         </>

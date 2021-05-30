@@ -1,8 +1,7 @@
 .each-post {
 	display: flex;
 	flex-direction: column;
-	@include items-grid(3, $module);
-	height: 580px;
+	@include items-grid(4, $module);
 	background-color: white;
 	box-shadow: 0 0 4px 0 #d9ddde;
 	cursor: pointer;
@@ -61,12 +60,15 @@
 		}
 	}
 	.bottom {
-		width: 100%;
 		flex-grow: 1;
 		padding: calc(#{$module} * 1);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
 		h2 {
 			@include font-line-height(24px);
-			max-width: 90%;
+			margin-bottom: $module;
 		}
 		.cat-date {
 			display: flex;
@@ -87,8 +89,12 @@
 				}
 			}
 		}
+		.fix {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
 		.excerpt {
-			max-width: 90%;
 			-webkit-box-orient: vertical;
 			display: -webkit-box;
 			-webkit-line-clamp: 3;

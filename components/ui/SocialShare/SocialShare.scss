@@ -1,0 +1,41 @@
+.social-share {
+	background-color: white;
+	display: flex;
+	border-radius: 50px;
+	box-shadow: 0 0 8px 0 #d9ddde;
+	justify-content: space-between;
+
+	&.horizontal {
+		margin-top: $module;
+		align-self: flex-end;
+		justify-self: flex-end;
+		padding: calc(#{$module} / 2) calc(#{$module} / 1);
+		width: 100px;
+		flex-direction: row;
+		align-items: center;
+	}
+	&.vertical {
+		padding: calc(#{$module} / 1) calc(#{$module} / 2);
+		height: 100px;
+		flex-direction: column;
+		align-items: center;
+	}
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		svg {
+			width: 18px;
+			height: 18px;
+			&.twitter {
+				color: #00acee;
+			}
+			&.facebook {
+				color: #3b5998;
+			}
+			&.linkedin {
+				color: #0e76a8;
+			}
+		}
+	}
+}
