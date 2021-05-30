@@ -29,7 +29,7 @@ const NavBar = ({ company }) => {
 				<Link href='/#inicio'>
 					<a>
 						<figure className='logo'>
-							<img src={ company.companyFetched.mainLogo } alt='bratic Logo' />
+							<img src={ company?.companyFetched?.mainLogo } alt='bratic Logo' />
 						</figure>
 					</a>
 				</Link>
