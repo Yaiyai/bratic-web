@@ -30,7 +30,7 @@ const Desktop = ({ company }) => {
                         <a>Contacto</a>
                     </Link>
                 </li>
-                <a href={ company.companyFetched.linkedin } className='rrss-icon' target='new'>
+                <a href={ company?.companyFetched?.linkedin } className='rrss-icon' target='new'>
                     <FaLinkedin />
                 </a>
             </ul>
