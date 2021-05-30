@@ -38,19 +38,19 @@ const BlogPage = ({ publications, companyFetched }) => {
     }
 
     useEffect(() => {
-        publications.length > 4 && setMorePubs(true)
+        publications.length > 5 && setMorePubs(true)
         setInitialPosts()
     }, [])
 
     const morePosts = async () => {
-        let publicationsAux = [...publications].splice(posts.rest.length + 1, 3)
-        publicationsAux.length < 3 && setMorePubs(false)
+        let publicationsAux = [...publications].splice(posts.rest.length + 1, 4)
+        publicationsAux.length < 4 && setMorePubs(false)
         setPosts(posts => ({ ...posts, rest: [...posts.rest, ...publicationsAux] }))
         setIsSearching(false)
     }
 
     const setInitialPosts = () => {
-        let publicationsAux = [...publications].splice(0, 4)
+        let publicationsAux = [...publications].splice(0, 5)
         let firstAux = publicationsAux.shift()
         setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
         setIsSearching(false)

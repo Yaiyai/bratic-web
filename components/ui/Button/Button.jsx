@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { FaChevronRight } from 'react-icons/fa'
 
 const Button = ({ link = false, type, text }) => {
 	return (
@@ -25,10 +26,10 @@ const Button = ({ link = false, type, text }) => {
 			{type === 'more' && (
 				link ? (
 					<Link href={ link }>
-						<a className='my-btn-more'>Saber más</a>
+						<a className='my-btn-more'>Saber más <FaChevronRight /></a>
 					</Link>
 				) : (
-					<button className='my-btn-more'>Saber más</button>
+					<button className='my-btn-more'>Saber más <FaChevronRight /></button>
 
 				)
 			) }

@@ -4,12 +4,12 @@
 	@include items-grid(4, $module);
 	background-color: white;
 	box-shadow: 0 0 4px 0 #d9ddde;
-	cursor: pointer;
 	&:hover {
 		box-shadow: 0 0 8px 0 #d9ddde;
 		.top {
 			span {
 				display: flex;
+				cursor: pointer;
 			}
 			&::after {
 				display: block;
@@ -111,6 +111,16 @@
 					font-size: $font-sm !important;
 				}
 				font-size: $font-sm !important;
+			}
+		}
+		.social-and-btn {
+			margin-top: $module;
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.my-btn-more {
+				cursor: pointer;
 			}
 		}
 	}

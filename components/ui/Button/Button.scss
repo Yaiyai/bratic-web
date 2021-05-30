@@ -81,15 +81,12 @@
 }
 
 .my-btn-more {
-	color: map-get($theme-colors, 'primary');
+	color: map-get($theme-colors, 'secondary');
 	text-transform: uppercase;
 	font-size: $font-xs;
 	text-decoration: none;
 	@include font-line-height($font-xs);
-
-	&::after {
-		content: '\00bb';
+	&:hover {
 		color: map-get($theme-colors, 'primary');
-		margin-left: calc(#{$module} / 6);
 	}
 }

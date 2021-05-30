@@ -6,9 +6,6 @@
 	justify-content: space-between;
 
 	&.horizontal {
-		margin-top: $module;
-		align-self: flex-end;
-		justify-self: flex-end;
 		padding: calc(#{$module} / 2) calc(#{$module} / 1);
 		width: 100px;
 		flex-direction: row;

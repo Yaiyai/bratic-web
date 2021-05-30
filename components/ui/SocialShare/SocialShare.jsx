@@ -7,13 +7,13 @@ const SocialShare = ({ url, type }) => {
     let twitterShare = `http://twitter.com/share?url=${url}`;
     return (
         <div className={ `social-share ${type}` }>
-            <a href={ facebookShare }>
+            <a href={ facebookShare } target="_blank">
                 <FaFacebook className="facebook" />
             </a>
-            <a href={ twitterShare }>
+            <a href={ twitterShare } target="_blank">
                 <FaTwitter className="twitter" />
             </a>
-            <a href={ linkedinShare }>
+            <a href={ linkedinShare } target="_blank">
                 <FaLinkedin className="linkedin" />
             </a>
         </div>
