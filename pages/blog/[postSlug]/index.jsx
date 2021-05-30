@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { getCompany } from '../../../api/company'
-import { getPostBySlug } from '../../../api/publications'
+import { getMorePublications, getPostBySlug } from '../../../api/publications'
 
 import SwiperCore, { Autoplay, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -8,13 +8,17 @@ import Swal from 'sweetalert2'
 import dayjs from 'dayjs'
 import 'dayjs/locale/es' // load on demand
 import { PhotoSwipeGallery } from 'react-photoswiper'
+import LatestPubs from '../../../components/LatestPubs/LatestPubs'
+import SocialShare from '../../../components/ui/SocialShare/SocialShare'
 SwiperCore.use([Autoplay, Pagination])
 
 dayjs.locale('es')
 
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post, publications }) => {
     const [items, setItems] = useState([])
+    const [builtUrl, setBuiltUrl] = useState()
+
 
     const cleanImages = useCallback(() => {
         if (post?.isGallery) {
@@ -30,6 +34,7 @@ const SinglePost = ({ post }) => {
     }, [post])
 
     useEffect(() => {
+        setBuiltUrl(window.location.href)
         cleanImages()
     }, [cleanImages])
 
@@ -47,70 +52,75 @@ const SinglePost = ({ post }) => {
     }
 
     return (
-        <section className="single-post">
-            <div className="post-title bratic-container">
-                <h1>{ post?.title }</h1>
-                <div className="date-cat">
-                    { post?.categories.length > 0 && (
-                        <div className="categories">
-                            {
-                                post?.categories?.map(cat => (
-                                    <small key={ cat }>{ cat }</small>
-                                ))
-                            }
-                        </div>
-                    ) }
-                    { post?.categories.length > 0 && <span className="separator"> · </span> }
-                    {
-                        post?.postDate ? <small>{ dayjs(post?.postDate).format('DD/MM/YYYY') }</small> : <small>{ dayjs(post?.createdAt).format('DD/MM/YYYY') }</small>
-                    }
+        <>
+            <section className="single-post">
+                <div className="post-title bratic-container">
+                    <h1>{ post?.title }</h1>
+                    <div className="date-cat">
+                        { post?.categories.length > 0 && (
+                            <div className="categories">
+                                {
+                                    post?.categories?.map(cat => (
+                                        <small key={ cat }>{ cat }</small>
+                                    ))
+                                }
+                            </div>
+                        ) }
+                        { post?.categories.length > 0 && <span className="separator"> · </span> }
+                        {
+                            post?.postDate ? <small>{ dayjs(post?.postDate).format('DD/MM/YYYY') }</small> : <small>{ dayjs(post?.createdAt).format('DD/MM/YYYY') }</small>
+                        }
+                    </div>
                 </div>
-            </div>
-            { post?.content?.image.length > 0 && (
-                <figure className="main-image">
-                    <img key={ post?.content.image[0]._id } src={ post?.content.image[0].image } alt='' />
-                </figure>
-            ) }
-            { }
-            <div className="app-container bratic-container">
-                { post?.subtitle && <h2>{ post?.subtitle }</h2> }
-                { post?.content?.text?.length > 0 && (
-                    post?.content?.text?.map((txt, idx) => (
-                        <div className='post-text' key={ txt._id } dangerouslySetInnerHTML={ txt.parsedText }></div>
-                    ))
+                <SocialShare type="horizontal" url={ `${builtUrl}` } />
+                { post?.content?.image.length > 0 && (
+                    <figure className="main-image">
+                        <img key={ post?.content.image[0]._id } src={ post?.content.image[0].image } alt='' />
+                    </figure>
                 ) }
-                { post?.isSlider && (
-                    <Swiper
-                        spaceBetween={ 16 }
-                        autoplay={ {
-                            delay: 2500,
-                        } }
-                        slidesPerView={ 3 }
-                    >
-                        { post?.content?.image.map((picture, idx) => (
-                            <SwiperSlide key={ idx }>
-                                <img src={ picture.image } alt='' />
-                            </SwiperSlide>
-                        )) }
-                    </Swiper>
-                ) }
-                {
-                    post?.isGallery && (
-                        items?.length > 0 && (
-                            <PhotoSwipeGallery items={ items } thumbnailContent={ getThumbnailContent } />
+
+                <div className="app-container bratic-container">
+                    { post?.subtitle && <h2>{ post?.subtitle }</h2> }
+                    { post?.content?.text?.length > 0 && (
+                        post?.content?.text?.map((txt, idx) => (
+                            <div className='post-text' key={ txt._id } dangerouslySetInnerHTML={ txt.parsedText }></div>
+                        ))
+                    ) }
+                    { post?.isSlider && (
+                        <Swiper
+                            spaceBetween={ 16 }
+                            autoplay={ {
+                                delay: 2500,
+                            } }
+                            slidesPerView={ 3 }
+                        >
+                            { post?.content?.image.map((picture, idx) => (
+                                <SwiperSlide key={ idx }>
+                                    <img src={ picture.image } alt='' />
+                                </SwiperSlide>
+                            )) }
+                        </Swiper>
+                    ) }
+                    {
+                        post?.isGallery && (
+                            items?.length > 0 && (
+                                <PhotoSwipeGallery items={ items } thumbnailContent={ getThumbnailContent } />
+                            )
                         )
-                    )
-                }
+                    }
 
 
-            </div>
-        </section>
+                </div>
+            </section>
+            <LatestPubs pubs={ publications } />
+        </>
     )
 }
 export const getServerSideProps = async ({ query }) => {
-    const [companyFetched, post] = await Promise.all([
+    const [companyFetched, post, publications] = await Promise.all([
         getCompany(),
-        getPostBySlug(query.postSlug)
+        getPostBySlug(query.postSlug),
+        getMorePublications()
     ])
 
     if (post.redirect) {
@@ -121,7 +131,7 @@ export const getServerSideProps = async ({ query }) => {
             }
         }
     }
-    return { props: { companyFetched, post: post.post[0] } }
+    return { props: { companyFetched, post: post.post[0], publications } }
 }
 
 export default SinglePost

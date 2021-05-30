@@ -1,9 +1,17 @@
 .single-post {
 	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
+	position: relative;
+	.social-share {
+		position: sticky;
+		top: 100px;
+		z-index: 4;
+		margin: 0 auto;
+	}
 	.post-title {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
 		.date-cat {
 			display: flex;
 			align-items: center;
@@ -20,6 +28,10 @@
 			}
 			.categories {
 				display: flex;
+				small {
+					color: map-get($theme-colors, 'secondary');
+					cursor: default;
+				}
 			}
 		}
 	}
@@ -52,6 +64,7 @@
 	.app-container {
 		width: calc((100% / 12) * 8);
 		margin: calc(#{$module} * 1) auto;
+		position: relative;
 		.post-text {
 			padding: calc(#{$module} * 2) 0;
 			a {

@@ -40,6 +40,7 @@
 			font-weight: 300;
 			z-index: 2;
 			text-transform: uppercase;
+			cursor: pointer;
 			svg {
 				width: 15px;
 				height: 15px;
@@ -84,6 +85,7 @@
 		}
 
 		h2 {
+			cursor: default;
 			@include font-line-height(30px);
 		}
 		.cat-date {
@@ -101,6 +103,7 @@
 				display: flex;
 				align-items: center;
 				p {
+					cursor: default;
 					color: map-get($theme-colors, 'secondary');
 				}
 			}
@@ -114,7 +117,9 @@
 			white-space: normal;
 			@include font-line-height($font-xs);
 			p {
+				cursor: default;
 				span {
+					cursor: default;
 					font-size: $font-sm !important;
 				}
 				font-size: $font-sm !important;
