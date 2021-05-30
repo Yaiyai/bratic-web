@@ -24,13 +24,6 @@
 		text-decoration: none;
 	}
 
-	&::after {
-		content: '\00bb';
-		margin-left: calc(#{$module} / 2);
-		font-weight: $text-semibold;
-		color: white;
-	}
-
 	&.secondary {
 		background-color: white;
 		color: map-get($theme-colors, 'primary');
@@ -40,13 +33,6 @@
 		&:hover {
 			color: map-get($theme-colors, 'secondary');
 			border-bottom: 3px solid map-get($theme-colors, 'secondary');
-			&::after {
-				color: map-get($theme-colors, 'secondary');
-			}
-		}
-		&::after {
-			margin-left: calc(#{$module} * 2);
-			color: map-get($theme-colors, 'primary');
 		}
 	}
 	&.third {
@@ -71,13 +57,6 @@
 	color: map-get($theme-colors, 'primary');
 	text-transform: uppercase;
 	font-size: $font-xs;
-
-	&::before {
-		content: '\f323';
-		font-family: $fontawesome;
-		color: map-get($theme-colors, 'primary');
-		margin-right: calc(#{$module} / 6);
-	}
 }
 
 .my-btn-more {

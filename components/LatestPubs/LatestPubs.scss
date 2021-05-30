@@ -1,0 +1,14 @@
+.latest-pubs {
+	padding: calc(#{$module} * 4) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	.pubs {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.my-btn {
+		align-self: flex-end;
+		margin-top: 40px;
+	}
+}

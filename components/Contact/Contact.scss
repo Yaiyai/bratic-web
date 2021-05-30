@@ -1,7 +1,7 @@
 $border: 1px solid map-get($theme-colors, 'light-grey');
 
 .contact {
-	padding: calc(#{$module} * 4) 0;
+	padding: 0 0 calc(#{$module} * 4);
 	background-color: white;
 	overflow: hidden;
 	@include breakpoint(lg) {

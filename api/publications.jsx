@@ -4,8 +4,8 @@ export const getPublications = () => {
         .then(posts => posts.posts.filter(post => post.status === 'publicado'))
         .catch(err => new Error(err))
 }
-export const getMorePublications = ({ from }) => {
-    return fetch(`${process.env.baseURL}/posts?limit=3&from=${from}`)
+export const getMorePublications = () => {
+    return fetch(`${process.env.baseURL}/posts?limit=4`)
         .then(data => data.json())
         .then(posts => posts.posts.filter(post => post.status === 'publicado'))
         .catch(err => new Error(err))

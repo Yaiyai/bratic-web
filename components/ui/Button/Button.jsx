@@ -8,18 +8,18 @@ const Button = ({ link = false, type, text }) => {
 			{type === 'primary' && (
 				link ? (
 					<Link href={ link }>
-						<a className='my-btn'>{ text }</a>
+						<a className='my-btn'>{ text } <FaChevronRight /></a>
 					</Link>
 				) : (
-					<button className='my-btn'>{ text }</button>
+					<button className='my-btn'>{ text } <FaChevronRight /></button>
 
 				)
 			) }
 			{type === 'secondary' && (
 				link ? (<Link href={ link }>
-					<a className='my-btn secondary'>{ text }</a>
+					<a className='my-btn secondary'>{ text } <FaChevronRight /></a>
 				</Link>) : (
-					<button className='my-btn secondary'>{ text }</button>
+					<button className='my-btn secondary'>{ text } <FaChevronRight /></button>
 
 				)
 			) }
