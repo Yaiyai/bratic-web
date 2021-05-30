@@ -21,8 +21,10 @@ const ServiciosPage = ({ companyFetched, header, contacto, servicios, metodologi
 
 				<meta property="og:title" content="bratic || Servicios" />
 				<meta property="og:type" content="website" />
+				<meta property="og:image" content="https://res.cloudinary.com/bratic-app/image/upload/v1622384421/web/bratic_web.png" />
 				<meta property="og:url" content=" http://www.bratic.es/servicios" />
 				<meta property="og:description" content="Servicios bratic Consultoría Digital" />
+				<link rel="canonical" href="http://www.bratic.es/servicios"></link>
 
 				<title>bratic || Servicios</title>
 			</Head>

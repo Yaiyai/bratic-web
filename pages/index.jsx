@@ -22,9 +22,10 @@ const Home = ({ companyFetched, header, somos, servicios, contacto, publicacione
 
 				<meta property="og:title" content="bratic || Consultoría Digital" />
 				<meta property="og:url" content=" http://www.bratic.es/" />
-				<meta property="og:type" content="web" />
+				<meta property="og:image" content="https://res.cloudinary.com/bratic-app/image/upload/v1622384421/web/bratic_web.png" />
 				<meta property="og:description" content="bratic es una consultoría tecnológica que acompaña a las organizaciones en su transformación digital mediante tecnología, servicios de consultoría y optimización de procesos." />
 				<link rel="canonical" href="http://www.bratic.es/"></link>
+				<title>bratic || Consultoría Digital</title>
 
 			</Head>
 

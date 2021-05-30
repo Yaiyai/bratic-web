@@ -63,7 +63,6 @@ const SinglePost = ({ post, publications }) => {
                 <title>{ `bratic || ${post?.title}` }</title>
                 <meta name="description" content={ cutContent(post?.content.text[0].text) } />
                 <link rel="canonical" href={ builtUrl }></link>
-                <meta property="og:locale" content="es"></meta>
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={ post?.title } />
                 <meta property="og:image" content={ post?.content.image[0].image } />
