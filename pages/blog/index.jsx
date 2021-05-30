@@ -3,15 +3,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getCompany } from '../../api/company'
 import { getMorePublications, getPublications } from '../../api/publications'
-import { FaChevronDown, FaEye, FaSearch } from "react-icons/fa";
+import { FaChevronDown, FaChevronLeft, FaChevronRight, FaEye, FaSearch } from "react-icons/fa";
 
-import dayjs from 'dayjs'
-import 'dayjs/locale/es' // load on demand
 import BlogCard from '../../components/ui/BlogCard/BlogCard'
 import Button from '../../components/ui/Button/Button'
 import useForm from '../../hook/useForm'
+import FirstPost from '../../components/ui/FirstPost/FirstPost'
 
-dayjs.locale('es')
 
 
 const BlogPage = ({ publications, companyFetched }) => {
@@ -54,6 +52,7 @@ const BlogPage = ({ publications, companyFetched }) => {
         let firstAux = publicationsAux.shift()
         setPosts(posts => ({ firstPost: firstAux, rest: publicationsAux }))
         setIsSearching(false)
+        publications.length > 5 && setMorePubs(true)
     }
 
     const filterPosts = ({ target }) => {
@@ -114,37 +113,13 @@ const BlogPage = ({ publications, companyFetched }) => {
                     </div>
                 </header>
 
-                { isSearching && <button className="my-btn-back" onClick={ setInitialPosts }>Volver</button> }
 
                 {
                     posts?.rest?.length > 0 ? (
-                        <>
-                            {
-                                posts?.firstPost && (
-                                    <Link href={ `/blog/${posts?.firstPost?.slug}` }>
-                                        <a className="first-post">
-                                            <figure className="left">
-                                                <img src={ posts?.firstPost?.content.image[0].image } alt="" />
-                                                <span>Ver publicación <FaEye /></span>
-                                            </figure>
-                                            <div className="right">
-                                                <div className="cat-date">
-                                                    { posts?.firstPost?.categories?.length > 0 && (
-                                                        <div className="categories">
-                                                            {
-                                                                posts?.firstPost?.categories?.map(cat => <p key={ cat }>{ cat }</p>)
-                                                            }
-                                                        </div>
-                                                    ) }
-                                                    <p>{ posts?.firstPost?.postDate ? dayjs(posts?.firstPost?.postDate).format('DD/MM/YYYY') : dayjs(posts?.firstPost?.createdAt).format('DD/MM/YYYY') }</p>
-                                                </div>
-                                                <h2>{ posts?.firstPost?.title }</h2>
-                                                <div className="excerpt" dangerouslySetInnerHTML={ posts?.firstPost?.content.text[0].parsedText }></div>
-                                            </div>
-                                        </a>
-                                    </Link>
-                                )
-                            }
+                        <section className="blog-grid">
+                            { isSearching && <button className="my-btn-back" onClick={ setInitialPosts }> <FaChevronLeft /> Volver</button> }
+
+                            { posts?.firstPost && <FirstPost firstPost={ posts?.firstPost } /> }
 
                             {
                                 posts?.rest?.length > 0 && (
@@ -158,10 +133,8 @@ const BlogPage = ({ publications, companyFetched }) => {
                                 )
                             }
 
-                            { morePubs && !isSearching && <button className="my-btn primary" onClick={ morePosts }>Ver más</button> }
-
-
-                        </>
+                            { morePubs && !isSearching && <button className="my-btn primary" onClick={ morePosts }>Ver más <FaChevronRight /></button> }
+                        </section>
 
                     ) : (
                         <div className="error-blog">

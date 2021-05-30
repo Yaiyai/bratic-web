@@ -4,6 +4,9 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	h1 {
+		@include font-line-height(48px);
+	}
 	> div {
 		display: flex;
 		select,
@@ -49,6 +52,18 @@
 		}
 	}
 }
+.blog-grid {
+	margin-bottom: calc(#{$module} * 6);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	.my-btn {
+		align-self: center;
+	}
+	.my-btn-back {
+		margin-bottom: calc(#{$module} * 2);
+	}
+}
 .error-blog {
 	display: flex;
 	flex-direction: column;
@@ -62,114 +77,5 @@
 .all-posts {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: calc(#{$module} * 6);
-}
-
-.first-post {
-	height: 450px;
-	display: flex;
-	background-color: white;
 	margin-bottom: calc(#{$module} * 1);
-	text-decoration: none;
-	box-shadow: 0 0 4px 0 #d9ddde;
-	cursor: pointer;
-	&:hover {
-		box-shadow: 0 0 8px 0 #d9ddde;
-		.left {
-			span {
-				display: flex;
-			}
-			&::after {
-				display: block;
-			}
-		}
-	}
-
-	.left {
-		width: calc((100% / 12) * 8);
-		height: 100%;
-		overflow: hidden;
-		margin-bottom: 0;
-		position: relative;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-		}
-		span {
-			display: none;
-			align-items: center;
-			justify-content: center;
-			width: 100%;
-			position: absolute;
-			top: 45%;
-			color: white;
-			font-weight: 300;
-			z-index: 2;
-			text-transform: uppercase;
-			svg {
-				width: 15px;
-				height: 15px;
-				margin-left: calc(#{$module} / 2);
-			}
-		}
-		&::after {
-			content: '';
-			background-color: map-get($theme-colors, 'secondary');
-			opacity: 0.45;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 1;
-			display: none;
-		}
-	}
-	.right {
-		width: calc((100% / 12) * 4);
-
-		padding: calc(#{$module} * 1);
-		h2 {
-			@include font-line-height(30px);
-		}
-		.cat-date {
-			display: flex;
-			align-items: center;
-			margin-bottom: calc(#{$module} / 2);
-			p {
-				color: map-get($theme-colors, 'grey');
-				font-weight: $text-light;
-				text-transform: uppercase;
-				@include font-line-height(14px);
-				margin-right: calc(#{$module} / 3);
-			}
-			.categories {
-				display: flex;
-				align-items: center;
-				p {
-					color: map-get($theme-colors, 'secondary');
-				}
-			}
-		}
-		.excerpt {
-			-webkit-box-orient: vertical;
-			display: -webkit-box;
-			-webkit-line-clamp: 3;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: normal;
-			@include font-line-height($font-xs);
-			p {
-				span {
-					font-size: $font-sm !important;
-				}
-				font-size: $font-sm !important;
-			}
-			a {
-				display: inline-block;
-			}
-		}
-	}
 }
