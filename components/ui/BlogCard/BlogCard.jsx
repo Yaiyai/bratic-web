@@ -4,6 +4,7 @@ import 'dayjs/locale/es' // load on demand
 import Link from 'next/link'
 import { FaChevronRight, FaEye } from 'react-icons/fa'
 import SocialShare from '../SocialShare/SocialShare'
+import { cutContent } from '../../../helpers/cleanContent'
 
 dayjs.locale('es')
 
@@ -37,7 +38,7 @@ const BlogCard = ({ post }) => {
                     <h2>{ post?.title }</h2>
                 </div>
                 <div className="fix">
-                    <div className="excerpt" dangerouslySetInnerHTML={ post?.content.text[0].parsedText }></div>
+                    <p className="excerpt">{ cutContent(post?.content.text[0].text) }</p>
                     <div className="social-and-btn">
                         <SocialShare type="horizontal" url={ `/${post?.slug}` } />
                         <Link href={ `/blog/${post?.slug}` }>

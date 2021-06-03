@@ -13,7 +13,7 @@ const FirstPost = ({ firstPost }) => {
 
     return (
         <>
-            <a className="first-post">
+            <article className="first-post">
                 <figure className="left">
                     <img src={ firstPost?.content.image[0].image } alt="" />
                     <Link href={ `/blog/${firstPost?.slug}` }>
@@ -44,7 +44,7 @@ const FirstPost = ({ firstPost }) => {
                         </div>
                     </div>
                 </div>
-            </a>
+            </article>
         </>
     )
 }

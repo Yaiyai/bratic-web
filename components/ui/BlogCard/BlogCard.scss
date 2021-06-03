@@ -106,24 +106,11 @@
 			width: 100%;
 		}
 		.excerpt {
-			-webkit-box-orient: vertical;
-			display: -webkit-box;
-			-webkit-line-clamp: 3;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: normal;
 			@include font-line-height($font-sm);
-			a {
-				display: inline-block;
-			}
-			p {
-				cursor: default;
-				color: map-get($theme-colors, 'text');
-				span {
-					font-size: $font-sm !important;
-				}
-				font-size: $font-sm !important;
-			}
+			max-width: 100%;
+			overflow-x: hidden;
+			cursor: default;
+			color: map-get($theme-colors, 'text');
 		}
 		.social-and-btn {
 			margin-top: $module;
