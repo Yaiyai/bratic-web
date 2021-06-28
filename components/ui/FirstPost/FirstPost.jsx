@@ -4,6 +4,7 @@ import { FaChevronRight, FaEye } from 'react-icons/fa'
 import dayjs from 'dayjs'
 import 'dayjs/locale/es' // load on demand
 import SocialShare from '../SocialShare/SocialShare'
+import { cutContent } from '../../../helpers/cleanContent'
 dayjs.locale('es')
 
 const FirstPost = ({ firstPost }) => {
@@ -35,7 +36,7 @@ const FirstPost = ({ firstPost }) => {
                         <h2>{ firstPost?.title }</h2>
                     </div>
                     <div className="fix">
-                        <div className="excerpt" dangerouslySetInnerHTML={ firstPost?.content.text[0].parsedText }></div>
+                        <p className="excerpt">{ cutContent(firstPost?.content.text[0].text) }</p>
                         <div className="social-and-btn">
                             <SocialShare type="horizontal" url={ `/${firstPost?.slug}` } />
                             <Link href={ `/blog/${firstPost?.slug}` }>
